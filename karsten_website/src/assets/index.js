@@ -23,11 +23,12 @@ import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
-import githubBlack from "./githun-mark.svg";
-import githubWhite from "./githun-mark-white.svg";
+import githubBlack from "./github-mark.svg";
+import githubWhite from "./github-mark-white.svg";
 import karsten from "./karsten.jpg";
 import placeholderVid from "./placeholder-vid.mp4";
 import placeholderAudio from './placeholder-audio.mp3';
+import karstenLogo from './karstenLogo.png'
 
 
 export {
@@ -60,5 +61,6 @@ export {
   githubWhite,
   karsten,
   placeholderVid,
-  placeholderAudio
+  placeholderAudio,
+  karstenLogo
 };

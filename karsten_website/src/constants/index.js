@@ -11,11 +11,11 @@ export const navLinks = [
   },
   {
     id: "experience",
-    title: "expereince",
+    title: "Expereince",
   },
   {
     id: "projects",
-    title: "projects",
+    title: "Projects",
   },
 ];
 
@@ -64,7 +64,7 @@ export const home_description_block = [
     },
   ];
 
-  export const projects = [
+  export const projects = [ //need to change here so that each element has the same number of feilds
     {
         id: "project-1",
         vid: placeholderVid, //note: this video is a placeholder
