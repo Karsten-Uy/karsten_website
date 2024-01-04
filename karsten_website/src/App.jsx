@@ -12,7 +12,7 @@ const App = () => (
       </div>
     </div>
 
-    <div className={["bg-primary", styles.flexStart].join(' ')}>
+    <div className={["bg-blue-gradient", styles.flexStart].join(' ')}>
       <div className={[styles.boxWidth].join(' ')}>
         <CentreBlock />
       </div>

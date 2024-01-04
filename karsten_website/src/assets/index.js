@@ -25,7 +25,7 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import githubBlack from "./github-mark.svg";
 import githubWhite from "./github-mark-white.svg";
-import karsten from "./karsten.jpg";
+import karsten from "./karsten.png";
 import placeholderVid from "./placeholder-vid.mp4";
 import placeholderAudio from './placeholder-audio.mp3';
 import karstenLogo from './karstenLogo.png'
