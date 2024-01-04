@@ -1,0 +1,82 @@
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio  } from "../assets";
+
+export const navLinks = [
+  {
+    id: "home",
+    title: "Home",
+  },
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "experience",
+    title: "expereince",
+  },
+  {
+    id: "projects",
+    title: "projects",
+  },
+];
+
+export const expereince = [ // this whole block is a placeholder
+    {
+        id: "expereince-1",
+        logo: linkedin,
+        description: "did something here"
+    },
+  ]
+
+
+export const socialMedia = [
+  {
+    id: "social-media-1",
+    icon: instagram,
+    link: "https://www.instagram.com/karsten_kirby_uy/",
+  },
+  {
+    id: "social-media-2",
+    icon: githubWhite,
+    link: "https://github.com/Karsten-Uy",
+  },
+  {
+    id: "social-media-3",
+    icon: linkedin,
+    link: "https://www.linkedin.com/in/karstenuy/",
+  },
+];
+
+export const home_description_block = [
+    {
+      id: "home_description_block",
+      content:
+        "UBC computer engineering student with a passion for creating cutting-edge audio programs.",
+      img: karsten, //note: this image is a placeholder
+    },
+  ];
+
+  export const about_block = [
+    {
+      id: "about_block",
+      content:
+        "Hello! I'm Karsten, a UBC computer engineering student passionate about pushing technological boundaries. From mastering coding languages to delving into hardware design, I thrive on challenges. My sweet spot lies in the fusion of creativity and functionality, particularly in audio programming. Thanks for visiting!",
+      img: karsten, //note: this image is a placeholder
+    },
+  ];
+
+  export const projects = [
+    {
+        id: "project-1",
+        vid: placeholderVid, //note: this video is a placeholder
+        description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
+    },
+    {
+        id: "project-2", 
+        audio1: placeholderAudio, //note: this video is a placeholder
+        audio2: placeholderAudio, //note: this video is a placeholder
+        label1: "before",
+        label2: "after", 
+        labelTop: "AI vocal model sample",       
+        description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
+    }
+  ]
