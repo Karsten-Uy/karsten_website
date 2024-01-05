@@ -64,19 +64,22 @@ export const home_description_block = [
     },
   ];
 
-  export const projects = [ //need to change here so that each element has the same number of feilds
+  export const KirbEqualizerConts = [ //need to change here so that each element has the same number of feilds
     {
         id: "project-1",
         vid: placeholderVid, //note: this video is a placeholder
         description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
-    },
+    }
+  ]
+
+  export const AIVocalModelsConsts = [
     {
-        id: "project-2", 
-        audio1: placeholderAudio, //note: this video is a placeholder
-        audio2: placeholderAudio, //note: this video is a placeholder
-        label1: "before",
-        label2: "after", 
-        labelTop: "AI vocal model sample",       
-        description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
+      id: "project-2", 
+      audio1: placeholderAudio, //note: this video is a placeholder
+      audio2: placeholderAudio, //note: this video is a placeholder
+      label1: "before",
+      label2: "after", 
+      labelTop: "AI vocal model sample",       
+      description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
     }
   ]

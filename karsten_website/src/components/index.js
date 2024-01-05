@@ -1,11 +1,13 @@
 import Navbar from "./Navbar";
-import Button from "./Button";
 import Footer from "./Footer";
 import CentreBlock from "./CentreBlock";
+import AIVocalModels from "./AIVocalModels";
+import KirbEqualizer from "./KirbEqualizer";
 
 export {
     Navbar,
-    Button,
     Footer,
-    CentreBlock
+    CentreBlock,
+    AIVocalModels,
+    KirbEqualizer
 }

@@ -6,6 +6,7 @@ import styles from './style';
 import Home from './pages/Home';
 import About from './pages/About';
 import { Navbar, CentreBlock, Footer } from './components';
+import Projects from './pages/Projects';
 
 const App = () => (
   <Router>
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
 
       <div className={["bg-primary", styles.paddingX, styles.flexStart].join(' ')}>
