@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { KirbEqualizerConts } from '../constants';
 import styles from '../style';
 
+import {motion} from 'framer-motion'
+
 const KirbEqualizer = () => {
   const videoRef = useRef(null);
 
@@ -37,15 +39,22 @@ const KirbEqualizer = () => {
               <p className="font-poppins font-normal text-white mt-10 md:ml-10 md:text-[24px] text-[15px]">
                 {block.description}
               </p>
-              <div className="mt-10 rounded-box py-[10px] px-[20px]" onClick={() => handleButtonClick(block.link)}>
-                <button className="button">
-                  <div className="centered-text">
-                    <p className="font-poppins font-normal text-white md:text-[24px] text-[15px]">
-                      Repository Link
-                    </p>
-                  </div>
-                </button>
-              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                >
+                <div className="mt-10 rounded-box py-[10px] px-[20px]" onClick={() => handleButtonClick(block.link)}>
+                    <button className="button">
+                      <div className="centered-text">
+                        <p className="font-poppins font-normal text-white md:text-[24px] text-[15px]">
+                          Repository Link
+                        </p>
+                      </div>
+                    </button>
+                </div>
+              </motion.button>
+
             </div>
           ))}
         </div>

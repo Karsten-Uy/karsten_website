@@ -78,9 +78,9 @@ export const home_description_block = [
       id: "AI Vocal Model Creation", 
       audio1: placeholderAudio, //note: this video is a placeholder
       audio2: placeholderAudio, //note: this video is a placeholder
-      label1: "Original Vocal Sample",
-      label2: "Post AI Vocal Model audio", 
-      labelTop: "AI vocal model sample",       
+      label1: "Original vocal sample",
+      label2: "Post AI vocal model audio", 
+      labelTop: "AI Vocal Model Samples",       
       description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
     }
   ]

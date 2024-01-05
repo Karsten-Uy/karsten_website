@@ -12,9 +12,8 @@ import Experience from './pages/Experience' // Experience page not made yet, to 
 const App = () => (
   <Router>
     <div className="bg-primary w-full overflow-hidden">
-
       <div className={[styles.paddingX, styles.flexCenter].join(' ')}>
-        <div className={[styles.boxWidth].join(' ')}>
+        <div className={[styles.boxWidth, "mb-3"].join(' ')}>
           <Navbar />
         </div>
       </div>
