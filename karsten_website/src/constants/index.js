@@ -17,6 +17,10 @@ export const navLinks = [
     id: "projects",
     title: "Projects",
   },
+  {
+    id: "contact",
+    title: "Contact",
+  },
 ];
 
 export const expereince = [ // this whole block is a placeholder

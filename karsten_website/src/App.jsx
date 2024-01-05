@@ -8,6 +8,7 @@ import About from './pages/About';
 import { Navbar, CentreBlock, Footer } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience' // Experience page not made yet, to do so, uncomment the expereince portion here and in the navLinks array in constants/index.js file before starting 
+import Contact from './pages/Contact';
 
 const App = () => (
   <Router>
@@ -24,6 +25,7 @@ const App = () => (
         <Route path="/about" element={<About />} />
         {/* <Route path="/experience" element={<Experience />} /> */}
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <div className={["bg-primary", styles.paddingX, styles.flexStart].join(' ')}>
