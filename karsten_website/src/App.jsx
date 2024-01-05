@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import { Navbar, CentreBlock, Footer } from './components';
 import Projects from './pages/Projects';
+import Experience from './pages/Experience' // Experience page not made yet, to do so, uncomment the expereince portion here and in the navLinks array in constants/index.js file before starting 
 
 const App = () => (
   <Router>
@@ -22,6 +23,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        {/* <Route path="/experience" element={<Experience />} /> */}
         <Route path="/projects" element={<Projects />} />
       </Routes>
 
