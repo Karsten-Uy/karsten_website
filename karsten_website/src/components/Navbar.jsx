@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 import { close, karstenLogo, menu } from '../assets';
 import { navLinks } from '../constants';
@@ -18,7 +19,15 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={karstenLogo} alt="kirbeats" className="w-[124px]" />
+      {/* Wrap the logo with motion.div */}
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Link to="/">
+          <img src={karstenLogo} alt="kirbeats" className="w-[124px]" />
+        </Link>
+      </motion.div>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -29,8 +38,9 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => handleNavigation(nav.title, nav.id)}
           >
-            {/* Use Link to directly navigate to the specified path */}
-            <Link to={`/${nav.id}`}>{nav.title}</Link>
+            <Link to={`/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-dimWhite'}>
+              {nav.title}
+            </Link>
           </li>
         ))}
       </ul>
@@ -57,8 +67,9 @@ const Navbar = () => {
                 } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => handleNavigation(nav.title, nav.id)}
               >
-                {/* Use Link to directly navigate to the specified path */}
-                <Link to={`/${nav.id}`}>{nav.title}</Link>
+                <Link to={`/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-dimWhite'}>
+                  {nav.title}
+                </Link>
               </li>
             ))}
           </ul>

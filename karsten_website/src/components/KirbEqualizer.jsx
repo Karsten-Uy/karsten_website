@@ -1,24 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { KirbEqualizerConts } from '../constants';
 import styles from '../style';
 
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const KirbEqualizer = () => {
   const videoRef = useRef(null);
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   const handleVideoClick = () => {
-    // Check if the video is paused or ended
     if (videoRef.current.paused || videoRef.current.ended) {
-      videoRef.current.play(); // Play the video
+      videoRef.current.play();
     } else {
-      videoRef.current.pause(); // Pause the video
+      videoRef.current.pause();
     }
   };
 
   const handleButtonClick = (link) => {
-    // Open the specified link in a new tab
     window.open(link, '_blank');
+    setButtonClicked(true);
   };
 
   return (
@@ -33,7 +33,7 @@ const KirbEqualizer = () => {
               <video
                 ref={videoRef}
                 src={block.vid}
-                className='w-full max-w-[800px] h-auto'
+                className='w-full max-w-[1100px] h-auto rounded-[40px]'
                 onClick={handleVideoClick}
               />
               <p className="font-poppins font-normal text-white mt-10 md:ml-10 md:text-[24px] text-[15px]">
@@ -43,16 +43,16 @@ const KirbEqualizer = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                >
-                <div className="mt-10 rounded-box py-[10px] px-[20px]" onClick={() => handleButtonClick(block.link)}>
-                    <button className="button">
-                      <div className="centered-text">
-                        <p className="font-poppins font-normal text-white md:text-[24px] text-[15px]">
-                          Repository Link
-                        </p>
-                      </div>
-                    </button>
-                </div>
+                className={`mt-10 rounded-box py-[10px] px-[20px] ${buttonClicked ? 'bg-button-blue' : ''}`}
+                onClick={() => handleButtonClick(block.link)}
+              >
+                <button className="button">
+                  <div className="centered-text">
+                    <p className="font-poppins font-normal text-white md:text-[24px] text-[15px]">
+                      Repository Link
+                    </p>
+                  </div>
+                </button>
               </motion.button>
 
             </div>

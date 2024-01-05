@@ -18,7 +18,7 @@ const About = () => {
               <div className="flex flex-row items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
                 {about_block.map((block) => (
                   <div key={block.id} className="flex items-center md:flex-row flex-col">
-                    <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[24px] text-[15px] mb-4 sm:mb-10">
+                    <p className="font-poppins font-normal text-white md:mr-10 md:text-[30px] text-[20px] md:mb-0 mb-10">
                       {block.content}
                     </p>
                     <img

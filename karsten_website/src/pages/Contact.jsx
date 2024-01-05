@@ -22,25 +22,27 @@ const Contact = () => {
   };
 
   return (
-    <div className={[styles.flexStart, "bg-blue-gradient"].join(' ')}>
+    <div className={[styles.flexStart, 'bg-blue-gradient'].join(' ')}>
       <div className={styles.boxWidth}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <section
-            id='about'
-            className={`flex md:flex-row flex-col ${styles.paddingY}`}
-          >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+          <section id='about' className={`flex md:flex-row flex-col ${styles.paddingY}`}>
             <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
               <form ref={form} onSubmit={sendEmail} className='flex flex-col'>
-                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">Name</label>
+                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">
+                  Name
+                </label>
                 <input type="text" name="user_name" />
-                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">Email</label>
+
+                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">
+                  Email
+                </label>
                 <input type="email" name="user_email" />
-                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">Message</label>
+
+                <label className="mt-2 mb-2 font-poppins font-normal text-black md:text-[24px] text-[15px]">
+                  Message
+                </label>
                 <textarea name="message" />
+
                 <div className={styles.formSubmitButtonContainer}>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -64,18 +66,23 @@ const Contact = () => {
 
             <div className='flex flex-col md:ml-20 ml-0 md:mt-0 mt-5'>
               <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-                  <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[10px]">
-                    <h1 className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[50px] text-[40px] mb-4 sm:mb-10">
-                      Get in Touch
-                    </h1>
+                <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[10px]">
+                  <h1 className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[50px] text-[40px] mb-4 sm:mb-10">
+                    Contact Me
+                  </h1>
 
-                    <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[24px] text-[15px] mb-4 sm:mb-10">
-                      Welcome to the contact page! Feel free to reach out with questions, project ideas, or just to say hello using the form below. I'll get back to you as soon as possible. Excited to connect!
-                    </p>
-                  </div>
+                  <p className="font-poppins font-normal text-white sm:mt-0 md:mr-10 md:text-[24px] text-[15px] mb-4 sm:mb-10">
+                    Welcome to the contact page! Feel free to reach out with questions, project ideas, or just to say hello
+                    using the form below or using the email below. I'll get back to you as soon as possible. Excited to
+                    connect!
+                  </p>
+
+                  <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[24px] text-[15px] ">
+                    Email: karsten.uy@gmail.com
+                  </p>
                 </div>
+              </div>
             </div>
-
           </section>
         </motion.div>
       </div>

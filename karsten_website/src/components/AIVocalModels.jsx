@@ -35,7 +35,7 @@ const AIVocalModels = () => {
               </p>
 
               <div className='flex items-start flex-row justify-end mt-10'>
-                <div className="rounded-full bg-blue-500 p-2 mr-2 flex-grow flex items-center">
+                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center"> {/* Adjusted padding */}
                   <button onClick={() => handleAudioClick(audioRef1)}>
                     {!isPlaying ? 
                       <img src={playButtonComponents.play} className='w-[40px]'/> :
@@ -47,14 +47,14 @@ const AIVocalModels = () => {
                     src={block.audio1}
                     onClick={() => handleAudioClick(audioRef1)}
                   />
-                  <p className="font-poppins font-normal text-right text-white ml-2 md:text-[24px] text-[15px]">
+                  <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label1}
                   </p>
                 </div>
               </div>
 
-              <div className='flex items-start flex-row justify-end mt-10'>
-                <div className="rounded-full bg-blue-500 p-2 mr-2 flex-grow flex items-center">
+              <div className='flex items-start flex-row justify-center mt-10'>
+                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center"> {/* Adjusted padding */}
                   <button onClick={() => handleAudioClick(audioRef2)}>
                     {!isPlaying ? 
                       <img src={playButtonComponents.play} className='w-[40px]'/> :
@@ -66,7 +66,7 @@ const AIVocalModels = () => {
                     src={block.audio2}
                     onClick={() => handleAudioClick(audioRef2)}
                   />
-                  <p className="font-poppins font-normal text-right text-white ml-2 md:text-[24px] text-[15px]">
+                  <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label2}
                   </p>
                 </div>

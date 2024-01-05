@@ -46,6 +46,12 @@
   );
 }
 
+.bg-button-blue {
+  background-color: #006cb4;
+}
+
+
+
 .bg-black-gradient {
   background: linear-gradient(
     144.39deg,
