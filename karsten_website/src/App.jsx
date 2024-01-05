@@ -1,30 +1,36 @@
+// src/pages/App.js
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styles from './style';
 
-import {Navbar,Button,CentreBlock,Footer} from "./components";
+import Home from './pages/Home';
+import About from './pages/About';
+import { Navbar, CentreBlock, Footer } from './components';
 
 const App = () => (
-  <div className="bg-primary w-full overflow-hidden">
+  <Router>
+    <div className="bg-primary w-full overflow-hidden">
 
-    <div className={[styles.paddingX, styles.flexCenter].join(' ')}>
-      <div className={[styles.boxWidth].join(' ')}>
-        <Navbar />
+      <div className={[styles.paddingX, styles.flexCenter].join(' ')}>
+        <div className={[styles.boxWidth].join(' ')}>
+          <Navbar />
+        </div>
       </div>
-    </div>
 
-    <div className={["bg-blue-gradient", styles.flexStart].join(' ')}>
-      <div className={[styles.boxWidth].join(' ')}>
-        <CentreBlock />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+
+      <div className={["bg-primary", styles.paddingX, styles.flexStart].join(' ')}>
+        <div className={[styles.boxWidth].join(' ')}>
+          <Footer />
+        </div>
       </div>
-    </div>
 
-    <div className={["bg-primary", styles.paddingX, styles.flexStart].join(' ')}>
-      <div className={[styles.boxWidth].join(' ')}>
-        <Footer />
-      </div>
     </div>
-
-  </div>
+  </Router>
 );
 
 export default App;
