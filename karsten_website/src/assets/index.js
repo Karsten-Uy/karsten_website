@@ -29,6 +29,9 @@ import karsten from "./karsten.png";
 import placeholderVid from "./placeholder-vid.mp4";
 import placeholderAudio from './placeholder-audio.mp3';
 import karstenLogo from './karstenLogo.png'
+import pause from './pause.png'
+import pause from './pause.png'
+
 
 
 export {
@@ -62,5 +65,7 @@ export {
   karsten,
   placeholderVid,
   placeholderAudio,
-  karstenLogo
+  karstenLogo,
+  pause,
+  play
 };

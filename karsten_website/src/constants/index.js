@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play  } from "../assets";
 
 export const navLinks = [
   {
@@ -66,15 +66,16 @@ export const home_description_block = [
 
   export const KirbEqualizerConts = [ //need to change here so that each element has the same number of feilds
     {
-        id: "project-1",
+        id: "KirbEqualizer",
         vid: placeholderVid, //note: this video is a placeholder
-        description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
+        description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output.",
+        link: "https://github.com/Karsten-Uy/KirbEqualizer"
     }
   ]
 
   export const AIVocalModelsConsts = [
     {
-      id: "project-2", 
+      id: "AI Vocal Model Creation", 
       audio1: placeholderAudio, //note: this video is a placeholder
       audio2: placeholderAudio, //note: this video is a placeholder
       label1: "before",
@@ -83,3 +84,11 @@ export const home_description_block = [
       description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
     }
   ]
+
+  export const play_button_components = [
+    {
+      play: play,
+      pause: pause     
+    }
+  ]
+

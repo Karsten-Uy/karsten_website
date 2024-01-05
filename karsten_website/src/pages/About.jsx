@@ -1,6 +1,6 @@
 import React from 'react';
-import { about_block } from "../constants";
-import styles from "../style";
+import { about_block } from '../constants';
+import styles from '../style';
 
 const About = () => {
   return (
@@ -11,12 +11,14 @@ const About = () => {
             <div className="flex flex-row items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
               {about_block.map((block) => (
                 <div key={block.id} className="flex items-center md:flex-row flex-col">
+                  <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[24px] text-[15px]">
+                    {block.content}
+                  </p>
                   <img
                     src={block.img}
                     alt="Description"
-                    className="w-full max-w-[600px] h-auto md:max-w-full md:w-auto md:mr-4" 
+                    className="w-full max-w-[600px] h-auto md:max-w-full md:w-auto md:ml-4"
                   />
-                  <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:ml-10 md:text-[24px] text-[15px]">{block.content}</p>
                 </div>
               ))}
             </div>
@@ -24,7 +26,6 @@ const About = () => {
         </section>
       </div>
     </div>
-
   );
 };
 

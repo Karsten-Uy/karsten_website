@@ -1,14 +1,16 @@
 import React from 'react';
 import { KirbEqualizer, AIVocalModels } from '../components';
-import styles from '../style'; // Make sure to import your styles
+import styles from '../style'; 
 
 const Projects = () => {
   return (
     <div>
-      <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`bg-blue-gradient ${styles.paddingX} ${styles.flexCenter} flex items-center`}>
         <div className={[styles.boxWidth].join(' ')}>
-          <KirbEqualizer />
-          <AIVocalModels />
+          <div className='flex flex-col items-center'>
+            <KirbEqualizer />
+            <AIVocalModels />
+          </div>
         </div>
       </div>
     </div>
