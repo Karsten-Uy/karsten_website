@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause  } from "../assets";
 
 export const navLinks = [
   {

@@ -30,7 +30,7 @@ import placeholderVid from "./placeholder-vid.mp4";
 import placeholderAudio from './placeholder-audio.mp3';
 import karstenLogo from './karstenLogo.png'
 import pause from './pause.png'
-import pause from './pause.png'
+import play from './play.png'
 
 
 
