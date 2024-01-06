@@ -2,15 +2,15 @@ import React, { useRef, useState } from 'react';
 import { AIVocalModelsConsts, play_button_components } from '../constants';
 import styles from '../style';
 
-// Assuming play_button_components is an array with a single set of play and pause components
 const playButtonComponents = play_button_components[0];
 
 const AIVocalModels = () => {
   const audioRef1 = useRef(null);
   const audioRef2 = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying1, setIsPlaying1] = useState(false);
+  const [isPlaying2, setIsPlaying2] = useState(false);
 
-  const handleAudioClick = (audioRef) => {
+  const handleAudioClick = (audioRef, setIsPlaying) => {
     if (audioRef.current.paused || audioRef.current.ended) {
       audioRef.current.play();
       setIsPlaying(true);
@@ -18,6 +18,10 @@ const AIVocalModels = () => {
       audioRef.current.pause();
       setIsPlaying(false);
     }
+  };
+
+  const getPlayButtonImage = (isPlaying) => {
+    return isPlaying ? playButtonComponents.pause : playButtonComponents.play;
   };
 
   return (
@@ -35,17 +39,14 @@ const AIVocalModels = () => {
               </p>
 
               <div className='flex items-start flex-row justify-end mt-10'>
-                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center"> {/* Adjusted padding */}
-                  <button onClick={() => handleAudioClick(audioRef1)}>
-                    {!isPlaying ? 
-                      <img src={playButtonComponents.play} className='w-[40px]'/> :
-                      <img src={playButtonComponents.pause} className='w-[40px]'/>
-                    }
+                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
+                  <button onClick={() => handleAudioClick(audioRef1, setIsPlaying1)}>
+                    <img src={getPlayButtonImage(isPlaying1)} className='w-[40px]'/>
                   </button>
                   <audio
                     ref={audioRef1}
                     src={block.audio1}
-                    onClick={() => handleAudioClick(audioRef1)}
+                    onClick={() => handleAudioClick(audioRef1, setIsPlaying1)}
                   />
                   <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label1}
@@ -54,17 +55,14 @@ const AIVocalModels = () => {
               </div>
 
               <div className='flex items-start flex-row justify-center mt-10'>
-                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center"> {/* Adjusted padding */}
-                  <button onClick={() => handleAudioClick(audioRef2)}>
-                    {!isPlaying ? 
-                      <img src={playButtonComponents.play} className='w-[40px]'/> :
-                      <img src={playButtonComponents.pause} className='w-[40px]'/>
-                    }
+                <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
+                  <button onClick={() => handleAudioClick(audioRef2, setIsPlaying2)}>
+                    <img src={getPlayButtonImage(isPlaying2)} className='w-[40px]'/>
                   </button>
                   <audio
                     ref={audioRef2}
                     src={block.audio2}
-                    onClick={() => handleAudioClick(audioRef2)}
+                    onClick={() => handleAudioClick(audioRef2, setIsPlaying2)}
                   />
                   <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label2}
@@ -75,7 +73,7 @@ const AIVocalModels = () => {
               <p className="font-poppins font-normal mt-10 text-white md:text-[24px] text-[15px] text-left">
                 {block.description}
               </p>
-
+              
             </div>
           ))}
         </div>

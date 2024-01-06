@@ -31,7 +31,9 @@ import placeholderAudio from './placeholder-audio.mp3';
 import karstenLogo from './karstenLogo.png';
 import pause from './pause.png';
 import play from './play.png';
-import kirbequalizerDemo from './KirbEqualizerDemo.mp4'
+import kirbequalizerDemo from './KirbEqualizerDemo.mp4';
+import preAIaudio from './preAIaudio.mp3';
+import postAIaudio from './placeholder-audio.mp3';
 
 export {
   airbnb,
@@ -67,5 +69,7 @@ export {
   karstenLogo,
   pause,
   play,
-  kirbequalizerDemo
+  kirbequalizerDemo,
+  preAIaudio,
+  postAIaudio
 };

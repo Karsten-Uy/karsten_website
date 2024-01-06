@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio  } from "../assets";
 
 export const navLinks = [
   {
@@ -68,10 +68,10 @@ export const home_description_block = [
     },
   ];
 
-  export const KirbEqualizerConts = [ //need to change here so that each element has the same number of feilds
+  export const KirbEqualizerConts = [ 
     {
         id: "KirbEqualizer",
-        vid: kirbequalizerDemo, //note: this video is a placeholder
+        vid: kirbequalizerDemo,
         description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output.",
         link: "https://github.com/Karsten-Uy/KirbEqualizer"
     }
@@ -80,12 +80,12 @@ export const home_description_block = [
   export const AIVocalModelsConsts = [
     {
       id: "AI Vocal Model Creation", 
-      audio1: placeholderAudio, //note: this video is a placeholder
-      audio2: placeholderAudio, //note: this video is a placeholder
+      audio1: preAIaudio,
+      audio2: postAIaudio,
       label1: "Original vocal sample",
       label2: "Post AI vocal model audio", 
       labelTop: "AI Vocal Model Samples",       
-      description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output."
+      description: "Combined sound engineering and programming skills to create and utilize AI vocal models tailored for musical applications."
     }
   ]
 
