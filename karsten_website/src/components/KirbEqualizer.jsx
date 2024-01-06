@@ -33,7 +33,7 @@ const KirbEqualizer = () => {
               <video
                 ref={videoRef}
                 src={block.vid}
-                className='w-full max-w-[1100px] h-auto rounded-[40px]'
+                className='w-full max-w-[1100px] h-auto rounded-[10px]'
                 onClick={handleVideoClick}
               />
               <p className="font-poppins font-normal text-white mt-10 md:ml-10 md:text-[24px] text-[15px]">

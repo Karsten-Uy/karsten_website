@@ -28,11 +28,10 @@ import githubWhite from "./github-mark-white.svg";
 import karsten from "./karsten.png";
 import placeholderVid from "./placeholder-vid.mp4";
 import placeholderAudio from './placeholder-audio.mp3';
-import karstenLogo from './karstenLogo.png'
-import pause from './pause.png'
-import play from './play.png'
-
-
+import karstenLogo from './karstenLogo.png';
+import pause from './pause.png';
+import play from './play.png';
+import kirbequalizerDemo from './KirbEqualizerDemo.mp4'
 
 export {
   airbnb,
@@ -67,5 +66,6 @@ export {
   placeholderAudio,
   karstenLogo,
   pause,
-  play
+  play,
+  kirbequalizerDemo
 };

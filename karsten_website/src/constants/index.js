@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo  } from "../assets";
 
 export const navLinks = [
   {
@@ -71,7 +71,7 @@ export const home_description_block = [
   export const KirbEqualizerConts = [ //need to change here so that each element has the same number of feilds
     {
         id: "KirbEqualizer",
-        vid: placeholderVid, //note: this video is a placeholder
+        vid: kirbequalizerDemo, //note: this video is a placeholder
         description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output.",
         link: "https://github.com/Karsten-Uy/KirbEqualizer"
     }
