@@ -33,7 +33,7 @@ import pause from './pause.png';
 import play from './play.png';
 import kirbequalizerDemo from './KirbEqualizerDemo.mp4';
 import preAIaudio from './preAIaudio.mp3';
-import postAIaudio from './placeholder-audio.mp3';
+import postAIaudio from './postAIaudio.mp3';
 
 export {
   airbnb,
