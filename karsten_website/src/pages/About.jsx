@@ -9,8 +9,8 @@ const About = () => {
     <div className={[styles.flexStart].join(' ')}>
       <div className={[styles.boxWidth].join(' ')}>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <section id='about' className={`flex md:flex-row flex-col ${styles.paddingY}`}>

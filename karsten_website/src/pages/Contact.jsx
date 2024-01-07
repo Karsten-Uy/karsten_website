@@ -37,7 +37,7 @@ const Contact = () => {
   return (
     <div className={styles.flexStart}>
       <div className={styles.boxWidth}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+        <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
           <section id='about' className={`flex justify-center md:flex-row flex-col ${styles.paddingY}`}>
             <div className={`flex-1 flex flex-col items-center xl:px-0 sm:px-16 px-6`}>
               <form ref={form} onSubmit={sendEmail} className='flex flex-col'>

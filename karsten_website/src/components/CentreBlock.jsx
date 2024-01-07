@@ -17,18 +17,28 @@ const buttonVariants = {
 };
 
 const CentreBlock = () => {
+  const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    // Cursor blinking effect (continues indefinitely)
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500); // Adjust the blinking speed here (milliseconds)
+    const greeting = "Hello, I'm Karsten";
+    let index = 0;
+
+    const typingInterval = setInterval(() => {
+      setText(greeting.substring(0, index));
+      index++;
+
+      if (index > greeting.length) {
+        clearInterval(typingInterval);
+        setInterval(() => {
+          setShowCursor((prev) => !prev);
+        }, 500); // Adjust the blinking speed here (milliseconds)
+      }
+    }, 100);
 
     // Cleanup function
     return () => {
-      clearInterval(cursorInterval);
-      setShowCursor(true);
+      clearInterval(typingInterval);
     };
   }, []);
 
@@ -37,21 +47,21 @@ const CentreBlock = () => {
       <div className={`${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <div>
           <p
-            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[100px] text-[60px] mb-4 sm:mb-10"
-            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[100px] text-[60px] mb-2 sm:mb-4"  // Adjusted margin here
+            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
-            Hello, I'm Karsten
+            {text}
             <span style={{ opacity: showCursor ? 1 : 0 }}>I</span>
           </p>
           <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-10"
-            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-6"  // Adjusted margin here
+            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             Welcome to my website
           </p>
         </div>
 
-        <div className="flex justify-end mt-4 sm:mt-0">
+        <div className="flex justify-end"> 
           <Link to="/karsten_website/about">
             <motion.p
               className="font-source-code-pro font-bold text-white md:text-[24px] text-[15px] hover:underline cursor-pointer"
@@ -59,19 +69,19 @@ const CentreBlock = () => {
               whileHover="hover"
               whileTap="tap"
               initial="initial"
-              style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+              style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
             >
               Learn more about me
             </motion.p>
           </Link>
           <Link to="/karsten_website/projects">
             <motion.p
-              className="font-source-code-pro font-bold text-white md:text-[24px] text-[15px] mx-7 hover:underline cursor-pointer"
+              className="font-source-code-pro font-bold text-white md:text-[24px] text-[15px] mx-9 hover:underline cursor-pointer"  // Adjusted margin here
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               initial="initial"
-              style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+              style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
             >
               See my projects
             </motion.p>
