@@ -30,25 +30,25 @@ const AIVocalModels = () => {
         <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
           {AIVocalModelsConsts.map((block) => (
             <div key={block.id} className='flex flex-col'>
-              <p className="font-poppins font-bold text-white mb-3 md:text-[50px] text-[24px] text-center">
+              <p className="font-source-code-pro font-bold text-white mb-3 md:text-[50px] text-[24px] text-center">
                 {block.id}
               </p>
 
-              <p className="font-poppins font-normal text-white md:text-[24px] text-[15px] text-center">
+              <p className="font-source-code-pro font-normal text-white md:text-[24px] text-[15px] text-center">
                 {block.labelTop}
               </p>
 
               <div className='flex items-start flex-row justify-end mt-6'>
                 <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
                   <button onClick={() => handleAudioClick(audioRef1, setIsPlaying1)}>
-                    <img src={getPlayButtonImage(isPlaying1)} className='w-[40px]'/>
+                    <img src={getPlayButtonImage(isPlaying1)} className='w-[40px]' alt="Play button"/>
                   </button>
                   <audio
                     ref={audioRef1}
                     src={block.audio1}
                     onClick={() => handleAudioClick(audioRef1, setIsPlaying1)}
                   />
-                  <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
+                  <p className="font-source-code-pro font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label1}
                   </p>
                 </div>
@@ -57,20 +57,20 @@ const AIVocalModels = () => {
               <div className='flex items-start flex-row justify-center mt-10'>
                 <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
                   <button onClick={() => handleAudioClick(audioRef2, setIsPlaying2)}>
-                    <img src={getPlayButtonImage(isPlaying2)} className='w-[40px]'/>
+                    <img src={getPlayButtonImage(isPlaying2)} className='w-[40px]' alt="Play button"/>
                   </button>
                   <audio
                     ref={audioRef2}
                     src={block.audio2}
                     onClick={() => handleAudioClick(audioRef2, setIsPlaying2)}
                   />
-                  <p className="font-poppins font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
+                  <p className="font-source-code-pro font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
                     {block.label2}
                   </p>
                 </div>
               </div>
 
-              <p className="font-poppins font-normal mt-10 text-white md:text-[24px] text-[15px] text-left">
+              <p className="font-source-code-pro font-normal mt-10 text-white md:text-[24px] text-[15px] text-left">
                 {block.description}
               </p>
               

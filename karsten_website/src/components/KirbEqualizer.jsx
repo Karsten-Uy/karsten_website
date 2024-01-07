@@ -27,7 +27,9 @@ const KirbEqualizer = () => {
         <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
           {KirbEqualizerConts.map((block) => (
             <div key={block.id} className="flex items-center flex-col">
-              <p className="font-poppins font-bold text-white mb-10 md:ml-10 md:text-[50px] text-[24px]">
+              <p
+                className="font-source-code-pro font-bold text-white mb-10 md:ml-10 md:text-[50px] text-[24px]"
+              >
                 {block.id}
               </p>
               <video
@@ -36,25 +38,28 @@ const KirbEqualizer = () => {
                 className='w-full max-w-[1100px] h-auto rounded-[10px]'
                 onClick={handleVideoClick}
               />
-              <p className="font-poppins font-normal text-white mt-10 md:ml-10 md:text-[24px] text-[15px]">
+              <p
+                className="font-source-code-pro font-normal text-white mt-10 md:ml-10 md:text-[24px] text-[15px]"
+              >
                 {block.description}
               </p>
 
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className={`mt-10 rounded-box py-[10px] px-[20px] ${buttonClicked ? 'bg-button-blue' : ''}`}
+                className={`mt-10 rounded-box py-[10px] px-[20px] ${
+                  buttonClicked ? 'bg-button-blue' : ''
+                }`}
                 onClick={() => handleButtonClick(block.link)}
               >
                 <button className="button">
                   <div className="centered-text">
-                    <p className="font-poppins font-normal text-white md:text-[24px] text-[15px]">
+                    <p className="font-source-code-pro font-normal text-white md:text-[24px] text-[15px]">
                       Repository Link
                     </p>
                   </div>
                 </button>
               </motion.button>
-
             </div>
           ))}
         </div>

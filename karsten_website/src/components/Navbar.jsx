@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className="w-full flex py-6 justify-between items-center navbar relative z-20">
       {/* Wrap the logo with motion.div */}
       <motion.div
         whileHover={{ scale: 1.1 }}
@@ -46,7 +46,7 @@ const Navbar = () => {
             variants={linkVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`font-poppins font-normal cursor-pointer text-lg sm:text-2xl ${
+            className={`font-source-code-pro font-normal cursor-pointer text-lg sm:text-2xl ${
               active === nav.title ? 'text-white' : 'text-white'
             } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => handleNavigation(nav.title, nav.id)}
@@ -78,7 +78,7 @@ const Navbar = () => {
                 variants={linkVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className={`font-poppins font-medium cursor-pointer text-lg sm:text-2xl ${
+                className={`font-source-code-pro font-medium cursor-pointer text-lg sm:text-2xl ${
                   active === nav.title ? 'text-white' : 'text-white'
                 } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => handleNavigation(nav.title, nav.id)}

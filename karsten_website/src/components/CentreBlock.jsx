@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import styles from "../style";
+import styles from '../style';
 
 const buttonVariants = {
   hover: {
-    scale: 1.1,
+    scale: 1.15,
     opacity: 0.8,
   },
   tap: {
     scale: 0.9,
+  },
+  initial: {
+    scale: 1,
   },
 };
 
@@ -30,16 +33,20 @@ const CentreBlock = () => {
   }, []);
 
   return (
-    <section id='home' className={`flex items-center ${styles.paddingY}`}>
+    <section id="home" className={`flex items-center ${styles.paddingY}`}>
       <div className={`${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <div>
           <p
-            className="font-poppins font-bold text-white mt-4 sm:mt-0 md:mr-10 md:text-[100px] text-[60px] mb-4 sm:mb-10"
+            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[100px] text-[60px] mb-4 sm:mb-10"
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
           >
             Hello, I'm Karsten
-            <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
+            <span style={{ opacity: showCursor ? 1 : 0 }}>I</span>
           </p>
-          <p className="font-poppins font-normal text-white mt-4 sm:mt-0 md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-10">
+          <p
+            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-10"
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+          >
             Welcome to my website
           </p>
         </div>
@@ -47,20 +54,24 @@ const CentreBlock = () => {
         <div className="flex justify-end mt-4 sm:mt-0">
           <Link to="/karsten_website/about">
             <motion.p
-              className="font-poppins font-bold text-white md:text-[24px] text-[15px] hover:underline cursor-pointer"
+              className="font-source-code-pro font-bold text-white md:text-[24px] text-[15px] hover:underline cursor-pointer"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              initial="initial"
+              style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
             >
               Learn more about me
             </motion.p>
           </Link>
           <Link to="/karsten_website/projects">
             <motion.p
-              className="font-poppins font-bold text-white md:text-[24px] text-[15px] mx-7 hover:underline cursor-pointer"
+              className="font-source-code-pro font-bold text-white md:text-[24px] text-[15px] mx-7 hover:underline cursor-pointer"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              initial="initial"
+              style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
             >
               See my projects
             </motion.p>
