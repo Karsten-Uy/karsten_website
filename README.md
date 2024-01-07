@@ -18,7 +18,11 @@ Find my contact information and reach out to me.
 
 ## Built With
 Vite - A fast development server and bundler for JavaScript applications.
+
 React - JavaScript library for building user interfaces.
+
 Framer Motion - Animation library for React.
+
 EmailJS - JavaScript service for sending emails.
+
 TailwindCSS - A utility-first CSS framework that makes styling efficient and consistent.
