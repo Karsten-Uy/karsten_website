@@ -27,7 +27,7 @@ const KirbEqualizer = () => {
         <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
           {KirbEqualizerConts.map((block) => (
             <div key={block.id} className="flex items-center flex-col">
-              <p className="font-poppins font-normal text-white mb-10 md:ml-10 md:text-[50px] text-[24px]">
+              <p className="font-poppins font-bold text-white mb-10 md:ml-10 md:text-[50px] text-[24px]">
                 {block.id}
               </p>
               <video

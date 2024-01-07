@@ -27,7 +27,7 @@ const Footer = () => {
               <img
                 src={social.icon}
                 alt={social.link}
-                className={`w-[30px] h-[30px] object-contain cursor-pointer ${index !== socialMedia.length - 1 ? 'mr-6' : 'mr-0'}`}
+                className={`w-[30px] h-[30px] object-contain cursor-pointer ${index !== socialMedia.length - 1 ? 'mr-10' : 'mr-0'}`}
               />
             </a>
           </motion.div>

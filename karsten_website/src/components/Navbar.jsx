@@ -6,6 +6,16 @@ import { motion } from 'framer-motion'; // Import motion from framer-motion
 import { close, karstenLogo, menu } from '../assets';
 import { navLinks } from '../constants';
 
+const linkVariants = {
+  hover: {
+    scale: 1.1,
+    opacity: 0.8,
+  },
+  tap: {
+    scale: 0.9,
+  },
+};
+
 const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [toggle, setToggle] = useState(false);
@@ -31,17 +41,20 @@ const Navbar = () => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
-          <li
+          <motion.li
             key={nav.id}
+            variants={linkVariants}
+            whileHover="hover"
+            whileTap="tap"
             className={`font-poppins font-normal cursor-pointer text-lg sm:text-2xl ${
-              active === nav.title ? 'text-white' : 'text-dimWhite'
+              active === nav.title ? 'text-white' : 'text-white'
             } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => handleNavigation(nav.title, nav.id)}
           >
-            <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-dimWhite'}>
+            <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
               {nav.title}
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
 
@@ -60,17 +73,20 @@ const Navbar = () => {
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navLinks.map((nav, index) => (
-              <li
+              <motion.li
                 key={nav.id}
+                variants={linkVariants}
+                whileHover="hover"
+                whileTap="tap"
                 className={`font-poppins font-medium cursor-pointer text-lg sm:text-2xl ${
-                  active === nav.title ? 'text-white' : 'text-dimWhite'
+                  active === nav.title ? 'text-white' : 'text-white'
                 } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => handleNavigation(nav.title, nav.id)}
               >
-                <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-dimWhite'}>
+                <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
                   {nav.title}
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

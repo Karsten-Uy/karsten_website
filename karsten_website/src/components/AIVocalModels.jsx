@@ -30,7 +30,7 @@ const AIVocalModels = () => {
         <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[100px]">
           {AIVocalModelsConsts.map((block) => (
             <div key={block.id} className='flex flex-col'>
-              <p className="font-poppins font-normal text-white mb-10 md:text-[50px] text-[24px] text-center">
+              <p className="font-poppins font-bold text-white mb-3 md:text-[50px] text-[24px] text-center">
                 {block.id}
               </p>
 
@@ -38,7 +38,7 @@ const AIVocalModels = () => {
                 {block.labelTop}
               </p>
 
-              <div className='flex items-start flex-row justify-end mt-10'>
+              <div className='flex items-start flex-row justify-end mt-6'>
                 <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
                   <button onClick={() => handleAudioClick(audioRef1, setIsPlaying1)}>
                     <img src={getPlayButtonImage(isPlaying1)} className='w-[40px]'/>

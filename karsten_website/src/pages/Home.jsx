@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 
 const Home = () => {
   return (
-    <div className={["bg-blue-gradient", styles.flexStart].join(' ')}>
+    <div className={[styles.flexStart].join(' ')}>
       <div className={[styles.boxWidth].join(' ')}>
         <motion.div
           initial={{ opacity: 0}}
