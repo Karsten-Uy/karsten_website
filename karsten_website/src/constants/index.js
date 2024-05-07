@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio, rgmVid  } from "../assets";
 
 export const navLinks = [
   {
@@ -74,6 +74,15 @@ export const home_description_block = [
         vid: kirbequalizerDemo,
         description: "An audio equalizer with customizable highpass, lowpass, and peak filters, allowing precise control over cutoff frequencies, Q values, and gain for personalized audio output.",
         link: "https://github.com/Karsten-Uy/KirbEqualizer"
+    }
+  ]
+
+  export const RGMConsts = [ 
+    {
+        id: "Rhythmic Groove Master",
+        vid: rgmVid,
+        description: "A MIDI controller, powered by Arduino Pro Micro, designed for bass or guitar, enabling simultaneous drum and bass performance, with code written in C++.",
+        link: "https://github.com/Karsten-Uy/rhythmicgroovemaster"
     }
   ]
 

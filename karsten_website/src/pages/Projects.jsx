@@ -1,5 +1,5 @@
 import React from 'react';
-import { KirbEqualizer, AIVocalModels } from '../components';
+import { KirbEqualizer, AIVocalModels, RGM} from '../components';
 import styles from '../style'; 
 import { motion } from 'framer-motion';
 
@@ -14,6 +14,7 @@ const Projects = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
+              <RGM />
               <KirbEqualizer />
               <AIVocalModels />
             </motion.div>

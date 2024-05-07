@@ -34,6 +34,7 @@ import play from './play.png';
 import kirbequalizerDemo from './KirbEqualizerDemo.mp4';
 import preAIaudio from './preAIaudio.mp3';
 import postAIaudio from './postAIaudio.mp3';
+import rgmVid from './rgmVid.mp4';
 
 export {
   airbnb,
@@ -71,5 +72,6 @@ export {
   play,
   kirbequalizerDemo,
   preAIaudio,
-  postAIaudio
+  postAIaudio,
+  rgmVid
 };
