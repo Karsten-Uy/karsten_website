@@ -13,6 +13,25 @@ const styles = {
   
     marginX: "sm:mx-16 mx-6",
     marginY: "sm:my-16 my-6",
+
+    homepageLink: {
+      color: '#ffcc00', /* Bright color for the link */
+      fontWeight: 'bold', /* Make the text bold */
+      fontSize: '1.25rem', /* Slightly larger font size */
+      textDecoration: 'none', /* Remove underline */
+      backgroundColor: '#333', /* Background color to make it pop */
+      padding: '10px 20px', /* Padding around the text */
+      borderRadius: '5px', /* Rounded corners for the button */
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', /* Shadow for a 3D effect */
+      marginRight: '7px', /* Space to the right of the button */
+    },
+
+    homepageLinkHover: {
+      backgroundColor: '#555', /* Darker background on hover */
+      color: '#fff', /* Change text color on hover */
+      textDecoration: 'none', /* Ensure no underline on hover */
+    },
+
   };
   
   export const layout = {
@@ -24,5 +43,6 @@ const styles = {
   
     sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
   };
+  
   
   export default styles;

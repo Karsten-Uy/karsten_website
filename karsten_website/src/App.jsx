@@ -9,6 +9,7 @@ import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 import websiteBG from './assets/WebsiteBackground.png';
+import Page404 from './pages/Page404';
 
 const App = () => (
   <Router>
@@ -35,11 +36,12 @@ const App = () => (
         <div className='flex items-center justify-center flex-grow relative z-10'>
           <Routes>
             <Route path="/karsten_website/" index element={<Home />} />
-            <Route path="/karsten_website/home" element={<Home />} />
+            <Route path="/karsten_website/home" element={<Home />} /> 
             <Route path="/karsten_website/about" element={<About />} />
             <Route path="/karsten_website/experience" element={<Experience />} />
             <Route path="/karsten_website/projects" element={<Projects />} />
             <Route path="/karsten_website/contact" element={<Contact />} />
+            <Route path="/karsten_website/*" element={<Page404 />} />
           </Routes>
         </div>
         <div>
