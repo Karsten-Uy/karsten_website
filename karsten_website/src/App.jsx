@@ -21,13 +21,18 @@ const App = () => (
       </div>
 
       <div
-        className={['flex-grow', styles.paddingX, 'flex flex-col justify-between relative'].join(' ')}
+        className={['flex-grow', styles.paddingX, 'flex flex-col justify-between relative', styles.flicker, styles.backgroundMove].join(' ')}
         style={{
           backgroundSize: 'cover',
           backgroundImage: `url(${websiteBG})`,
-          backgroundAttachment: 'fixed', // Add this line for parallax effect
+          backgroundAttachment: 'fixed', // Parallax effect
+          backgroundPosition: '0 0',
         }}
       >
+
+        <style>{styles.flickerAnimation}</style> {/* Inject the flicker animation keyframes */}
+        <style>{styles.backgroundMoveAnimation}</style> {/* Inject the background move keyframes */}
+
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 opacity-70"></div>
 
         <div>

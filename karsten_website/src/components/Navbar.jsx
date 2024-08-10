@@ -28,14 +28,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar relative z-20">
+    <nav className="w-full flex py-3 justify-between items-center navbar relative z-20">
       {/* Wrap the logo with motion.div */}
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         <Link to="/karsten_website/"> {/* Update the root link */}
-          <img src={karstenLogo} alt="kirbeats" className="w-[124px]" />
+          <img src={karstenLogo} alt="kirbeats" className="w-[100px]" />
         </Link>
       </motion.div>
 
