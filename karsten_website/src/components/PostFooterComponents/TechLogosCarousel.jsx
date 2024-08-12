@@ -1,65 +1,62 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const techLogos = [
+  'logo1.png',
+  'logo2.png',
+  'logo3.png',
+  'logo4.png',
+  'logo5.png',
+  'logo6.png',
+  'logo7.png',
+  'logo8.png',
+  'logo9.png',
+  'logo10.png',
+  'logo11.png',
+  'logo12.png',
+  'logo13.png',
+  'logo14.png',
+  'logo15.png',
+  'logo16.png',
+  'logo17.png',
+  'logo18.png',
+  'logo19.png',
+  'logo20.png',
+  'logo21.png',
+  'logo22.png',
+  'logo23.png',
+  'logo24.png',
+  'logo25.png',
+  'logo26.png',
+  'logo27.png',
+  'logo28.png',
+  'logo29.png',
+  'logo30.png',
+];
 
 const TechLogosCarousel = () => {
-  const carouselRef = useRef(null);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    // Clone the items
-    const items = carousel.children;
-    const itemsToClone = Array.from(items).slice(0, items.length / 2);
-    itemsToClone.forEach(item => {
-      const clone = item.cloneNode(true);
-      carousel.appendChild(clone);
-    });
-
-    let animationId;
-    let startTime;
-
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
-      
-      const scrollAmount = (progress / 50) % (carousel.scrollWidth / 2);
-      carousel.scrollLeft = scrollAmount;
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, []);
-
-  const logos = [
-    '/path/to/tech-logo-1.png',
-    '/path/to/tech-logo-2.png',
-    '/path/to/tech-logo-3.png',
-    '/path/to/tech-logo-4.png',
-    '/path/to/tech-logo-5.png',
-  ];
-
   return (
-    <div className="overflow-hidden relative">
-      <div
-        ref={carouselRef}
-        className="flex space-x-8 whitespace-nowrap"
-      >
-        {logos.concat(logos).map((logo, i) => (
-          <img
-            key={i}
-            src={logo}
-            alt={`Tech Logo ${i + 1}`}
-            className="h-16 w-auto inline-block"
-          />
-        ))}
-      </div>
+    <div className="tech-logos-carousel mb-10 mx-20">
+      <h2 className="font-bold text-white text-3xl mb-6 text-center" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+        Tech Stack
+      </h2>
+      <p className="text-lg mb-6 text-center text-white mb-5" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+        My expertise spans various technologies to create cutting-edge solutions
+      </p>
+
+      <motion.div className="carousel py-5">
+        <motion.div 
+          className="inner-carousel"
+          animate={{ x: ['0%', '-100%'] }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+        >
+          {techLogos.concat(techLogos).map((logo, index) => (
+            <motion.div className="carousel-item" key={index}>
+              <img src={`/path/to/logos/${logo}`} alt={`Technology ${index + 1}`} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

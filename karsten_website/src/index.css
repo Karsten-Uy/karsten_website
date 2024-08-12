@@ -34,6 +34,25 @@
   text-fill-color: transparent;
 }
 
+.text-nonclickblue-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #def9fa 0.89%,
+    #bef3f5 17.23%,
+    #9dedf0 42.04%,
+    #7de7eb 55.12%,
+    #5ce1e6 71.54%,
+    #33bbcf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
+
+
 .bg-blue-gradient {
   background: linear-gradient(
     157.81deg,
@@ -219,5 +238,32 @@ html {
   background: #5fbfff; /* Thumb color on hover */
 }
 
+/*
+Logo cycling
+*/
 
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.inner-carousel {
+  display: flex;
+  width: 100%;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 10%; /* Adjust this value based on the number of items visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px; /* Space between items */
+}
+
+.carousel-item img {
+  max-width: 120px; /* Adjust size as needed */
+  max-height: 80px; /* Adjust size as needed */
+}
 

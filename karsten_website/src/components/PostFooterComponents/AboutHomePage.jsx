@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import styles from '/src/style';
 
 const AboutHomePage = () => {
@@ -15,12 +16,17 @@ const AboutHomePage = () => {
           </p>
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-end mb-4">
-          <Link 
-            to="/about"
-            className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold transition-transform duration-300`}
+          <motion.div
+            whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.95 }}
           >
-            Learn more
-          </Link>
+            <Link 
+              to="/about"
+              className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold`}
+            >
+              Learn more
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>

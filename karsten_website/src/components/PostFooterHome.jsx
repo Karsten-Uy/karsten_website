@@ -1,8 +1,9 @@
+// src/components/PostFooterHome.jsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../style';
-import { TechLogosCarousel } from './PostFooterComponents';
-
+import { AboutHomePage, TechLogosCarousel, WhatIDo, ExperiencesHome } from './PostFooterComponents';
 
 const PostFooterHome = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -56,18 +57,18 @@ const PostFooterHome = () => {
     const tooltipWidth = 500;
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-  
+
     let left = tooltipPosition.x + 10;
     let top = tooltipPosition.y + 10;
-  
+
     if (left + tooltipWidth > windowWidth) {
       left = windowWidth - tooltipWidth - 10;
     }
-  
+
     if (top + 100 > windowHeight) {
       top = windowHeight - 110;
     }
-  
+
     return (
       <div 
         className={`fixed bg-black text-white p-4 rounded-xl shadow-lg transition-opacity duration-300 z-50 ${isTooltipVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -86,115 +87,23 @@ const PostFooterHome = () => {
 
   return (
     <div>
-      <section className={`${styles.paddingY} bg-transparent`}>
-        <div className={`${styles.boxWidth} flex flex-wrap`}>
-          <div className="w-full md:w-1/2 text-white text-left mb-4">
-            <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-              Programming the sounds of tomorrow
-            </h2>
-            <p className="text-lg" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-              I specialize in engineering innovative solutions and experiences, with unwavering dedication to excellence that resonate with audiences.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 flex items-center justify-end mb-4">
-            <Link 
-              to="/about"
-              className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold transition-transform duration-300`}
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-      </section>
+      <AboutHomePage/>
 
       <hr className="border-t border-gray-400 mb-8" />
 
-      <section className="text-center">
-        <h2 className="font-bold text-white text-3xl mb-6" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-          What I Do
-        </h2>
-        <div className="flex flex-wrap justify-center gap-0 px-4">
-          {[
-            { title: 'UI/UX design', class: 'Design intuitive and stunning interfaces that enhance user experiences', logo: '/path/to/uiux-logo.png', link: '/uiux' },
-            { title: 'Development', class: 'Bring to life innovative ideas with the latest technology', logo: '/path/to/development-logo.png', link: '/development' },
-            { title: 'Automation', class: 'Streamline workflows by automating repetitive tasks and processes', logo: '/path/to/automation-logo.png', link: '/automation' },
-            { title: 'Audio Engineering', class: 'Create soundscapes and tools for enjoyable audio experiences', logo: '/path/to/audio-engineering-logo.png', link: '/audio-engineering' }
-          ].map((item, index) => (
-            <div className="w-full lg:w-1/4 px-2 py-2 relative block" key={index}>
-              <div className="bg-blue-300 text-black rounded-lg shadow-md py-2">
-                <div className="flex items-start mb-4">
-                  <img src={item.logo} alt={`${item.title} Logo`} className="w-12 h-12 ml-3" />
-                </div>
-                <div>
-                  <h3 className="text-left font-bold text-xl mb-2 ml-3 text-black">{item.title}</h3>
-                  <p className="text-left mb-5 ml-3 text-black">{item.class}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <WhatIDo/>
 
       <hr className="border-t border-gray-400 my-8" />
 
-      <section className="text-left mb-8 text-white">
-        <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-          Career
-        </h2>
-        <Link
-          to="/full-stack-developer"
-          className="mb-6 flex flex-wrap relative block"
-          onMouseEnter={() => handleMouseEnter('full-stack')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="w-full md:w-1/2">
-            <p className="font-semibold text-xl text-white">Insurance Corporation of British Columbia</p>
-            <h3 className="italic text-lg text-white">Full Stack Software Developer - Innovation and Automation</h3>
-            <p className="text-white">May 2024 - Present</p>
-          </div>
-          <div className="w-full md:w-1/2 text-right relative">
-            <p className="text-white">Automation and Development</p>
-            <p className="text-white">C#, Blue Prism, Outsystems</p>
-          </div>
-        </Link>
-
-        <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-          Projects
-        </h2>
-        {projects.map((project, index) => (
-          <Link
-            to={project.link}
-            key={index}
-            className="mb-6 flex flex-wrap relative block"
-            onMouseEnter={() => handleMouseEnter(project.link.slice(1))}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="w-full md:w-1/2">
-              <h3 className="font-semibold text-xl text-white">{project.title}</h3>
-              <p className="text-white">{project.date}</p>
-            </div>
-            <div className="w-full md:w-1/2 text-right relative">
-              <p className="text-white">{project.class}</p>
-              <p className="text-white">{project.technologies}</p>
-            </div>
-          </Link>
-        ))}
-      </section>
-
-      <div className="text-center">
-        <Link 
-          to="/experience"
-          className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold transition-transform duration-300`}
-        >
-          View more
-        </Link>
-      </div>
+      <ExperiencesHome 
+        projects={projects} 
+        handleMouseEnter={handleMouseEnter} 
+        handleMouseLeave={handleMouseLeave}
+      />
 
       <hr className="border-t border-gray-400 my-8" />
 
-      
       <TechLogosCarousel/>
-
 
       {renderTooltip()}
     </div>
