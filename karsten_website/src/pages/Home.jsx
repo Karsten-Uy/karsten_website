@@ -4,6 +4,8 @@ import styles from '../style';
 import {motion} from 'framer-motion'
 
 const Home = () => {
+ 
+
   return (
     <div className={[styles.flexStart].join(' ')}>
       <div className={[styles.boxWidth].join(' ')}>

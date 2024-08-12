@@ -35,7 +35,11 @@ import kirbequalizerDemo from './KirbEqualizerDemo.mp4';
 import preAIaudio from './preAIaudio.mp3';
 import postAIaudio from './postAIaudio.mp3';
 import rgmVid from './rgmVid.mp4';
-import email from './email.png'
+import email from './email.png';
+import auto from './auto.png';
+import sound from './sound.png';
+import uiux from './uiux.png';
+import dev from './dev.png';
 
 export {
   airbnb,
@@ -75,5 +79,9 @@ export {
   preAIaudio,
   postAIaudio,
   rgmVid,
-  email
+  email,
+  auto,
+  dev,
+  sound,
+  uiux
 };

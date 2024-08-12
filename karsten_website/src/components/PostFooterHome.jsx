@@ -86,7 +86,7 @@ const PostFooterHome = () => {
   };
 
   return (
-    <div>
+    <div className='mt-10'>
       <AboutHomePage/>
 
       <hr className="border-t border-gray-400 mb-8" />

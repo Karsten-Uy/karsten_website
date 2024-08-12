@@ -65,11 +65,11 @@ const CentreBlock = () => {
   }, []);
 
   return (
-    <section id="home" className={`relative flex items-center ${styles.paddingY}`}>
-      <div className={`${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
+    <section id="home" className={`relative flex items-start ${styles.paddingY}`}>
+      <div className={`${styles.flexStart} flex-col xl:px-0`}>
         <div>
           <p
-            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[80px] text-[50px] mb-2 sm:mb-4"
+            className="text-left font-source-code-pro font-bold text-white md:mr-10 md:text-[80px] text-[50px] mb-2 sm:mb-4"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             {greeting}
@@ -82,31 +82,11 @@ const CentreBlock = () => {
             <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
           </p>
           <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-12"
+            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px]"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             based in Canada
           </p>
-
-          <div className="w-full flex justify-left">
-            <p className="text-white text-base font-semibold mr-3" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-              Scroll down
-            </p>
-            <div className="mb-10 animate-bounce">
-              <svg
-                className="w-5 h-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
       

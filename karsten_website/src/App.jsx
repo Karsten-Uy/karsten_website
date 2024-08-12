@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
 import './index.css'; // Ensure this file contains necessary styles
@@ -16,6 +16,15 @@ import FooterHome from './components/FooterHome';
 const AppContent = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
+
+  // Create a ref for the PostFooterHome component
+  const postFooterRef = useRef(null);
+
+  const scrollToPostFooter = () => {
+    if (postFooterRef.current) {
+      postFooterRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div>
@@ -42,21 +51,47 @@ const AppContent = () => {
 
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 opacity-70"></div>
 
-          <div className="flex-grow flex items-center justify-center relative z-10">
-            <Routes>
-              <Route path="/" index element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/*" element={<Page404 />} />
-            </Routes>
+          <div className='flex items-center justify-center flex-grow relative z-10'>
+            <div className='relative z-10 justify-start'>
+              <Routes>
+                <Route path="/" index element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/*" element={<Page404 />} />
+              </Routes>
+
+              {/* Scroll Down Component */}
+              {isHomePage && (
+                <button 
+                  onClick={scrollToPostFooter} 
+                  className="flex hidden sm:flex"
+                >
+                  <p className="text-white text-base font-semibold pr-2" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+                    Scroll down
+                  </p>
+                  <svg
+                    className="w-5 h-5 text-white animate-bounce mb-16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
+        <div className={['bg-primary hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
           <div className={[styles.boxWidth].join(' ')}>
             <Footer />
           </div>
@@ -65,7 +100,7 @@ const AppContent = () => {
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div className="relative z-20">
+        <div ref={postFooterRef} className="relative z-20">
           <div className={['bg-discount-gradient', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
             <div className={[styles.boxWidth].join(' ')}>
               <PostFooterHome />
