@@ -36,18 +36,27 @@ const Contact = () => {
 
   return (
     <div className={styles.flexStart}>
-      <div className={styles.boxWidth}>
-        <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-          <section id='about' className={`flex justify-center md:flex-row flex-col ${styles.paddingY}`}>
+      <div className= {[styles.boxWidth].join('flex flex-col items-center justify-center')}>
+        <motion.div
+          initial={{ opacity: 0 }} // Start with invisible
+          animate={{ opacity: 1 }} // Fade in to fully visible
+          exit={{ opacity: 0 }} // Fade out when unmounting
+          transition={{ duration: 0.5 }} // Duration of the fade effect
+        >
+          <section id='contact' className={`flex justify-center md:flex-row flex-col ${styles.paddingY} w-full`}>
             <div className={`flex-1 flex flex-col items-center xl:px-0 sm:px-16 px-6`}>
-              <form ref={form} onSubmit={sendEmail} className='flex flex-col'>
+              <form ref={form} onSubmit={sendEmail} className='flex flex-col w-full'>
                 <label
                   className="mt-2 mb-2 font-source-code-pro font-normal text-white md:text-[24px] text-[15px]"
                   style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                 >
                   Name
                 </label>
-                <input type="text" name="user_name" />
+                <input
+                  type="text"
+                  name="user_name"
+                  className="p-2 mb-4 w-full min-w-[300px] bg-discount-gradient border border-gray-600 rounded-lg text-white"
+                />
 
                 <label
                   className="mt-2 mb-2 font-source-code-pro font-normal text-white md:text-[24px] text-[15px]"
@@ -55,7 +64,11 @@ const Contact = () => {
                 >
                   Email
                 </label>
-                <input type="email" name="user_email" />
+                <input
+                  type="email"
+                  name="user_email"
+                  className="p-2 mb-4 w-full min-w-[300px] bg-discount-gradient border border-gray-600 rounded-lg text-white"
+                />
 
                 <label
                   className="mt-2 mb-2 font-source-code-pro font-normal text-white md:text-[24px] text-[15px]"
@@ -63,7 +76,10 @@ const Contact = () => {
                 >
                   Message
                 </label>
-                <textarea name="message" />
+                <textarea
+                  name="message"
+                  className="p-2 mb-4 w-full min-w-[300px] bg-discount-gradient border border-gray-600 rounded-lg text-white"
+                />
 
                 <div className={styles.formSubmitButtonContainer}>
                   <motion.button
@@ -73,7 +89,7 @@ const Contact = () => {
                     onClick={sendEmail}
                     style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                   >
-                    <div className="mt-6 rounded-box py-[10px] px-[20px]">
+                    <div className="mt-6 rounded-box py-[8px] px-[16px]">
                       <button className={styles.button}>
                         <div className={styles.centeredText}>
                           <p
@@ -90,39 +106,22 @@ const Contact = () => {
             </div>
 
             <div className='flex flex-col md:ml-20 ml-0 md:mt-0 mt-5'>
-              <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-                <div className="flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[10px]">
+              <div className={`flex flex-col items-center px-6 w-full`}>
+                <div className="flex flex-col items-center justify-center py-[40px] px-[20px] bg-discount-gradient rounded-[10px] w-full text-center h-[400px]">
                   <h1
-                    className="font-source-code-pro font-bold text-white mt-4 sm:mt-0 md:mr-10 md:text-[50px] text-[40px] mb-4 sm:mb-10"
+                    className="font-source-code-pro font-bold text-white md:text-[40px] text-[30px] mb-4"
                     style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                   >
                     Contact Me
                   </h1>
 
                   <p
-                    className="font-source-code-pro font-normal text-white sm:mt-0 md:mr-10 md:text-[24px] text-[15px] mb-4 sm:mb-10"
+                    className="font-source-code-pro font-normal text-white md:text-[20px] text-[15px] mb-4"
                     style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                   >
                     Welcome to the contact page! Feel free to reach out with questions, project ideas, or just to say hello
-                    using the form below or using the email below. I'll get back to you as soon as possible. Excited to
-                    connect!
+                    using the form below. I'll get back to you as soon as possible. Excited to connect!
                   </p>
-
-                  <div className='flex items-center md:flex-row flex-col'>
-                    <p
-                      className="font-source-code-pro font-normal text-white mt-4 md:mr-10 mr-5 md:text-[24px] text-[15px] "
-                      style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
-                    >
-                      Phone: (604)-565-8120
-                    </p>
-
-                    <p
-                      className="font-source-code-pro font-normal text-white mt-4 md:text-[24px] text-[15px] "
-                      style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
-                    >
-                      Email: karsten.uy@gmail.com
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

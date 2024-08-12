@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link
 import styles from '../style';
 
 const Page404 = () => {
@@ -30,14 +31,14 @@ const Page404 = () => {
                   className={`font-source-code-pro font-normal text-white md:text-[24px] text-[15px] mb-4 sm:mb-10 ${styles.textShadow}`}
                 >
                   You might want to check out the{' '}
-                  <a
-                    href="/"
-                    style={styles.homepageLink}
+                  <Link
+                    to="/"
+                    className={styles.homepageLink}
                     onMouseOver={(e) => Object.assign(e.target.style, styles.homepageLinkHover)}
                     onMouseOut={(e) => Object.assign(e.target.style, styles.homepageLink)}
                   >
                     homepage
-                  </a> 
+                  </Link> 
                    instead.
                 </p>
 

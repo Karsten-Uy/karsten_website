@@ -3,7 +3,7 @@ import { socialMedia } from "../constants";
 import { motion } from 'framer-motion';
 import { email } from '../assets';
 
-const Footer = () => {
+const FooterHome = () => {
   const hoverVariants = {
     hover: {
       scale: 1.1,
@@ -58,7 +58,7 @@ const Footer = () => {
         >
           <a
             href="mailto:karsten.uy@gmail.com"
-            className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-full"
+            className="flex items-center text-white bg-primary border border-white hover:bg-blue-700 text-xs py-2 px-4 rounded-full"
           >
             <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
             karsten.uy@example.com
@@ -69,4 +69,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterHome;

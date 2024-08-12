@@ -1,5 +1,5 @@
 import React from 'react';
-import { KirbEqualizer, AIVocalModels, RGM} from '../components';
+import { KirbEqualizer, AIVocalModels, RGM } from '../components';
 import styles from '../style'; 
 import { motion } from 'framer-motion';
 
@@ -10,9 +10,10 @@ const Projects = () => {
         <div className={[styles.boxWidth].join(' ')}>
           <div className='flex flex-col items-center'>
             <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0 }} // Start with invisible
+              animate={{ opacity: 1 }} // Fade in to fully visible
+              exit={{ opacity: 0 }} // Fade out when unmounting
+              transition={{ duration: 0.5 }} // Duration of the fade effect
             >
               <RGM />
               <KirbEqualizer />
@@ -23,6 +24,6 @@ const Projects = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Projects;

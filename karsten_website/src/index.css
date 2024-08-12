@@ -158,3 +158,65 @@
 .rounded-box:hover {
   background-color: #e0e0e0; /* Change the color on hover */
 }
+
+.post-footer-wrapper {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color-primary); /* or your background color */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure the footer stays at the bottom of the viewport */
+footer {
+  z-index: 10; /* Ensures footer is on top */
+}
+
+/* Optionally, add some styling for when PostFooterHome should be visible */
+.post-footer-wrapper {
+  transition: opacity 0.3s ease;
+}
+
+/* styles.css or equivalent */
+
+.homepage-link {
+  color: #ffcc00; /* Example color, adjust as needed */
+  text-decoration: none;
+}
+
+.homepage-link:hover {
+  color: #ff9900; /* Example hover color, adjust as needed */
+}
+
+/* Custom Scrollbar Styles */
+
+/* For Firefox */
+html {
+  scrollbar-width: auto; /* Thin scrollbar */
+  scrollbar-color: #5fbfff ; /* Thumb and track color */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  
+}
+
+::-webkit-scrollbar-track {
+  background:  #08040c; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4387b5; /* Thumb color */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #08040c; /* Simulate a border by adding a border to the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5fbfff; /* Thumb color on hover */
+}
+
+

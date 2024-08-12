@@ -1,7 +1,6 @@
 import React from 'react';
 import { about_block } from '../constants';
 import styles from '../style';
-
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -9,9 +8,10 @@ const About = () => {
     <div className={[styles.flexStart].join(' ')}>
       <div className={[styles.boxWidth].join(' ')}>
         <motion.div
-          initial={{ opacity: 0, x: '100%' }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }} // Fade-out effect
+          transition={{ duration: 0.5 }} // Duration of the fade effect
         >
           <section id='about' className={`flex md:flex-row flex-col ${styles.paddingY}`}>
             <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>

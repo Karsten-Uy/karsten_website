@@ -24,29 +24,29 @@ const Navbar = () => {
   const handleNavigation = (title, id) => {
     setActive(title);
     setToggle(false);
-    navigate(`/karsten_website/${id}`); // Update the navigation path
+    navigate(`/${id}`); // Update the navigation path
   };
 
   return (
-    <nav className="w-full flex py-3 justify-between items-center navbar relative z-20">
+    <nav className="w-full flex py-2 justify-between items-center navbar relative z-20">
       {/* Wrap the logo with motion.div */}
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Link to="/karsten_website/"> {/* Update the root link */}
-          <img src={karstenLogo} alt="kirbeats" className="w-[100px]" />
+        <Link to="/"> {/* Update the root link */}
+          <img src={karstenLogo} alt="karsten logo" className="w-[70px]" />
         </Link>
       </motion.div>
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+      <ul className="list-none sm:flex text-xs hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <motion.li
             key={nav.id}
             variants={linkVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`font-source-code-pro font-normal cursor-pointer text-lg sm:text-2xl ${
+            className={`font-source-code-pro font-normal cursor-pointer text-base sm:text-lg ${
               active === nav.title ? 'text-white' : 'text-white'
             } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => handleNavigation(nav.title, nav.id)}
@@ -78,7 +78,7 @@ const Navbar = () => {
                 variants={linkVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className={`font-source-code-pro font-medium cursor-pointer text-lg sm:text-2xl ${
+                className={`font-source-code-pro font-medium cursor-pointer text-base sm:text-lg ${
                   active === nav.title ? 'text-white' : 'text-white'
                 } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => handleNavigation(nav.title, nav.id)}
