@@ -40,6 +40,7 @@ import auto from './auto.png';
 import sound from './sound.png';
 import uiux from './uiux.png';
 import dev from './dev.png';
+import postfooterbg from './PostFooterBG.png';
 
 export {
   airbnb,
@@ -83,5 +84,6 @@ export {
   auto,
   dev,
   sound,
-  uiux
+  uiux,
+  postfooterbg
 };

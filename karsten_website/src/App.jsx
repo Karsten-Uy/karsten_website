@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
 import './index.css'; // Ensure this file contains necessary styles
@@ -9,6 +9,7 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import { postfooterbg } from './assets';
 import websiteBG from './assets/WebsiteBackground.png';
 import Page404 from './pages/Page404';
 import FooterHome from './components/FooterHome';
@@ -19,12 +20,23 @@ const AppContent = () => {
 
   // Create a ref for the PostFooterHome component
   const postFooterRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
 
   const scrollToPostFooter = () => {
     if (postFooterRef.current) {
       postFooterRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Update scrollY state on window scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div>
@@ -100,9 +112,18 @@ const AppContent = () => {
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div ref={postFooterRef} className="relative z-20">
-          <div className={['bg-discount-gradient', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
-            <div className={[styles.boxWidth].join(' ')}>
+        <div ref={postFooterRef} className="relative z-0">
+          <div
+            className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}
+            style={{
+              backgroundImage: `url(${postfooterbg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: `center ${scrollY * 0.04}px`, // Parallax effect
+              backgroundAttachment: 'fixed', // Keep it fixed for parallax effect
+            }}
+          >
+
+            <div className={[styles.boxWidth].join('')}>
               <PostFooterHome />
             </div>
           </div>
