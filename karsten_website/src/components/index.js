@@ -5,7 +5,7 @@ import AIVocalModels from "./AIVocalModels";
 import KirbEqualizer from "./KirbEqualizer";
 import RGM from './RGM';
 import PostFooterHome from "./PostFooterHome";
-import TechLogosCarousel from "./TechLogosCarousel";
+import TechLogosCarousel from "./PostFooterComponents/TechLogosCarousel";
 
 export {
     Navbar,

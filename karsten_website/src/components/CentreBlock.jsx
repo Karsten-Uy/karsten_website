@@ -69,32 +69,32 @@ const CentreBlock = () => {
       <div className={`${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <div>
           <p
-            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[100px] text-[60px] mb-2 sm:mb-4"
+            className="font-source-code-pro font-bold text-white md:mr-10 md:text-[80px] text-[50px] mb-2 sm:mb-4"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             {greeting}
           </p>
           <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-6"
+            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-6"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             I am a {titleText}
             <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
           </p>
           <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[40px] text-[30px] mb-4 sm:mb-12"
+            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-12"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
             based in Canada
           </p>
 
           <div className="w-full flex justify-left">
-            <p className="text-white text-lg font-semibold mr-3" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+            <p className="text-white text-base font-semibold mr-3" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
               Scroll down
             </p>
             <div className="mb-10 animate-bounce">
               <svg
-                className="w-6 h-6 text-white"
+                className="w-5 h-5 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
