@@ -8,8 +8,8 @@ const Page404 = () => {
     <div className={styles.flexStart}>
       <div className={styles.boxWidth}>
         <motion.div
-          initial={{ opacity: 0, x: '100%' }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <section className={`flex justify-center items-center ${styles.paddingY}`}>
@@ -28,24 +28,16 @@ const Page404 = () => {
                 </p>
 
                 <p
-                  className={`font-source-code-pro font-normal text-white md:text-[24px] text-[15px] mb-4 sm:mb-10 ${styles.textShadow}`}
+                  className={`font-source-code-pro font-normal text-white md:text-[24px] text-[15px] mb-4 sm:mb-10`}
                 >
                   You might want to check out the{' '}
                   <Link
                     to="/"
-                    className={styles.homepageLink}
-                    onMouseOver={(e) => Object.assign(e.target.style, styles.homepageLinkHover)}
-                    onMouseOut={(e) => Object.assign(e.target.style, styles.homepageLink)}
+                    className={`text-blue-500 hover:text-blue-700 transition-colors duration-300 mr-1`}
                   >
                     homepage
                   </Link> 
                    instead.
-                </p>
-
-                <p
-                  className={`font-source-code-pro font-normal text-white text-[40px] mt-4 ${styles.textShadow}`}
-                >
-                  😔
                 </p>
               </div>
             </div>
