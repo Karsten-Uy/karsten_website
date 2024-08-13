@@ -13,12 +13,12 @@ const Footer = () => {
 
   return (
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col mt-auto`}>
-      <div className="w-full flex flex-col md:flex-row justify-between items-center px-2">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-2">
         {/* Resume Button with Motion */}
         <motion.div
           whileHover="hover"
           variants={hoverVariants}
-          className="mb-8 md:mb-0"
+          className="mb-6 sm:mb-0"
         >
           <a
             href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"
@@ -31,13 +31,13 @@ const Footer = () => {
         </motion.div>
 
         {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 md:mb-0">
+        <div className="flex flex-wrap justify-center gap-3 mb-4 sm:mb-0">
           {socialMedia.map((social) => (
             <motion.div
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center mb-2"
+              className="flex items-center"
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img
@@ -54,7 +54,7 @@ const Footer = () => {
         <motion.div
           whileHover="hover"
           variants={hoverVariants}
-          className="mb-4 md:mb-0"
+          className="sm:mb-0"
         >
           <a
             href="mailto:karsten.uy@gmail.com"

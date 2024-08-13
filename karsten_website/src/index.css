@@ -53,6 +53,31 @@
   );
 }
 
+.bg-darkblue-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #a0d3d9 -43.27%, /* Darker shade of the first color */
+    #8ac8cc -21.24%, /* Darker shade of the second color */
+    #6db9c4 12.19%,  /* Darker shade of the third color */
+    #4ab4bc 29.82%,  /* Darker shade of the fourth color */
+    #2d9aaf 51.94%,  /* Darker shade of the fifth color */
+    #1a7f8e 90.29%   /* Darker shade of the sixth color */
+  );
+}
+
+.bg-lightblue-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #def9fa -43.27%,
+    #def9fa -21.24%,
+    #bef3f5 12.19%,
+    #bef3f5 29.82%,
+    #9dedf0 51.94%,
+    #9dedf0 90.29%
+  );
+}
+
+
 .bg-button-blue {
   background-color: #006cb4;
 }
@@ -243,7 +268,7 @@ Logo cycling
 
 .carousel-item {
   flex: 0 0 auto;
-  width: 10%; /* Adjust this value based on the number of items visible */
+  width: 5%; /* Adjust this value based on the number of items visible */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const techLogos = [
+const techLogos = [ // NOTE: it has to be doubled and to add more, change the caruousel item width to a percentage divisible by 100, so ye
   'logo1.png',
   'logo2.png',
   'logo3.png',
@@ -32,6 +32,16 @@ const techLogos = [
   'logo28.png',
   'logo29.png',
   'logo30.png',
+  'logo31.png',
+  'logo32.png',
+  'logo33.png',
+  'logo34.png',
+  'logo35.png',
+  'logo36.png',
+  'logo37.png',
+  'logo38.png',
+  'logo39.png',
+  'logo40.png'
 ];
 
 const TechLogosCarousel = () => {
@@ -48,7 +58,7 @@ const TechLogosCarousel = () => {
         <motion.div 
           className="inner-carousel"
           animate={{ x: ['0%', '-100%'] }}
-          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 15, ease: "linear", repeat: Infinity }}
         >
           {techLogos.concat(techLogos).map((logo, index) => (
             <motion.div className="carousel-item" key={index}>

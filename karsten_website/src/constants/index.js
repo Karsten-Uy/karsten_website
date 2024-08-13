@@ -9,14 +9,14 @@ export const navLinks = [
     id: "about",
     title: "About",
   },
-  // {
-  //   id: "experience",
-  //   title: "Expereince",
-  // },
   {
-    id: "projects",
-    title: "Projects",
+    id: "experience",
+    title: "Expereince",
   },
+  // {
+  //   id: "projects",
+  //   title: "Projects",
+  // },
   {
     id: "contact",
     title: "Contact",

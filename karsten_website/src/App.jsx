@@ -9,7 +9,7 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { postfooterbg } from './assets';
+import { postfooterbg, kirbyfloating } from './assets';
 import websiteBG from './assets/WebsiteBackground.png';
 import Page404 from './pages/Page404';
 import FooterHome from './components/FooterHome';
@@ -52,18 +52,22 @@ const AppContent = () => {
 
         {/* Main Content */}
         <div
-          className={['flex-grow', styles.paddingX, 'flex flex-col relative', styles.flicker, styles.backgroundMove].join(' ')}
+          className={['flex-grow', styles.paddingX, 'flex flex-col relative'].join(' ')}
           style={{
             backgroundSize: 'cover',
-            backgroundImage: `url(${websiteBG})`,
+            backgroundImage: `url(${isHomePage ? websiteBG : postfooterbg})`,
             backgroundAttachment: 'fixed',
             backgroundPosition: '0 0',
           }}
         >
-          <style>{styles.flickerAnimation}</style>
-          <style>{styles.backgroundMoveAnimation}</style>
-
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 opacity-70"></div>
+          {/* Conditionally render animations and teal div on home page */}
+          {isHomePage && (
+            <>
+              <style>{styles.flickerAnimation}</style>
+              <style>{styles.backgroundMoveAnimation}</style>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 opacity-70"></div>
+            </>
+          )}
 
           <div className='flex items-center justify-center flex-grow relative z-10'>
             <div className='relative z-10 justify-start'>
@@ -120,7 +124,7 @@ const AppContent = () => {
             style={{
               backgroundImage: `url(${postfooterbg})`,
               backgroundSize: 'cover',
-              backgroundPosition: `center ${scrollY * 0.04}px`,
+              backgroundPosition: `center ${scrollY * 0.00}px`,
               backgroundAttachment: 'fixed',
             }}
           >
@@ -129,7 +133,7 @@ const AppContent = () => {
             </div>
           </div>
 
-          <div className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0 py-5'].join(' ')}>
+          <div className={['bg-primary hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 py-5'].join(' ')}>
             <div className={[styles.boxWidth, 'flex flex-col items-center justify-center '].join(' ')}>
               <div className="w-full flex justify-between">
                 <p className="w-1/3 text-white text-sm text-left">
@@ -166,11 +170,15 @@ const AppContent = () => {
               </div>
             </div>
           </div>
+
+          {/* ADD CONTENT TO SHOW ONLY WHEN ON MOBILE */}
+          <div className={['bg-primary sm:hidden', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
+            <div className={[styles.boxWidth].join(' ')}>
+              <Footer />
+            </div>
+          </div>
         </div>
       )}
-
-
-
     </div>
   );
 };

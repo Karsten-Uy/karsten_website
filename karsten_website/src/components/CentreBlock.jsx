@@ -9,7 +9,7 @@ const CentreBlock = () => {
     "Lifeguard"
   ];
 
-  const [greeting] = useState("Hello, I'm Karsten");
+  const [greeting] = useState("Hello, I'm Kirby");
   const [titleText, setTitleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [titleIndex, setTitleIndex] = useState(0);
