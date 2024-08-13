@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex py-2 justify-between items-center navbar relative z-20">
+    <nav className="w-full flex py-2 justify-between items-center navbar relative"  style={{ zIndex: 100 }}>
       {/* Wrap the logo with motion.div */}
       <motion.div
         whileHover={{ scale: 1.1 }}

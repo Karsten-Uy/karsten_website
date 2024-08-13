@@ -41,7 +41,7 @@ import sound from './sound.png';
 import uiux from './uiux.png';
 import dev from './dev.png';
 import postfooterbg from './PostFooterBG.png';
-import kirbyfloating from './kirby.png';
+import kirbyfloating from './kirby.gif';
 
 export {
   airbnb,

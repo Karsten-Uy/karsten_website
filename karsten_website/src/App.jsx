@@ -21,6 +21,9 @@ const AppContent = () => {
   const postFooterRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
 
+  // State for mouse position
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
   const scrollToPostFooter = () => {
     if (postFooterRef.current) {
       postFooterRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -31,13 +34,21 @@ const AppContent = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleMouseMove = (event) => {
+    setMousePos({ x: event.clientX, y: event.clientY });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove); // Add mousemove listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove); // Clean up
+    };
   }, []);
 
   return (
@@ -45,7 +56,7 @@ const AppContent = () => {
       <div className="bg-primary min-h-screen w-full flex flex-col relative">
         {/* Navbar */}
         <div className={[styles.paddingX, styles.flexCenter, 'flex-shrink-0'].join(' ')}>
-          <div className={[styles.boxWidth, 'mb-3'].join(' ')}>
+          <div className={[styles.boxWidth, 'mb-3'].join(' ')}  style={{ zIndex: 100 }}>
             <Navbar />
           </div>
         </div>
@@ -58,6 +69,7 @@ const AppContent = () => {
             backgroundImage: `url(${isHomePage ? websiteBG : postfooterbg})`,
             backgroundAttachment: 'fixed',
             backgroundPosition: '0 0',
+            zIndex: 0,
           }}
         >
           {/* Conditionally render animations and teal div on home page */}
@@ -107,7 +119,7 @@ const AppContent = () => {
             </div>
           </div>
         </div>
-
+        
         {/* Footer */}
         <div className={['bg-primary hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
           <div className={[styles.boxWidth].join(' ')}>
@@ -118,7 +130,7 @@ const AppContent = () => {
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div ref={postFooterRef} className="relative z-0">
+        <div ref={postFooterRef} className="relative">
           <div
             className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}
             style={{
@@ -179,6 +191,25 @@ const AppContent = () => {
           </div>
         </div>
       )}
+
+      {/* Floating GIF */}
+      {(
+        <img
+          src={kirbyfloating}
+          alt="Kirby Floating"
+          style={{
+            position: 'absolute',
+            left: `${mousePos.x + 10}px`,
+            top: `${mousePos.y + 30 + scrollY}px`,
+            transform: 'translate(-50%, -50%)',
+            pointerEvents: 'none',
+            zIndex: 10,
+          }}
+          className="w-16 h-16" // Adjust size as needed
+        />
+      )}
+
+
     </div>
   );
 };
