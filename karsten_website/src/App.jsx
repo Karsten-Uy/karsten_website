@@ -18,7 +18,6 @@ const AppContent = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
 
-  // Create a ref for the PostFooterHome component
   const postFooterRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
 
@@ -28,7 +27,10 @@ const AppContent = () => {
     }
   };
 
-  // Update scrollY state on window scroll
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -54,12 +56,12 @@ const AppContent = () => {
           style={{
             backgroundSize: 'cover',
             backgroundImage: `url(${websiteBG})`,
-            backgroundAttachment: 'fixed', // Parallax effect
+            backgroundAttachment: 'fixed',
             backgroundPosition: '0 0',
           }}
         >
-          <style>{styles.flickerAnimation}</style> {/* Inject the flicker animation keyframes */}
-          <style>{styles.backgroundMoveAnimation}</style> {/* Inject the background move keyframes */}
+          <style>{styles.flickerAnimation}</style>
+          <style>{styles.backgroundMoveAnimation}</style>
 
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 opacity-70"></div>
 
@@ -118,23 +120,57 @@ const AppContent = () => {
             style={{
               backgroundImage: `url(${postfooterbg})`,
               backgroundSize: 'cover',
-              backgroundPosition: `center ${scrollY * 0.04}px`, // Parallax effect
-              backgroundAttachment: 'fixed', // Keep it fixed for parallax effect
+              backgroundPosition: `center ${scrollY * 0.04}px`,
+              backgroundAttachment: 'fixed',
             }}
           >
-
             <div className={[styles.boxWidth].join('')}>
               <PostFooterHome />
             </div>
           </div>
 
-          <div className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0'].join(' ')}>
-            <div className={[styles.boxWidth].join(' ')}>
-              <FooterHome />
+          <div className={['bg-primary', styles.paddingX, styles.flexStart, 'flex-shrink-0 py-5'].join(' ')}>
+            <div className={[styles.boxWidth, 'flex flex-col items-center justify-center '].join(' ')}>
+              <div className="w-full flex justify-between">
+                <p className="w-1/3 text-white text-sm text-left">
+                  domainname ©2024 - Privacy Policy
+                </p>
+
+                {/* Scroll to Top Button */}
+                <div className="w-1/3 flex justify-center">
+                  <button 
+                    onClick={scrollToTop} 
+                    className="flex items-center"
+                  >
+                    <svg
+                      className="w-5 h-5 text-white animate-bounce"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 15l-7-7-7 7"></path>
+                    </svg>
+                    <p className="text-white text-base font-semibold ml-2" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+                      Back to top
+                    </p>
+                  </button>
+                </div>
+
+                <p className="w-1/3 text-white text-sm text-right">
+                  Vancouver, Canada
+                </p>
+              </div>
             </div>
           </div>
         </div>
       )}
+
+
+
     </div>
   );
 };

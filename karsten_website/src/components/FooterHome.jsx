@@ -1,70 +1,45 @@
-import styles from "../style";
-import { socialMedia } from "../constants";
 import { motion } from 'framer-motion';
-import { email } from '../assets';
+import { useRef } from 'react';
 
 const FooterHome = () => {
-  const hoverVariants = {
-    hover: {
-      scale: 1.1,
-      transition: { duration: 0.3, ease: 'easeInOut' },
-    },
+  const scrollToTopRef = useRef(null);
+
+  const handleScrollToTop = () => {
+    if (scrollToTopRef.current) {
+      scrollToTopRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} flex-col mt-auto`}>
-      <div className="w-full flex flex-col md:flex-row justify-between items-center px-2">
-        {/* Resume Button with Motion */}
-        <motion.div
-          whileHover="hover"
-          variants={hoverVariants}
-          className="mb-8 md:mb-0"
-        >
-          <a
-            href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-full"
-          >
-            Resume
-          </a>
-        </motion.div>
-
-        {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 md:mb-0">
-          {socialMedia.map((social) => (
-            <motion.div
-              key={social.id}
-              whileHover="hover"
-              variants={hoverVariants}
-              className="flex items-center mb-2"
-            >
-              <a href={social.link} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={social.icon}
-                  alt={social.link}
-                  className="w-[25px] h-[25px] object-contain cursor-pointer"
-                />
-              </a>
-            </motion.div>
-          ))}
+    <section className="flex flex-col mt-auto bg-gray-800 text-white py-4">
+      <div className="w-full flex justify-between items-center px-4">
+        {/* Left Side */}
+        <div className="text-sm">
+          <span>websitename ©2024 - Privacy Policy</span>
         </div>
 
-        {/* Email Button with Motion */}
-        <motion.div
-          whileHover="hover"
-          variants={hoverVariants}
-          className="mb-4 md:mb-0"
-        >
-          <a
-            href="mailto:karsten.uy@gmail.com"
-            className="flex items-center text-white bg-primary border border-white hover:bg-blue-700 text-xs py-2 px-4 rounded-full"
-          >
-            <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
-            karsten.uy@example.com
-          </a>
-        </motion.div>
+        {/* Center Placeholder */}
+        <div className="hidden md:flex-grow"></div>
+
+        {/* Right Side */}
+        <div className="text-sm">
+          <span>Vancouver, Canada</span>
+        </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <div className="flex justify-center mt-4">
+        <motion.button
+          onClick={handleScrollToTop}
+          className="bg-primary text-white py-2 px-4 rounded-full hover:bg-blue-700"
+          whileHover={{ scale: 1.1, transition: { duration: 0.3, ease: 'easeInOut' } }}
+        >
+          Scroll to Top
+        </motion.button>
+      </div>
+
+      {/* Element to scroll to */}
+      <div ref={scrollToTopRef} />
     </section>
   );
 };

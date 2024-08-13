@@ -6,12 +6,14 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const gradientVariants = {
-    initial: { background: 'transparent' },
+    initial: { 
+      background: 'linear-gradient(157.81deg, rgba(222, 249, 250, 0) -43.27%, rgba(190, 243, 245, 0) -21.24%, rgba(157, 237, 240, 0) 12.19%, rgba(125, 231, 235, 0) 29.82%, rgba(92, 225, 230, 0) 51.94%, rgba(51, 187, 207, 0) 90.29%)'
+    },
     hover: { 
-      background: 'linear-gradient(157.81deg, #def9fa -43.27%, #bef3f5 -21.24%, #9dedf0 12.19%, #7de7eb 29.82%, #5ce1e6 51.94%, #33bbcf 90.29%)',
+      background: 'linear-gradient(157.81deg, rgba(222, 249, 250, 1) -43.27%, rgba(190, 243, 245, 1) -21.24%, rgba(157, 237, 240, 1) 12.19%, rgba(125, 231, 235, 1) 29.82%, rgba(92, 225, 230, 1) 51.94%, rgba(51, 187, 207, 1) 90.29%)',
       transition: { duration: 0.5 }
     }
-  };
+  }
 
   const transformVariants = {
     initial: { scale: 1 },
@@ -21,7 +23,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
   const textStyle = (isHovered) => ({
     textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)',
     color: isHovered ? 'black' : 'white',
-    transition: 'color 0.3s ease-in-out',
+    transition: 'color 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
   });
 
   return (
@@ -42,13 +44,13 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
         }}
       >
         <motion.div
-          className="w-full flex transition-all duration-300 rounded-lg"
+          className="w-full flex transition-all duration-300 rounded-lg overflow-hidden"
           variants={gradientVariants}
           initial="initial"
           animate={hoveredIndex === 'full-stack' ? 'hover' : 'initial'}
           whileHover={{ scale: 0.95 }}
         >
-          <div className="w-1/2 p-4 transition-all duration-300">
+          <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
             <p className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
               Insurance Corporation of British Columbia
             </p>
@@ -88,13 +90,13 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
           }}
         >
           <motion.div
-            className="w-full flex transition-all duration-300 rounded-lg"
+            className="w-full flex transition-all duration-300 rounded-lg overflow-hidden"
             variants={gradientVariants}
             initial="initial"
             animate={hoveredIndex === project.link.slice(1) ? 'hover' : 'initial'}
             whileHover={{ scale: 0.95 }}
           >
-            <div className="w-1/2 p-4 transition-all duration-300">
+            <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
               <h3 className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === project.link.slice(1))}>
                 {project.title}
               </h3>
