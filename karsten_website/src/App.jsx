@@ -146,7 +146,7 @@ const AppContent = () => {
 
         
         {/* Footer */}
-         <div className={[' hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')} >
+        <div className={[' hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')} >
           <div className={[styles.boxWidth].join(' ')}  style={{zIndex: 10}} >
             <Footer />
           </div>
@@ -212,16 +212,17 @@ const AppContent = () => {
                         Vancouver, Canada
                       </p>
                     </div>
+
+                    <div className={['block sm:hidden', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')}>
+                      <div className={[styles.boxWidth].join(' ')} style={{ zIndex: 10 }}>
+                        <Footer />
+                      </div>
+                    </div>
+
+
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Mobile Footer Section */}
-          <div className={['sm:hidden', styles.paddingX, styles.flexStart].join(' ')} style={{ zIndex: 10 }}>
-            <div className={[styles.boxWidth].join(' ')}>
-              <Footer />
             </div>
           </div>
         </div>
