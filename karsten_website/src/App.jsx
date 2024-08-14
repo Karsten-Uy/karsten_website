@@ -9,9 +9,8 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { postfooterbg, kirbyfloating, skyBG } from './assets';
+import { postfooterbg, kirbyfloating, skyBG, waterBG } from './assets';
 import Page404 from './pages/Page404';
-import FooterHome from './components/FooterHome';
 
 const AppContent = () => {
   const location = useLocation();
@@ -85,9 +84,9 @@ const AppContent = () => {
           className={['absolute inset-0', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
             backgroundSize: 'cover',
-            backgroundImage: `url(${isHomePage ? skyBG : postfooterbg})`,
+            backgroundImage: `url(${isHomePage ? skyBG : waterBG})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: '0 0',
+            backgroundPosition: `center ${scrollY * 0.05}px`,
             zIndex: 0,
           }}
         />
@@ -157,71 +156,70 @@ const AppContent = () => {
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div ref={postFooterRef} className="" >
-          <div
-            className={['bg-primary',  styles.flexStart].join(' ')}
-            style={{
-              backgroundImage: `url(${postfooterbg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: `center ${scrollY * 0.00}px`,
-              backgroundAttachment: 'fixed',
-            }}
-          >
-            <div  style={{ zIndex: 10 }}>
-              <div className={[styles.boxWidth].join('')}>
-                <PostFooterHome />
-              </div>
-          
-              
+        <div>
+          <div ref={postFooterRef}>
+            <div
+              className={['bg-primary', styles.flexStart].join(' ')}
+              style={{
+                backgroundImage: `url(${waterBG})`,
+                backgroundSize: 'cover',
+                backgroundPosition: `center ${scrollY * 0.05}px`,
+                backgroundAttachment: 'fixed',
+              }}
+            >
 
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
+    
+
+              <div style={{ zIndex: 10 }}>
+                <div className={[styles.boxWidth].join(' ')}>
+                  <PostFooterHome />
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className={['bg-primary hidden sm:flex justify-center ' ]}>
-                <div className={[styles.boxWidth, 'flex flex-col items-center justify-center bg-primary z-10 py-6'].join(' ')} >
-                  <div>
-                    
-                  </div>
-                  <div className="w-full flex justify-between">
-                    <p className="w-1/3 text-white text-sm text-left">
-                      domainname ©2024 - Privacy Policy
-                    </p>
+          <div className={['hidden sm:flex justify-center py-6'].join(' ')}>
+            <div className={[styles.boxWidth, 'flex flex-col items-center justify-center z-10'].join(' ')}>
+              <div></div>
+              <div className="w-full flex justify-between">
+                <p className="w-1/3 text-white text-sm text-left">
+                  domainname ©2024 - Privacy Policy
+                </p>
 
-                    {/* Scroll to Top Button */}
-                    <div className="w-1/3 flex justify-center">
-                      <button 
-                        onClick={scrollToTop} 
-                        className="flex items-center"
-                      >
-                        <svg
-                          className="w-5 h-5 text-white animate-bounce"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M19 15l-7-7-7 7"></path>
-                        </svg>
-                        <p className="text-white text-base font-semibold ml-2" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-                          Back to top
-                        </p>
-                      </button>
-                    </div>
-
-                    <p className="w-1/3 text-white text-sm text-right">
-                      Vancouver, Canada
+                {/* Scroll to Top Button */}
+                <div className="w-1/3 flex justify-center">
+                  <button onClick={scrollToTop} className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-white animate-bounce"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 15l-7-7-7 7"></path>
+                    </svg>
+                    <p
+                      className="text-white text-base font-semibold ml-2"
+                      style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
+                    >
+                      Back to top
                     </p>
-                  </div>
+                  </button>
                 </div>
+
+                <p className="w-1/3 text-white text-sm text-right">
+                  Vancouver, Canada
+                </p>
               </div>
-
-
-
+            </div>
+          </div>
         </div>
       )}
+
 
               
 
