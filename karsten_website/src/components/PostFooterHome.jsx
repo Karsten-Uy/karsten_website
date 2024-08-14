@@ -71,7 +71,7 @@ const PostFooterHome = () => {
 
     return (
       <div 
-        className={`fixed bg-black text-white p-4 rounded-xl shadow-lg transition-opacity duration-300 z-50 ${isTooltipVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed bg-black text-white p-4 rounded-xl shadow-lg transition-opacity duration-300  ${isTooltipVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
           left: `${left}px`, 
           top: `${top}px`,

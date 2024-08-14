@@ -42,6 +42,7 @@ import uiux from './uiux.png';
 import dev from './dev.png';
 import postfooterbg from './PostFooterBG.png';
 import kirbyfloating from './kirby.gif';
+import skyBG from './skybg.gif';
 
 export {
   airbnb,
@@ -87,5 +88,6 @@ export {
   sound,
   uiux,
   postfooterbg,
-  kirbyfloating
+  kirbyfloating,
+  skyBG
 };
