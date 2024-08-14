@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -242,7 +243,6 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: #4387b5; /* Thumb color */
-  border-radius: 10px; /* Rounded corners */
   border: 3px solid #08040c; /* Simulate a border by adding a border to the thumb */
 }
 

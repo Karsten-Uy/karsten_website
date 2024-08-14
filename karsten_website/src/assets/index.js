@@ -44,6 +44,8 @@ import postfooterbg from './PostFooterBG.png';
 import kirbyfloating from './kirby.gif';
 import skyBG from './skybg.gif';
 import waterBG from './water-fish.gif';
+import cityBG from './pixel-city.gif';
+import rocks from './rocks.png';
 
 export {
   airbnb,
@@ -91,5 +93,7 @@ export {
   postfooterbg,
   kirbyfloating,
   skyBG,
-  waterBG
+  waterBG,
+  cityBG,
+  rocks
 };

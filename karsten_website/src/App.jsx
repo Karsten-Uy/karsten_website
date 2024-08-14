@@ -9,7 +9,7 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { postfooterbg, kirbyfloating, skyBG, waterBG } from './assets';
+import { postfooterbg, kirbyfloating, skyBG, waterBG, cityBG } from './assets';
 import Page404 from './pages/Page404';
 
 const AppContent = () => {
@@ -62,7 +62,7 @@ const AppContent = () => {
           bottom: 0,
           overflow: 'hidden',
           pointerEvents: 'none',
-          zIndex: 1,
+          zIndex: 5,
         }}
       >
         <img
@@ -146,8 +146,8 @@ const AppContent = () => {
 
         
         {/* Footer */}
-         <div className={['bg-primary hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')} style={{zIndex: 10}}>
-          <div className={[styles.boxWidth].join(' ')} >
+         <div className={[' hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')} >
+          <div className={[styles.boxWidth].join(' ')}  style={{zIndex: 10}} >
             <Footer />
           </div>
         </div>
@@ -156,8 +156,9 @@ const AppContent = () => {
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div>
-          <div ref={postFooterRef}>
+        <div className="">
+          {/* PostFooterHome Section */}
+          <div ref={postFooterRef} className="">
             <div
               className={['bg-primary', styles.flexStart].join(' ')}
               style={{
@@ -167,77 +168,68 @@ const AppContent = () => {
                 backgroundAttachment: 'fixed',
               }}
             >
-
               <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
-    
-
-              <div style={{ zIndex: 10 }}>
-                <div className={[styles.boxWidth].join(' ')}>
+              
+              <div className="relative flex flex-col w-full items-center">
+                {/* PostFooterHome Section */}
+                <div className={[styles.boxWidth, 'relative w-full px-4 sm:px-6 lg:px-8'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
+                </div>
+
+                {/* Footer Section */}
+                <div className="flex justify-center py-6 w-full px-4 sm:px-6 lg:px-8">
+                  <div className={[styles.boxWidth, 'flex flex-col items-center z-10 w-full'].join(' ')}>
+                    <div className="w-full flex flex-col sm:flex-row justify-between items-center">
+                      <p className="text-white text-sm text-center sm:text-left mb-2 sm:mb-0">
+                        domainname ©2024 - Privacy Policy
+                      </p>
+
+                      {/* Scroll to Top Button */}
+                      <div className="flex justify-center mb-2 sm:mb-0">
+                        <button onClick={scrollToTop} className="flex items-center">
+                          <svg
+                            className="w-5 h-5 text-white animate-bounce"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M19 15l-7-7-7 7"></path>
+                          </svg>
+                          <p
+                            className="text-white text-base font-semibold ml-2"
+                            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
+                          >
+                            Back to top
+                          </p>
+                        </button>
+                      </div>
+
+                      <p className="text-white text-sm text-center sm:text-right">
+                        Vancouver, Canada
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={['hidden sm:flex justify-center py-6'].join(' ')}>
-            <div className={[styles.boxWidth, 'flex flex-col items-center justify-center z-10'].join(' ')}>
-              <div></div>
-              <div className="w-full flex justify-between">
-                <p className="w-1/3 text-white text-sm text-left">
-                  domainname ©2024 - Privacy Policy
-                </p>
-
-                {/* Scroll to Top Button */}
-                <div className="w-1/3 flex justify-center">
-                  <button onClick={scrollToTop} className="flex items-center">
-                    <svg
-                      className="w-5 h-5 text-white animate-bounce"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M19 15l-7-7-7 7"></path>
-                    </svg>
-                    <p
-                      className="text-white text-base font-semibold ml-2"
-                      style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
-                    >
-                      Back to top
-                    </p>
-                  </button>
-                </div>
-
-                <p className="w-1/3 text-white text-sm text-right">
-                  Vancouver, Canada
-                </p>
-              </div>
+          {/* Mobile Footer Section */}
+          <div className={['sm:hidden', styles.paddingX, styles.flexStart].join(' ')} style={{ zIndex: 10 }}>
+            <div className={[styles.boxWidth].join(' ')}>
+              <Footer />
             </div>
           </div>
         </div>
       )}
 
 
-              
 
-
-
-
-
-
-
-
-
-
-
-              <div className={['bg-primary sm:hidden', styles.paddingX, styles.flexStart, ].join(' ')} style={{zIndex: 10}}>
-                <div className={[styles.boxWidth].join(' ')} >
-                  <Footer />
-                </div>
-              </div>
+   
 
     </div>
   );
