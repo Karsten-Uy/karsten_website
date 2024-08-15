@@ -12,8 +12,8 @@ const Footer = () => {
   };
 
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} flex-col mt-auto`}>
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-2">
+    <section className={`${styles.flexCenter} ${styles.paddingY} px-8 flex-col mt-auto`}>
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
         {/* Resume Button with Motion */}
         <motion.div
           whileHover="hover"
@@ -37,7 +37,7 @@ const Footer = () => {
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center "
+              className="flex items-center"
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img

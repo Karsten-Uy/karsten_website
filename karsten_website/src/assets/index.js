@@ -50,6 +50,11 @@ import grass from './grass2.png';
 import caveBG from './caveBG.gif';
 import wasserfallforest from './wasserfall-forest.gif'
 import cityBG2 from './pixel-city2.gif';
+import cityBG3 from './pixel-city3.gif';
+import mountainBG from './mountainBG.gif';
+import oilBG from './oil.gif';
+import levelBG from './levelBG.gif';
+import ICBC from './Insurance_Corporation_of_British_Columbia_Logo.svg'
 
 export {
   airbnb,
@@ -103,5 +108,10 @@ export {
   grass,
   caveBG,
   wasserfallforest,
-  cityBG2
+  cityBG2,
+  mountainBG,
+  oilBG,
+  levelBG,
+  cityBG3,
+  ICBC
 };

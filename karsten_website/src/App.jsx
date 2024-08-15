@@ -9,7 +9,7 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { kirbyfloating, skyBG, waterBG, rocks, grass, caveBG, wasserfallforest, cityBG, cityBG2 } from './assets';
+import { kirbyfloating, skyBG, waterBG, rocks, grass, caveBG, wasserfallforest, cityBG, cityBG2, mountainBG, oilBG, levelBG, cityBG3 } from './assets';
 import Page404 from './pages/Page404';
 
 const AppContent = () => {
@@ -21,14 +21,23 @@ const AppContent = () => {
   const isContact = location.pathname === '/contact';
 
   // Background image based on page
-  let backgroundImage = skyBG; // Default for the homepage
+  let backgroundImage = caveBG; // Default for the homepage
+  let footerBG = rocks;
 
   if (isAboutPage) {
-    backgroundImage = wasserfallforest;
+    backgroundImage = skyBG;
   } else if (isExperiencePage) {
-    backgroundImage = waterBG;
+    backgroundImage = mountainBG;
   } else if (isContact) {
-    backgroundImage = caveBG;
+    backgroundImage = cityBG3;
+  }
+
+  if (isHomePage) {
+    footerBG = null;
+  } else if (isAboutPage) {
+    footerBG = grass;
+  } else if (isExperiencePage) {
+    footerBG = rocks;
   }
 
   const postFooterRef = useRef(null);
@@ -93,39 +102,46 @@ const AppContent = () => {
         />
       </div>
 
+      {/* Conditionally render animations and teal div on home page */}
+      { (isAboutPage || isExperiencePage || isContact) && (
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 1 }} />
+      )}
+
       <div className="bg-primary min-h-screen w-full flex flex-col relative">
         {/* Main Content Background */}
         <div
           className={['absolute inset-0', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundAttachment: '',
+            backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
             backgroundPosition: `center ${scrollY * 0.0}px`,
             zIndex: 0,
           }}
         />
-
-        {/* Conditionally render animations and teal div on home page */}
-        {isHomePage && (
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
-        )}
+        
 
         {/* Navbar */}
-        <div className={[styles.paddingX, styles.flexCenter, 'bg-primary flex-shrink-0 relative'].join(' ')} style={{ zIndex: 10 }}>
+        <div className={[styles.flexCenter, 'bg-primary flex-shrink-0 relative'].join(' ')} style={{ zIndex: 10 }}>
           <div className={[styles.boxWidth, 'mb-3'].join(' ')}>
             <Navbar />
           </div>
         </div>
 
         {/* Main Content */}
-        <div className={['flex-grow', styles.paddingX, 'flex flex-col relative'].join(' ')}>
+        <div className={['flex-grow flex flex-col relative'].join(' ')}>
           <div className='flex items-center justify-center flex-grow relative'>
-            <div className='relative justify-start'  style={{ zIndex: 10 }}>
+            <div className='relative justify-start px-40'  style={{ zIndex: 10 }}>
               <Routes>
                 <Route path="/" index element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/about" element={
+                  
+                  <div className=''>
+                    <About />
+                  </div>
+
+                  } />
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/contact" element={<Contact />} />
@@ -162,13 +178,8 @@ const AppContent = () => {
         
         {/* Footer */}
         <div 
-          className={[styles.paddingX, styles.flexStart, ''].join(' ')} 
+          className={[styles.flexStart, ''].join(' ')} 
           style={{
-            backgroundImage: `url(${grass})`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
-            backgroundPosition: 'center',
-            height: 150,
             zIndex: 10,
             alignItems: 'flex-end'
           }} 
@@ -179,16 +190,13 @@ const AppContent = () => {
           </div>
         </div>
 
-
-
-
       </div>
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
-        <div className="">
+        <div className={[styles]}>
           {/* PostFooterHome Section */}
-          <div ref={postFooterRef} className="">
+          <div ref={postFooterRef} >
             <div
               className={['bg-primary', styles.flexStart].join(' ')}
               style={{
@@ -202,7 +210,7 @@ const AppContent = () => {
               
               <div className="relative flex flex-col w-full items-center">
                 {/* PostFooterHome Section */}
-                <div className={[styles.boxWidth, styles.paddingX, 'relative w-full px-4 sm:px-6 lg:px-8'].join(' ')} style={{ zIndex: 10 }}>
+                <div className={[styles.boxWidth, 'relative w-full px-20'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>
 
