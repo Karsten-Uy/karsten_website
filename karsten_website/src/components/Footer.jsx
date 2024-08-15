@@ -37,7 +37,7 @@ const Footer = () => {
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center"
+              className="flex items-center bg-primary border border-white hover:bg-primary text-xs py-2 px-2 rounded-lg"
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img

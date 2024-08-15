@@ -21,11 +21,11 @@ const AppContent = () => {
   const isContact = location.pathname === '/contact';
 
   // Background image based on page
-  let backgroundImage = caveBG; // Default for the homepage
+  let backgroundImage = skyBG; // Default for the homepage
   let footerBG = rocks;
 
   if (isAboutPage) {
-    backgroundImage = skyBG;
+    backgroundImage = levelBG;
   } else if (isExperiencePage) {
     backgroundImage = mountainBG;
   } else if (isContact) {
@@ -113,9 +113,7 @@ const AppContent = () => {
           className={['absolute inset-0', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
-            backgroundPosition: `center ${scrollY * 0.0}px`,
             zIndex: 0,
           }}
         />
@@ -180,7 +178,12 @@ const AppContent = () => {
         <div 
           className={[styles.flexStart, ''].join(' ')} 
           style={{
+            backgroundImage: `url(${grass})`, 
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
+            backgroundPosition: 'center',
             zIndex: 10,
+            height: 170,
             alignItems: 'flex-end'
           }} 
         >
