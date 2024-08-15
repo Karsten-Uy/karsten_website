@@ -24,26 +24,26 @@ const Footer = () => {
             href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-full"
+            className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-lg"
           >
             Resume
           </a>
         </motion.div>
 
         {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 sm:mb-0">
+        <div className="flex flex-wrap justify-center gap-3 mb-4 sm:mb-0 ">
           {socialMedia.map((social) => (
             <motion.div
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center"
+              className="flex items-center "
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img
                   src={social.icon}
                   alt={social.link}
-                  className="w-[25px] h-[25px] object-contain cursor-pointer"
+                  className="w-[25px] h-[25px] object-contain cursor-pointer filter "
                 />
               </a>
             </motion.div>
@@ -58,7 +58,7 @@ const Footer = () => {
         >
           <a
             href="mailto:karsten.uy@gmail.com"
-            className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-full"
+            className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-lg"
           >
             <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
             karsten.uy@example.com

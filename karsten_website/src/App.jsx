@@ -9,12 +9,27 @@ import { Navbar, Footer, PostFooterHome } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { postfooterbg, kirbyfloating, skyBG, waterBG, cityBG } from './assets';
+import { kirbyfloating, skyBG, waterBG, rocks, grass, caveBG, wasserfallforest, cityBG, cityBG2 } from './assets';
 import Page404 from './pages/Page404';
 
 const AppContent = () => {
+  
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
+  const isAboutPage = location.pathname === '/about';
+  const isExperiencePage = location.pathname === '/experience';
+  const isContact = location.pathname === '/contact';
+
+  // Background image based on page
+  let backgroundImage = skyBG; // Default for the homepage
+
+  if (isAboutPage) {
+    backgroundImage = wasserfallforest;
+  } else if (isExperiencePage) {
+    backgroundImage = waterBG;
+  } else if (isContact) {
+    backgroundImage = caveBG;
+  }
 
   const postFooterRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
@@ -83,10 +98,10 @@ const AppContent = () => {
         <div
           className={['absolute inset-0', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundAttachment: '',
             backgroundSize: 'cover',
-            backgroundImage: `url(${isHomePage ? skyBG : waterBG})`,
-            backgroundAttachment: 'fixed',
-            backgroundPosition: `center ${scrollY * 0.05}px`,
+            backgroundPosition: `center ${scrollY * 0.0}px`,
             zIndex: 0,
           }}
         />
@@ -146,11 +161,26 @@ const AppContent = () => {
 
         
         {/* Footer */}
-        <div className={[' hidden sm:flex', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')} >
-          <div className={[styles.boxWidth].join(' ')}  style={{zIndex: 10}} >
+        <div 
+          className={[styles.paddingX, styles.flexStart, ''].join(' ')} 
+          style={{
+            backgroundImage: `url(${grass})`,
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
+            backgroundPosition: 'center',
+            height: 150,
+            zIndex: 10,
+            alignItems: 'flex-end'
+          }} 
+        >
+
+          <div className={[styles.boxWidth].join('z-10  ')}>
             <Footer />
           </div>
         </div>
+
+
+
 
       </div>
 
@@ -162,9 +192,9 @@ const AppContent = () => {
             <div
               className={['bg-primary', styles.flexStart].join(' ')}
               style={{
-                backgroundImage: `url(${waterBG})`,
+                backgroundImage: `url(${caveBG})`,
                 backgroundSize: 'cover',
-                backgroundPosition: `center ${scrollY * 0.05}px`,
+                backgroundPosition: `center ${scrollY * 0.0}px`,
                 backgroundAttachment: 'fixed',
               }}
             >
@@ -172,12 +202,20 @@ const AppContent = () => {
               
               <div className="relative flex flex-col w-full items-center">
                 {/* PostFooterHome Section */}
-                <div className={[styles.boxWidth, 'relative w-full px-4 sm:px-6 lg:px-8'].join(' ')} style={{ zIndex: 10 }}>
+                <div className={[styles.boxWidth, styles.paddingX, 'relative w-full px-4 sm:px-6 lg:px-8'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>
 
                 {/* Footer Section */}
-                <div className="flex justify-center py-6 w-full px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-center py-6 w-full px-4 sm:px-6 lg:px-8"
+                style={{
+                  backgroundImage: `url(${rocks})`,
+                  backgroundRepeat: 'repeat-x',
+                  backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
+                  backgroundPosition: 'center',
+                  height: 130,
+                  alignItems: 'flex-end'
+                }} >
                   <div className={[styles.boxWidth, 'flex flex-col items-center z-10 w-full'].join(' ')}>
                     <div className="w-full flex flex-col sm:flex-row justify-between items-center">
                       <p className="text-white text-sm text-center sm:text-left mb-2 sm:mb-0">
