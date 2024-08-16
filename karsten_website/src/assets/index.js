@@ -46,7 +46,7 @@ import skyBG from './skybg.gif';
 import waterBG from './water-fish.gif';
 import cityBG from './pixel-city.gif';
 import rocks from './rocks.png';
-import grass from './grass2.png';
+import grass from './grass3.png';
 import caveBG from './caveBG.gif';
 import wasserfallforest from './wasserfall-forest.gif'
 import cityBG2 from './pixel-city2.gif';

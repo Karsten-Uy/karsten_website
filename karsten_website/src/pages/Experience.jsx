@@ -19,6 +19,13 @@ const Experience = () => {
 
   return (
     <section className="text-left text-white mt-14">
+
+      <h1 className="font-bold text-5xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+        My Experiences
+      </h1>
+
+      <hr className="border-t border-white-400 my-8" />
+
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Career
       </h2>
@@ -74,6 +81,8 @@ const Experience = () => {
             </div>
         </div>
       </motion.div>
+
+      <hr className="border-t border-white-400 my-8" />
 
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Projects

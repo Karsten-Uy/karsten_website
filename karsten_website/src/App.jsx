@@ -156,7 +156,7 @@ const AppContent = () => {
                     Scroll down
                   </p>
                   <svg
-                    className="w-5 h-5 text-white animate-bounce mb-16"
+                    className="w-5 h-5 text-white animate-bounce"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
@@ -176,19 +176,19 @@ const AppContent = () => {
         
         {/* Footer */}
         <div 
-          className={[styles.flexStart, ''].join(' ')} 
+          className={[styles.flexStart, '']} 
           style={{
             backgroundImage: `url(${grass})`, 
             backgroundRepeat: 'repeat-x',
             backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
             backgroundPosition: 'center',
             zIndex: 10,
-            height: 170,
+            height: 200,
             alignItems: 'flex-end'
           }} 
         >
 
-          <div className={[styles.boxWidth].join('z-10  ')}>
+          <div className={[styles.boxWidth].join(' hidden sm:flex z-10')}>
             <Footer />
           </div>
         </div>
@@ -262,11 +262,7 @@ const AppContent = () => {
                       </p>
                     </div>
 
-                    <div className={['block sm:hidden', styles.paddingX, styles.flexStart, 'flex-shrink-0 relative'].join(' ')}>
-                      <div className={[styles.boxWidth].join(' ')} style={{ zIndex: 10 }}>
-                        <Footer />
-                      </div>
-                    </div>
+
 
 
                   </div>

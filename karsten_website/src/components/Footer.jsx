@@ -12,13 +12,13 @@ const Footer = () => {
   };
 
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} px-8 flex-col mt-auto`}>
+    <section className={`${styles.flexCenter} py-4  px-8 flex-col mt-auto`}>
       <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
         {/* Resume Button with Motion */}
         <motion.div
           whileHover="hover"
           variants={hoverVariants}
-          className="mb-6 sm:mb-0"
+          className="mb-6 sm:mb-0 z-10"
         >
           <a
             href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"

@@ -16,7 +16,7 @@ const About = () => {
         <section id='about' className="max-w-screen-xl mx-auto">
           <div className="md:flex md:items-center md:justify-between mb-12">
             <div className="flex-1 md:pr-8">
-              <h2 className="text-white font-bold text-[40px] mb-6" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>About me</h2>
+              <h2 className="text-white font-bold text-5xl mb-6" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>About me</h2>
               <p className="text-white text-[20px] mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
                 I am a developer, producer, and designer who blends technical expertise with creative vision, bringing innovative projects to life through code, sound, and design.
               </p>
