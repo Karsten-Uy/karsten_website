@@ -121,18 +121,15 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
 
       <div className="text-center">
         <motion.div
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block"
         >
-          <a 
-            href="/karsten_website/experience" // Adjust URL if necessary
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
+          <Link 
+            to="/karsten_website/about"
+            className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold`}
           >
             View more
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
