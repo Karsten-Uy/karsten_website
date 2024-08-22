@@ -31,7 +31,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
         Career
       </h2>
       <a
-        href="/experience" // Replace with your actual URL
+        href="/karsten_website/experience" // Replace with your actual URL
         rel="noopener noreferrer"
         className="mb-6 flex flex-wrap relative block group justify-center"
         onMouseEnter={() => {
@@ -125,7 +125,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
           className="inline-block"
         >
           <a 
-            href="/experience" // Adjust URL if necessary
+            href="/karsten_website/experience" // Adjust URL if necessary
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"

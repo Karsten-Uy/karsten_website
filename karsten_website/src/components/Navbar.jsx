@@ -24,7 +24,7 @@ const Navbar = () => {
   const handleNavigation = (title, id) => {
     setActive(title);
     setToggle(false);
-    navigate(`/${id}`); // Update the navigation path
+    navigate(`/karsten_website/${id}`); // Update the navigation path
   };
 
   return (
@@ -34,7 +34,7 @@ const Navbar = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Link to="/"> {/* Update the root link */}
+        <Link to="/karsten_website/"> {/* Update the root link */}
           <img src={karstenLogo} alt="karsten logo" className="w-[70px]" />
         </Link>
       </motion.div>
@@ -51,7 +51,7 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => handleNavigation(nav.title, nav.id)}
           >
-            <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
+            <Link to={`/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
               {nav.title}
             </Link>
           </motion.li>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => handleNavigation(nav.title, nav.id)}
               >
-                <Link to={`/karsten_website/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
+                <Link to={`/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
                   {nav.title}
                 </Link>
               </motion.li>
