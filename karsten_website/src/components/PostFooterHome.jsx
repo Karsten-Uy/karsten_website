@@ -14,17 +14,17 @@ const PostFooterHome = () => {
 
   const tooltips = {
     'full-stack': 'As a Full Stack Software Developer, I focus on creating innovative solutions and automating processes across various platforms.',
-    'bass-drum-pad': 'A responsive drum pad designed to enhance live performances by integrating seamless MIDI control with real-time audio processing.',
-    'kirbequalizer': 'A custom audio equalizer plugin tailored for studio environments, offering precision sound shaping with a user-friendly interface.',
-    'kirbeats-project': 'An ongoing music production project focused on creating and engineering high-quality beats for diverse genres and artists.',
-    'portfolio-website': 'A personal portfolio website designed to showcase professional projects and skills, featuring a modern UI/UX design and responsive layout.'
+    'bass-drum-pad': 'A responsive drum pad designed to enhance the guitar or bass playing experience by seamlessly incorporating drum sounds into your performances.',
+    'kirbequalizer': 'A custom audio equalizer plugin, offering precision sound shaping with a user-friendly interface.',
+    'kirbeats-project': 'An ongoing music production project focused on creating and engineering high-quality music as well as honing musical skills.',
+    'portfolio-website': 'This website which is designed to showcase professional projects and skills, featuring a modern UI/UX design and responsive layout.'
   };
 
   const projects = [
-    { title: 'Bass-Drum pad', date: 'May 2024', class: 'Development and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['bass-drum-pad'], link: '/bass-drum-pad' },
-    { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Development and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer' },
-    { title: 'Kirbeats Project', date: 'July 2022 – Present', class: 'Audio Engineering', technologies: 'Studio One 5, Ableton, Adobe Suite', description: tooltips['kirbeats-project'], link: '/kirbeats-project' },
-    { title: 'Portfolio Website', date: 'December 2023 - Present', class: 'Web and Mobile App Development', technologies: 'React, Tailwind CSS, JavaScript', description: tooltips['portfolio-website'], link: '/portfolio-website' }
+    { title: 'Bass-Drum pad', date: 'May 2024', class: 'Development and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['bass-drum-pad'], link: '/bass-drum-pad', externalLink: 'https://github.com/Karsten-Uy/rhythmicgroovemaster'},
+    { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Development and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer', externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' },
+    { title: 'Kirbeats Project', date: 'July 2022 – Present', class: 'Audio Engineering', technologies: 'Studio One 5, Ableton, Adobe Suite', description: tooltips['kirbeats-project'], link: '/kirbeats-project', externalLink: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
+    { title: 'Portfolio Website', date: 'December 2023 - Present', class: 'Web and Mobile App Development', technologies: 'React, Tailwind CSS, JavaScript', description: tooltips['portfolio-website'], link: '/portfolio-website', externalLink: 'https://github.com/Karsten-Uy/karsten_website' }
   ];
 
   useEffect(() => {

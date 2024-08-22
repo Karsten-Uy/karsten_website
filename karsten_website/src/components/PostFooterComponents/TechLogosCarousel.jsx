@@ -1,47 +1,69 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {
+  ableton,
+  adobe,
+  aws,
+  bp,
+  c,
+  csharp,
+  cpp,
+  css,
+  dvr,
+  git,
+  html,
+  java,
+  js,
+  juce,
+  netcore,
+  os,
+  python,
+  react,
+  studioone,
+  tailwind
+} from '../../assets/TechLogos'; // Adjust the path as necessary
 
-const techLogos = [ // NOTE: it has to be doubled and to add more, change the caruousel item width to a percentage divisible by 100, so ye
-  'logo1.png',
-  'logo2.png',
-  'logo3.png',
-  'logo4.png',
-  'logo5.png',
-  'logo6.png',
-  'logo7.png',
-  'logo8.png',
-  'logo9.png',
-  'logo10.png',
-  'logo11.png',
-  'logo12.png',
-  'logo13.png',
-  'logo14.png',
-  'logo15.png',
-  'logo16.png',
-  'logo17.png',
-  'logo18.png',
-  'logo19.png',
-  'logo20.png',
-  'logo21.png',
-  'logo22.png',
-  'logo23.png',
-  'logo24.png',
-  'logo25.png',
-  'logo26.png',
-  'logo27.png',
-  'logo28.png',
-  'logo29.png',
-  'logo30.png',
-  'logo31.png',
-  'logo32.png',
-  'logo33.png',
-  'logo34.png',
-  'logo35.png',
-  'logo36.png',
-  'logo37.png',
-  'logo38.png',
-  'logo39.png',
-  'logo40.png'
+const techLogos = [
+  ableton,
+  adobe,
+  aws,
+  bp,
+  c,
+  csharp,
+  cpp,
+  css,
+  dvr,
+  git,
+  html,
+  java,
+  js,
+  juce,
+  netcore,
+  os,
+  python,
+  react,
+  studioone,
+  tailwind,
+  ableton, // Duplicate for carousel effect
+  adobe,
+  aws,
+  bp,
+  c,
+  csharp,
+  cpp,
+  css,
+  dvr,
+  git,
+  html,
+  java,
+  js,
+  juce,
+  netcore,
+  os,
+  python,
+  react,
+  studioone,
+  tailwind
 ];
 
 const TechLogosCarousel = () => {
@@ -60,9 +82,9 @@ const TechLogosCarousel = () => {
           animate={{ x: ['0%', '-100%'] }}
           transition={{ duration: 15, ease: "linear", repeat: Infinity }}
         >
-          {techLogos.concat(techLogos).map((logo, index) => (
+          {techLogos.map((logo, index) => (
             <motion.div className="carousel-item" key={index}>
-              <img src={`/path/to/logos/${logo}`} alt={`Technology ${index + 1}`} />
+              <img src={logo} alt={`Technology ${index + 1}`} className="logo-image" />
             </motion.div>
           ))}
         </motion.div>

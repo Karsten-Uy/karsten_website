@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
@@ -13,6 +12,11 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       background: 'linear-gradient(157.81deg, rgba(222, 249, 250, 1) -43.27%, rgba(190, 243, 245, 1) -21.24%, rgba(157, 237, 240, 1) 12.19%, rgba(125, 231, 235, 1) 29.82%, rgba(92, 225, 230, 1) 51.94%, rgba(51, 187, 207, 1) 90.29%)',
       transition: { duration: 0.5 }
     }
+  }
+
+  const transformVariants = {
+    initial: { scale: 1 },
+    hover: { scale: 0.95, transition: { duration: 0.3 } }
   };
 
   const textStyle = (isHovered) => ({
@@ -26,8 +30,10 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Career
       </h2>
-      <Link
-        to="/full-stack-developer"
+      <a
+        href="https://example.com/full-stack-developer" // Replace with your actual URL
+        target="_blank"
+        rel="noopener noreferrer"
         className="mb-6 flex flex-wrap relative block group justify-center"
         onMouseEnter={() => {
           handleMouseEnter('full-stack');
@@ -65,19 +71,21 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
             </p>
           </div>
         </motion.div>
-      </Link>
+      </a>
 
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Projects
       </h2>
       {projects.map((project, index) => (
-        <Link
-          to={project.link}
+        <a
+          href={project.externalLink} // Use the external link here
+          target="_blank"
+          rel="noopener noreferrer"
           key={index}
           className="mb-6 flex flex-wrap relative block group justify-center"
           onMouseEnter={() => {
-            handleMouseEnter(project.link.slice(1));
-            setHoveredIndex(project.link.slice(1));
+            handleMouseEnter(project.title.toLowerCase().replace(/\s+/g, '-'));
+            setHoveredIndex(project.title.toLowerCase().replace(/\s+/g, '-'));
           }}
           onMouseLeave={() => {
             handleMouseLeave();
@@ -88,27 +96,27 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
             className="w-full flex transition-all duration-300 rounded-lg overflow-hidden"
             variants={gradientVariants}
             initial="initial"
-            animate={hoveredIndex === project.link.slice(1) ? 'hover' : 'initial'}
+            animate={hoveredIndex === project.title.toLowerCase().replace(/\s+/g, '-') ? 'hover' : 'initial'}
             whileHover={{ scale: 0.95 }}
           >
             <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
-              <h3 className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === project.link.slice(1))}>
+              <h3 className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === project.title.toLowerCase().replace(/\s+/g, '-'))}>
                 {project.title}
               </h3>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.link.slice(1))}>
+              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.title.toLowerCase().replace(/\s+/g, '-'))}>
                 {project.date}
               </p>
             </div>
             <div className="w-1/2 text-right p-4 transition-all duration-300">
-              <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === project.link.slice(1))}>
+              <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === project.title.toLowerCase().replace(/\s+/g, '-'))}>
                 {project.class}
               </p>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.link.slice(1))}>
+              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.title.toLowerCase().replace(/\s+/g, '-'))}>
                 {project.technologies}
               </p>
             </div>
           </motion.div>
-        </Link>
+        </a>
       ))}
 
       <div className="text-center">
@@ -117,12 +125,14 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
           whileTap={{ scale: 0.95 }}
           className="inline-block"
         >
-          <Link 
-            to="/experience"
-            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold shadow-lg" // Added shadow class here
+          <a 
+            href="/experience" // Adjust URL if necessary
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
           >
             View more
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
