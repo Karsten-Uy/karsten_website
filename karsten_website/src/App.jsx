@@ -131,19 +131,19 @@ const AppContent = () => {
           <div className='flex items-center justify-center flex-grow relative'>
             <div className='relative justify-start items-center'  style={{ zIndex: 5 }}>
               <Routes>
-                <Route path="/" index element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={
+                <Route path="/karsten_website/" index element={<Home />} />
+                <Route path="/karsten_website/home" element={<Home />} />
+                <Route path="/karsten_website/about" element={
                   
                   <div className=''>
                     <About />
                   </div>
 
                   } />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/*" element={<Page404 />} />
+                <Route path="/karsten_website/experience" element={<Experience />} />
+                <Route path="/karsten_website/projects" element={<Projects />} />
+                <Route path="/karsten_website/contact" element={<Contact />} />
+                <Route path="/karsten_website/*" element={<Page404 />} />
               </Routes>
 
               {/* Scroll Down Component */}
