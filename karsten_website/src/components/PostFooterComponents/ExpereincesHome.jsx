@@ -31,7 +31,8 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
         Career
       </h2>
       <a
-        href="/karsten_website/experience" // Replace with your actual URL
+        href="https://www.icbc.com/" // Replace with your actual URL
+        target="blank"
         rel="noopener noreferrer"
         className="mb-6 flex flex-wrap relative block group justify-center"
         onMouseEnter={() => {
