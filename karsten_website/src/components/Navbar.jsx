@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex py-2 justify-between items-center navbar relative"  style={{ zIndex: 100 }}>
+    <nav className="w-full flex py-2 justify-between items-center navbar relative sm:px-20 px-2">
       {/* Wrap the logo with motion.div */}
       <motion.div
         whileHover={{ scale: 1.1 }}
@@ -69,7 +69,7 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? 'hidden' : 'flex'
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-10 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-10 min-w-[140px] rounded-xl sidebar z-50`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navLinks.map((nav, index) => (

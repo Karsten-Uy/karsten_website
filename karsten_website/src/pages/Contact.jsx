@@ -34,7 +34,7 @@ const Contact = () => {
             <div className={`flex-1 flex flex-col  xl:px-0 sm:px-16 px-6`}>
               <div className={`flex flex-col items-start px-6 w-full mb-8 ${styles.paddingX}`}>
                 <h1
-                  className="font-source-code-pro font-bold  text-white text-5xl mb-4"
+                  className="font-source-code-pro font-bold  text-white text-6xl mb-4"
                   style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                 >
                   Contact Me

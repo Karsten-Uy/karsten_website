@@ -127,9 +127,9 @@ const AppContent = () => {
         </div>
 
         {/* Main Content */}
-        <div className={['flex-grow flex flex-col relative'].join(' ')}>
+        <div className={['flex-grow flex flex-col relative justify-center'].join(' ')}>
           <div className='flex items-center justify-center flex-grow relative'>
-            <div className='relative justify-start px-40 items-center'  style={{ zIndex: 10 }}>
+            <div className='relative justify-start items-center'  style={{ zIndex: 5 }}>
               <Routes>
                 <Route path="/" index element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -176,14 +176,14 @@ const AppContent = () => {
         
         {/* Footer */}
         <div 
-          className={[styles.flexStart, '']} 
+          className={[
+            styles.flexStart, 
+            'bg-repeat-x bg-center bg-auto h-[270px] sm:h-[120px]' // Use Tailwind CSS for background properties
+          ]} 
           style={{
-            backgroundImage: `url(${grass})`, 
-            backgroundRepeat: 'repeat-x',
+            backgroundImage: `url(${grass})`,
             backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
-            backgroundPosition: 'center',
             zIndex: 10,
-            height: 120,
             alignItems: 'flex-end'
           }} 
         >
@@ -213,7 +213,7 @@ const AppContent = () => {
               
               <div className="relative flex flex-col w-full items-center">
                 {/* PostFooterHome Section */}
-                <div className={[styles.boxWidth, 'relative w-full px-20'].join(' ')} style={{ zIndex: 10 }}>
+                <div className={[styles.boxWidth, 'relative w-full px-3'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>
 
@@ -229,8 +229,10 @@ const AppContent = () => {
                 }} >
                   <div className={[styles.boxWidth, 'flex flex-col items-center z-10 w-full'].join(' ')}>
                     <div className="w-full flex flex-col sm:flex-row justify-between items-center">
+
+                      {/* place for "domainname ©2024 - Privacy Policy" */}
                       <p className="text-white text-sm text-center sm:text-left mb-2 sm:mb-0">
-                        domainname ©2024 - Privacy Policy
+                        
                       </p>
 
                       {/* Scroll to Top Button */}

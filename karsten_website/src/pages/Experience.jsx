@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ICBC, karstenLogo } from "../assets"; // Adjusted imports as needed
+import styles from "../style";
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
@@ -15,27 +16,27 @@ const Experience = () => {
     { 
       title: 'Bass-Drum pad', 
       date: 'May 2024', 
-      description: 'A responsive drum pad designed to enhance live performances by integrating seamless MIDI control with real-time audio processing.', 
+      description: 'A responsive MIDI controller that enhances guitar and bass performances by allowing the integration of custom sounds. It attaches effortlessly to instruments, works with any MIDI-compatible DAW, and includes versatile controls such as hit-hat functionality. Powered by Arduino Pro Micro, it ensures reliable performance and offers open-source customization.', 
       class: 'Development and Audio Engineering', 
       technologies: 'C++, Arduino, MIDI', 
       link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster', 
       type: 'video', 
-      media: 'https://www.youtube.com/embed/V1dI48DWWwA' // Replace with actual YouTube embed link
+      media: 'https://youtu.be/eT4vC7aBdxU' 
     },
     { 
       title: 'KirbEqualizer', 
       date: 'November 2023 – December 2023', 
-      description: 'A custom audio equalizer plugin tailored for studio environments, offering precision sound shaping with a user-friendly interface.', 
+      description: 'A custom audio equalizer plugin developed with JUCE, featuring highpass, lowpass, and peak filters for precise audio tailoring. It offers adjustable cutoff frequencies, user-defined slopes, center frequency and bandwidth control, gain modification, and global output gain, with visual response curve providing real-time feedback.', 
       class: 'Development and Audio Engineering', 
       technologies: 'C++, JUCE, DSP', 
       link: 'https://github.com/Karsten-Uy/KirbEqualizer', 
       type: 'video', 
-      media: 'https://www.youtube.com/embed/dQw4w9WgXcQ' // Replace with actual YouTube embed link
+      media: 'https://youtu.be/GVV8VcHw9x0' // Replace with actual YouTube embed link
     },
     { 
       title: 'Portfolio Website', 
       date: 'August 2024', 
-      description: 'A personal portfolio website showcasing projects, experience, and skills, designed with a responsive and modern user interface.', 
+      description: 'This website is a dynamic showcase of my projects and experiences, skillfully built with Vite, React.js, and Tailwind CSS for a seamless and stylish user experience. Dive into my portfolio, explore featured projects, and connect with me through this creatively crafted digital space.', 
       class: 'Web Development', 
       technologies: 'React, Tailwind CSS, Framer Motion', 
       link: 'https://github.com/Karsten-Uy/karsten_website', 
@@ -45,7 +46,7 @@ const Experience = () => {
     { 
       title: 'Kirbeats Project', 
       date: 'July 2022 – Present', 
-      description: 'An ongoing music production project focused on creating and engineering high-quality beats for diverse genres and artists.', 
+      description: 'An ongoing music production project focused on creating high-quality beats across various genres, including EDM and J-Rock. It involves producing song covers with instruments like electric guitar, acoustic guitar, bass, and drums. All videos are edited using software such as DaVinci Resolve, while audio is edited with Studio One 5.', 
       class: 'Audio Engineering', 
       technologies: 'Studio One 5, Ableton, Adobe Suite', 
       link: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA', 
@@ -55,13 +56,13 @@ const Experience = () => {
   ];
 
   return (
-    <section className="text-left text-white mt-14">
-      <h1 className="font-bold text-5xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+    <section className="text-left text-white mt-14 mb-10 px-10 xl:max-w-[1280px]">
+      <h1 className="font-bold text-6xl mb-4 mt-10" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         My Experiences
       </h1>
       <hr className="border-t border-white-400 my-8" />
 
-      <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+      <h2 className="font-bold text-4xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Career
       </h2>
 
@@ -69,7 +70,7 @@ const Experience = () => {
         {/* Career Section Example */}
         <div className="flex mb-4">
           <div className="w-1/2 text-left p-4 flex flex-col">
-            <p className="font-semibold text-xl" style={textStyle(selectedExperience === 'icbc')}>
+            <p className="font-semibold text-2xl" style={textStyle(selectedExperience === 'icbc')}>
               Insurance Corporation of British Columbia
             </p>
             <h3 className="italic text-lg" style={textStyle(selectedExperience === 'icbc')}>
@@ -93,9 +94,10 @@ const Experience = () => {
         <div className="flex items-center">
           <div className="w-full text-left p-4 flex flex-col">
             <p className="text-white" style={textStyle(selectedExperience === 'icbc')}>
-              As a Full Stack Software Developer, I focus on creating innovative solutions and automating processes across various platforms.
+              Designed and implemented automation solutions with Blue Prism to streamline operational efficiency. Seamlessly collaborated with cross-functional teams to develop and test scalable web-based tools and applications using OutSystems. Conducted thorough testing and optimization of APIs and VMs to guarantee robust performance and system reliability. Additionally, created and maintained detailed technical documentation to support development and ensure smooth knowledge transfer.
             </p>
-            <motion.div
+
+            {/* <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block mt-4"
@@ -104,11 +106,12 @@ const Experience = () => {
                 href="/full-stack"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
+                className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold shadow-lg"
               >
                 View Experience
               </a>
-            </motion.div>
+            </motion.div> */}
+
           </div>
           <div className="bg-white rounded-lg shadow-lg w-25 h-24 mr-4 px-1 mt-4">
             <img src={ICBC} alt="ICBC Logo" className="w-full h-full object-cover" />
@@ -118,7 +121,7 @@ const Experience = () => {
 
       <hr className="border-t border-white-400 my-8" />
 
-      <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+      <h2 className="font-bold text-4xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Projects
       </h2>
 
@@ -126,8 +129,8 @@ const Experience = () => {
         <div key={index} className="mb-6 flex flex-col">
           {/* Project Section */}
           <div className="flex mb-4">
-            <div className="w-1/2 text-left p-4 flex flex-col">
-              <h3 className="font-semibold text-xl" style={textStyle(selectedExperience === project.link.slice(1))}>
+            <div className="w-1/2 text-left p-4 flex flex-col ">
+              <h3 className="font-semibold text-2xl" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.title}
               </h3>
               <p className="text-white" style={textStyle(selectedExperience === project.link.slice(1))}>
@@ -159,7 +162,7 @@ const Experience = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
+                  className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold shadow-lg"
                 >
                   View Project
                 </a>
@@ -179,7 +182,7 @@ const Experience = () => {
                   ></iframe>
                 </div>
               ) : (
-                <img src={project.media} alt={project.title} className="w-25 h-24 object-cover rounded-lg" />
+                <img src={project.media} alt={project.title} className="w-80 h-80" />
               )}
             </div>
           </div>
