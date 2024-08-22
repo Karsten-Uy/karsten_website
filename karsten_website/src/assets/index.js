@@ -54,7 +54,8 @@ import cityBG3 from './pixel-city3.gif';
 import mountainBG from './mountainBG.gif';
 import oilBG from './oil.gif';
 import levelBG from './levelBG.gif';
-import ICBC from './Insurance_Corporation_of_British_Columbia_Logo.svg'
+import ICBC from './Insurance_Corporation_of_British_Columbia_Logo.svg';
+import youtube from './youtube.png';
 
 export {
   airbnb,
@@ -113,5 +114,6 @@ export {
   oilBG,
   levelBG,
   cityBG3,
-  ICBC
+  ICBC,
+  youtube
 };

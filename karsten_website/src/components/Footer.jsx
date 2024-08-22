@@ -61,7 +61,7 @@ const Footer = () => {
             className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-lg"
           >
             <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
-            karsten.uy@example.com
+            karsten.uy@gmail.com
           </a>
         </motion.div>
       </div>

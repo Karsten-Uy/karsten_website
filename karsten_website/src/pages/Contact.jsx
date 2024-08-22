@@ -30,8 +30,8 @@ const Contact = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <section id='contact' className={`flex justify-center md:flex-row flex-col ${styles.paddingY} w-full`}>
-            <div className={`flex-1 flex flex-col items-center xl:px-0 sm:px-16 px-6`}>
+          <section id='contact' className={`flex justify-center md:flex-row flex-col items-center ${styles.paddingY} w-full`}>
+            <div className={`flex-1 flex flex-col  xl:px-0 sm:px-16 px-6`}>
               <div className={`flex flex-col items-start px-6 w-full mb-8 ${styles.paddingX}`}>
                 <h1
                   className="font-source-code-pro font-bold  text-white text-5xl mb-4"

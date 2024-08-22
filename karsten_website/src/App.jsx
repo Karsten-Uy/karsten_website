@@ -129,7 +129,7 @@ const AppContent = () => {
         {/* Main Content */}
         <div className={['flex-grow flex flex-col relative'].join(' ')}>
           <div className='flex items-center justify-center flex-grow relative'>
-            <div className='relative justify-start px-40'  style={{ zIndex: 10 }}>
+            <div className='relative justify-start px-40 items-center'  style={{ zIndex: 10 }}>
               <Routes>
                 <Route path="/" index element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -183,7 +183,7 @@ const AppContent = () => {
             backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
             backgroundPosition: 'center',
             zIndex: 10,
-            height: 200,
+            height: 120,
             alignItems: 'flex-end'
           }} 
         >

@@ -13,11 +13,6 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       background: 'linear-gradient(157.81deg, rgba(222, 249, 250, 1) -43.27%, rgba(190, 243, 245, 1) -21.24%, rgba(157, 237, 240, 1) 12.19%, rgba(125, 231, 235, 1) 29.82%, rgba(92, 225, 230, 1) 51.94%, rgba(51, 187, 207, 1) 90.29%)',
       transition: { duration: 0.5 }
     }
-  }
-
-  const transformVariants = {
-    initial: { scale: 1 },
-    hover: { scale: 0.95, transition: { duration: 0.3 } }
   };
 
   const textStyle = (isHovered) => ({
@@ -124,7 +119,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
         >
           <Link 
             to="/experience"
-            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
+            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold shadow-lg" // Added shadow class here
           >
             View more
           </Link>

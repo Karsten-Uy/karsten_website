@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio, rgmVid  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, youtube, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio, rgmVid  } from "../assets";
 
 export const navLinks = [
   {
@@ -48,6 +48,11 @@ export const socialMedia = [
     icon: linkedin,
     link: "https://www.linkedin.com/in/karstenuy/",
   },
+  {
+    id: "social-media-4",
+    icon: youtube,
+    link: "https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA",
+  }
 ];
 
 export const home_description_block = [
