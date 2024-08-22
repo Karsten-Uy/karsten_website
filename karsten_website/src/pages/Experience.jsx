@@ -21,7 +21,7 @@ const Experience = () => {
       technologies: 'C++, Arduino, MIDI', 
       link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster', 
       type: 'video', 
-      media: 'https://youtu.be/eT4vC7aBdxU' 
+      media: 'https://www.youtube.com/embed/eT4vC7aBdxU' // Updated embed link
     },
     { 
       title: 'KirbEqualizer', 
@@ -31,7 +31,7 @@ const Experience = () => {
       technologies: 'C++, JUCE, DSP', 
       link: 'https://github.com/Karsten-Uy/KirbEqualizer', 
       type: 'video', 
-      media: 'https://youtu.be/GVV8VcHw9x0' // Replace with actual YouTube embed link
+      media: 'https://www.youtube.com/embed/GVV8VcHw9x0' // Updated embed link
     },
     { 
       title: 'Portfolio Website', 
@@ -41,7 +41,7 @@ const Experience = () => {
       technologies: 'React, Tailwind CSS, Framer Motion', 
       link: 'https://github.com/Karsten-Uy/karsten_website', 
       type: 'image', 
-      media: karstenLogo // Replace with actual image link or import
+      media: karstenLogo // Use correct image path
     },
     { 
       title: 'Kirbeats Project', 
@@ -51,7 +51,7 @@ const Experience = () => {
       technologies: 'Studio One 5, Ableton, Adobe Suite', 
       link: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA', 
       type: 'video', 
-      media: 'https://www.youtube.com/embed/Ve9CfWA3qNA' // Replace with actual YouTube embed link
+      media: 'https://www.youtube.com/embed/Ve9CfWA3qNA' // Updated embed link
     }
   ];
 
