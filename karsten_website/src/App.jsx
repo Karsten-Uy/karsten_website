@@ -15,10 +15,10 @@ import Page404 from './pages/Page404';
 const AppContent = () => {
   
   const location = useLocation();
-  const isHomePage = location.pathname === '/' || location.pathname === '/home';
-  const isAboutPage = location.pathname === '/about';
-  const isExperiencePage = location.pathname === '/experience';
-  const isContact = location.pathname === '/contact';
+  const isHomePage = location.pathname === '/karsten_website/' || location.pathname === '/karsten_website/home';
+  const isAboutPage = location.pathname === '/karsten_website/about';
+  const isExperiencePage = location.pathname === '/karsten_website/experience';
+  const isContact = location.pathname === '/karsten_website/contact';
 
   // Background image based on page
   let backgroundImage = skyBG; // Default for the homepage
