@@ -40,6 +40,10 @@ import auto from './auto.png';
 import sound from './sound.png';
 import uiux from './uiux.png';
 import dev from './dev.png';
+import autob from './autob.png';
+import soundb from './soundb.png';
+import uiuxb from './uiuxb.png';
+import devb from './devb.png';
 import postfooterbg from './PostFooterBG.png';
 import kirbyfloating from './kirby.gif';
 import skyBG from './skybg.gif';
@@ -115,5 +119,9 @@ export {
   levelBG,
   cityBG3,
   ICBC,
-  youtube
+  youtube,
+  autob, 
+  soundb,
+  uiuxb, 
+  devb
 };
