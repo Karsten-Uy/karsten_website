@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // Import the Link component
 
 const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -14,11 +15,6 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
     }
   }
 
-  const transformVariants = {
-    initial: { scale: 1 },
-    hover: { scale: 0.95, transition: { duration: 0.3 } }
-  };
-
   const textStyle = (isHovered) => ({
     textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)',
     color: isHovered ? 'black' : 'white',
@@ -30,10 +26,8 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Career
       </h2>
-      <a
-        href="https://www.icbc.com/" // Replace with your actual URL
-        target="blank"
-        rel="noopener noreferrer"
+      <Link
+        to="/karsten_website/experience" // Replace with your actual internal URL
         className="mb-6 flex flex-wrap relative block group justify-center"
         onMouseEnter={() => {
           handleMouseEnter('full-stack');
@@ -71,16 +65,14 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
             </p>
           </div>
         </motion.div>
-      </a>
+      </Link>
 
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Projects
       </h2>
       {projects.map((project, index) => (
-        <a
-          href={project.externalLink} // Use the external link here
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={project.internalLink} // Use the internal link here
           key={index}
           className="mb-6 flex flex-wrap relative block group justify-center"
           onMouseEnter={() => {
@@ -116,17 +108,18 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
               </p>
             </div>
           </motion.div>
-        </a>
+        </Link>
       ))}
 
       <div className="text-center">
         <motion.div
-          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          className="inline-block"
         >
           <Link 
-            to="/karsten_website/about"
-            className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold`}
+            to="/karsten_website/experience" // Adjusted URL for internal navigation
+            className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
           >
             View more
           </Link>
