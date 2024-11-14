@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // Import the Link component
+import { Link } from "react-router-dom";
 
 const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -13,7 +13,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       background: 'linear-gradient(157.81deg, rgba(222, 249, 250, 1) -43.27%, rgba(190, 243, 245, 1) -21.24%, rgba(157, 237, 240, 1) 12.19%, rgba(125, 231, 235, 1) 29.82%, rgba(92, 225, 230, 1) 51.94%, rgba(51, 187, 207, 1) 90.29%)',
       transition: { duration: 0.5 }
     }
-  }
+  };
 
   const textStyle = (isHovered) => ({
     textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)',
@@ -27,7 +27,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
         Career
       </h2>
       <Link
-        to="/karsten_website/experience" // Replace with your actual internal URL
+        to="/karsten_website/experience"
         className="mb-6 flex flex-wrap relative block group justify-center"
         onMouseEnter={() => {
           handleMouseEnter('full-stack');
@@ -72,7 +72,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       </h2>
       {projects.map((project, index) => (
         <Link
-          to={project.internalLink} // Use the internal link here
+          to="/karsten_website/experience" // Updated to link to the experience page for each project
           key={index}
           className="mb-6 flex flex-wrap relative block group justify-center"
           onMouseEnter={() => {
@@ -118,7 +118,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
           className="inline-block"
         >
           <Link 
-            to="/karsten_website/experience" // Adjusted URL for internal navigation
+            to="/karsten_website/experience" // Button linking to the experience page
             className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
           >
             View more

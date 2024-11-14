@@ -13,15 +13,25 @@ const Experience = () => {
   });
 
   const projects = [
+    // { 
+    //   title: 'Bass-Drum pad', 
+    //   date: 'May 2024', 
+    //   description: 'A responsive MIDI controller that enhances guitar and bass performances by allowing the integration of custom sounds. It attaches effortlessly to instruments, works with any MIDI-compatible DAW, and includes versatile controls such as hit-hat functionality. Powered by Arduino Pro Micro, it ensures reliable performance and offers open-source customization.', 
+    //   class: 'Development and Audio Engineering', 
+    //   technologies: 'C++, Arduino, MIDI', 
+    //   link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster', 
+    //   type: 'video', 
+    //   media: 'https://www.youtube.com/embed/eT4vC7aBdxU' // Updated embed link
+    // },
     { 
-      title: 'Bass-Drum pad', 
-      date: 'May 2024', 
-      description: 'A responsive MIDI controller that enhances guitar and bass performances by allowing the integration of custom sounds. It attaches effortlessly to instruments, works with any MIDI-compatible DAW, and includes versatile controls such as hit-hat functionality. Powered by Arduino Pro Micro, it ensures reliable performance and offers open-source customization.', 
+      title: 'Helix at Home', 
+      date: 'November 2024', 
+      description: 'An Arduino-based MIDI controller using an Arduino Pro Micro, designed to manage buttons, potentiometers, and LEDs for controlling MIDI effects and channel settings, simulating a guitar pedalboard with customizable modes, an expression pedals, and a tap delay.', 
       class: 'Development and Audio Engineering', 
       technologies: 'C++, Arduino, MIDI', 
-      link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster', 
+      link: 'https://github.com/Karsten-Uy/HaH', 
       type: 'video', 
-      media: 'https://www.youtube.com/embed/eT4vC7aBdxU' // Updated embed link
+      media: 'https://www.youtube.com/embed/NCPwh5nRK9E?start=10' // Updated embed link
     },
     { 
       title: 'KirbEqualizer', 
@@ -94,7 +104,7 @@ const Experience = () => {
         <div className="flex items-center">
           <div className="w-full text-left p-4 flex flex-col">
             <p className="text-white" style={textStyle(selectedExperience === 'icbc')}>
-              Designed and implemented automation solutions with Blue Prism to streamline operational efficiency. Seamlessly collaborated with cross-functional teams to develop and test scalable web-based tools and applications using OutSystems. Conducted thorough testing and optimization of APIs and VMs to guarantee robust performance and system reliability. Additionally, created and maintained detailed technical documentation to support development and ensure smooth knowledge transfer.
+              Designed and implemented automation solutions using Blue Prism to enhance operational efficiency. Collaborated with cross-functional teams to develop and test scalable web-based tools and applications with OutSystems, Python, SQL, and C#. Conducted comprehensive testing and optimization of APIs and VMs to ensure robust performance and system reliability. Additionally, created and maintained detailed technical documentation to support development and ensure smooth knowledge transfer.
             </p>
 
             {/* <motion.div
