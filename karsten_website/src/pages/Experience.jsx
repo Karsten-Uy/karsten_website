@@ -26,7 +26,7 @@ const Experience = () => {
     { 
       title: 'Helix at Home', 
       date: 'November 2024', 
-      description: 'An Arduino-based MIDI controller using an Arduino Pro Micro, designed to manage buttons, potentiometers, and LEDs for controlling MIDI effects and channel settings, simulating a guitar pedalboard with customizable modes, an expression pedals, and a tap delay.', 
+      description: 'An Arduino-based MIDI controller using an Arduino Pro Micro, designed to manage buttons, potentiometers, and LEDs for controlling MIDI effects and channel settings, simulating a guitar pedalboard with customizable modes, an expression pedal, and a tap delay.', 
       class: 'Development and Audio Engineering', 
       technologies: 'C++, Arduino, MIDI', 
       link: 'https://github.com/Karsten-Uy/HaH', 
