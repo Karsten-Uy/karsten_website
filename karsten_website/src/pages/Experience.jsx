@@ -25,8 +25,8 @@ const Experience = () => {
     // },
     { 
       title: 'Helix at Home', 
-      date: 'November 2024', 
-      description: 'An Arduino-based MIDI controller using an Arduino Pro Micro, designed to manage buttons, potentiometers, and LEDs for controlling MIDI effects and channel settings, simulating a guitar pedalboard with customizable modes, an expression pedal, and a tap delay.', 
+      date: 'November 2024 - Present', 
+      description: 'An Arduino-based MIDI controller simulating a multi-effect guitar pedalboard with 9 buttons, 3 potentiometers, 9 LEDs, and an expression pedal. Engineered the mechanical and electrical design, soldering components for durability in live performance. Programmed in C++ using the MIDIUSB library to deliver 30+ MIDI control signals for seamless DAW integration.', 
       class: 'Development and Audio Engineering', 
       technologies: 'C++, Arduino, MIDI', 
       link: 'https://github.com/Karsten-Uy/HaH', 
@@ -87,7 +87,7 @@ const Experience = () => {
               Full Stack Software Developer - Innovation and Automation
             </h3>
             <p className="text-white" style={textStyle(selectedExperience === 'icbc')}>
-              May 2024 - Present
+              May 2024 - December 2024
             </p>
           </div>
           <div className="w-1/2 text-right p-4 flex flex-col justify-between items-end">
@@ -104,7 +104,7 @@ const Experience = () => {
         <div className="flex items-center">
           <div className="w-full text-left p-4 flex flex-col">
             <p className="text-white" style={textStyle(selectedExperience === 'icbc')}>
-              Designed and implemented automation solutions using Blue Prism to enhance operational efficiency. Collaborated with cross-functional teams to develop and test scalable web-based tools and applications with OutSystems, Python, SQL, and C#. Conducted comprehensive testing and optimization of APIs and VMs to ensure robust performance and system reliability. Additionally, created and maintained detailed technical documentation to support development and ensure smooth knowledge transfer.
+              Developed and deployed RPA solutions using Blue Prism and Python, reducing annual costs and optimizing business processes. Collaborated with cross functional teams to manage workflows in JIRA and built scalable web applications with OutSystems, Flask, .NET, and SQL, boosting efficiency and user engagement. Monitored 30+ automation solutions to ensure seamless integration, maximum uptime, and enhanced productivity across enterprise systems.
             </p>
 
             {/* <motion.div

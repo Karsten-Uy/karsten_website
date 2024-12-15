@@ -53,7 +53,7 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
               Full Stack Software Developer - Innovation and Automation
             </h3>
             <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              May 2024 - Present
+              May 2024 - December 2024
             </p>
           </div>
           <div className="w-1/2 text-right p-4 transition-all duration-300">
