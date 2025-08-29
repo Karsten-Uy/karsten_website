@@ -13,7 +13,8 @@ const PostFooterHome = () => {
   const tooltipRef = useRef(null);
 
   const tooltips = { //tool tips need to have a dash
-    'full-stack': 'Developed web applications using React, Flask, .NET, and SQL, while deploying RPA automation solutions and managing 30+ automations to optimize processes and improve efficiency.',
+    'insurance-corporation-of-british-columbia': 'Developed web applications using React, Flask, .NET, and SQL, while deploying RPA automation solutions and managing 30+ automations to optimize processes and improve efficiency.',
+    'synopsys-inc.': 'Developed next-generation AI-driven EDA tools in an IP R&D team for RTL design, integrating ML models into a C++ RTL feature extractor and building CLI/GUI workflows for 10+ verification processes.',
     'helix-at-home': 'An Arduino Pro Micro-based MIDI controller with 9 buttons, 3 knobs, 9 LEDs, and an expression pedal, sending 30 unique MIDI control signals for seamless DAW integration.',
     'kirbequalizer': 'A custom audio equalizer plugin, offering precision sound shaping with a user-friendly interface.',
     'kirbeats-project': 'An ongoing music production project focused on creating and engineering high-quality music as well as honing musical skills.',
@@ -25,6 +26,27 @@ const PostFooterHome = () => {
     { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Development and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer', externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' },
     { title: 'Kirbeats Project', date: 'July 2022 – Present', class: 'Audio Engineering', technologies: 'Studio One 5, Ableton, Adobe Suite', description: tooltips['kirbeats-project'], link: '/kirbeats-project', externalLink: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
     { title: 'Portfolio Website', date: 'December 2023 - Present', class: 'Web and Mobile App Development', technologies: 'React, Tailwind CSS, JavaScript', description: tooltips['portfolio-website'], link: '/portfolio-website', externalLink: 'https://github.com/Karsten-Uy/karsten_website' }
+  ];
+
+  const career = [
+    { 
+      company: 'Synopsys Inc.',
+      title: 'R&D EDA Engineer',
+      date: 'January 2025 - August 2025', 
+      class: 'EDA Development and Software Engineering', 
+      technologies: 'C++, Python, Linux', 
+      description: tooltips['synopsys'], 
+      link: '/synopsys',
+    },
+    { 
+      company: 'Insurance Corporation of British Columbia',
+      title: 'Full Stack Software Developer - Innovation and Automation', 
+      date: 'May 2024 – December 2024', 
+      class: 'Software Engineering and Automation', 
+      technologies: 'C#, Blue Prism, OutSystems', 
+      description: tooltips['icbc'], 
+      link: '/icbc', 
+      externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' }
   ];
 
   useEffect(() => {
@@ -97,6 +119,7 @@ const PostFooterHome = () => {
 
       <ExperiencesHome 
         projects={projects} 
+        career={career} 
         handleMouseEnter={handleMouseEnter} 
         handleMouseLeave={handleMouseLeave}
       />

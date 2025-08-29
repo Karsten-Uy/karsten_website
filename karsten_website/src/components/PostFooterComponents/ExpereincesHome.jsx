@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
+const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const gradientVariants = {
@@ -26,46 +26,49 @@ const ExperiencesHome = ({ projects, handleMouseEnter, handleMouseLeave }) => {
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Career
       </h2>
-      <Link
-        to="/karsten_website/experience"
-        className="mb-6 flex flex-wrap relative block group justify-center"
-        onMouseEnter={() => {
-          handleMouseEnter('full-stack');
-          setHoveredIndex('full-stack');
-        }}
-        onMouseLeave={() => {
-          handleMouseLeave();
-          setHoveredIndex(null);
-        }}
-      >
-        <motion.div
-          className="w-full flex transition-all duration-300 rounded-lg overflow-hidden"
-          variants={gradientVariants}
-          initial="initial"
-          animate={hoveredIndex === 'full-stack' ? 'hover' : 'initial'}
-          whileHover={{ scale: 0.95 }}
+      {career.map((job, index) => (
+        <Link
+          to="/karsten_website/experience"
+          key={index}
+          className="mb-6 flex flex-wrap relative block group justify-center"
+          onMouseEnter={() => {
+            handleMouseEnter(job.company.toLowerCase().replace(/\s+/g, '-'));
+            setHoveredIndex(job.company.toLowerCase().replace(/\s+/g, '-'));
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave();
+            setHoveredIndex(null);
+          }}
         >
-          <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
-            <p className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              Insurance Corporation of British Columbia
-            </p>
-            <h3 className="italic text-lg transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              Full Stack Software Developer - Innovation and Automation
-            </h3>
-            <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              May 2024 - December 2024
-            </p>
-          </div>
-          <div className="w-1/2 text-right p-4 transition-all duration-300">
-            <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              Automation and Development
-            </p>
-            <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
-              C#, Blue Prism, OutSystems
-            </p>
-          </div>
-        </motion.div>
-      </Link>
+          <motion.div
+            className="w-full flex transition-all duration-300 rounded-lg overflow-hidden"
+            variants={gradientVariants}
+            initial="initial"
+            animate={hoveredIndex === job.company.toLowerCase().replace(/\s+/g, '-') ? 'hover' : 'initial'}
+            whileHover={{ scale: 0.95 }}
+          >
+            <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
+              <p className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
+                {job.company}
+              </p>
+              <h3 className="italic text-lg transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
+                {job.title}
+              </h3>
+              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
+                {job.date}
+              </p>
+            </div>
+            <div className="w-1/2 text-right p-4 transition-all duration-300">
+              <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
+                {job.class}
+              </p>
+              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === 'full-stack')}>
+                {job.technologies}
+              </p>
+            </div>
+          </motion.div>
+        </Link>
+      ))}
 
       <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
         Projects

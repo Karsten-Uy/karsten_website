@@ -1,5 +1,5 @@
 import React from 'react';
-import { auto, dev, sound, uiux } from '../../assets';
+import { auto, dev, sound, eda } from '../../assets';
 
 const WhatIDo = () => {
   return (
@@ -9,9 +9,9 @@ const WhatIDo = () => {
         </h2>
         <div className="flex flex-wrap justify-center gap-0 px-4">
           {[
-            { title: 'UI/UX design', class: 'Design intuitive interfaces that enhance user experiences', logo: uiux, link: '/uiux' },
-            { title: 'Development', class: 'Bring to life innovative ideas with the latest technology', logo: dev, link: '/development' },
-            { title: 'Automation', class: 'Streamline workflows by automating repetitive tasks and processes', logo: auto, link: '/automation' },
+            { title: 'EDA Development', class: 'Create workflows that accelerate semiconductor innovation', logo: eda, link: '/uiux' },
+            { title: 'Software Engineering', class: 'Deliver end-to-end software tools that solve complex problems', logo: dev, link: '/development' },
+            { title: 'Automation', class: 'Streamline complex workflows into scalable automated processes', logo: auto, link: '/automation' },
             { title: 'Audio Engineering', class: 'Create soundscapes and tools for enjoyable audio experiences', logo: sound, link: '/audio-engineering' }
           ].map((item, index) => (
             <div key={index} className="w-full sm:w-1/2 lg:w-1/4 flex ">

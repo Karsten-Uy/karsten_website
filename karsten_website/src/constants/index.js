@@ -1,5 +1,7 @@
 import { people01, people02, people03, facebook, instagram, linkedin, youtube, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, githubWhite, karsten, placeholderVid, placeholderAudio, play, pause, kirbequalizerDemo, preAIaudio, postAIaudio, rgmVid  } from "../assets";
 
+// home Page Constants
+
 export const navLinks = [
   {
     id: "home",
@@ -33,11 +35,11 @@ export const expereince = [ // this whole block is a placeholder
 
 
 export const socialMedia = [
-  {
-    id: "social-media-1",
-    icon: instagram,
-    link: "https://www.instagram.com/karsten_kirby_uy/",
-  },
+  // {
+  //   id: "social-media-1",
+  //   icon: instagram,
+  //   link: "https://www.instagram.com/karsten_kirby_uy/",
+  // },
   {
     id: "social-media-2",
     icon: githubWhite,

@@ -3,10 +3,10 @@ import styles from '../style';
 
 const CentreBlock = () => {
   const titles = [
-    "Software Engineer",
-    "Full Stack Developer",
-    "Music Producer",
-    "Lifeguard"
+    "n EDA Engineer",
+    " Software Engineer",
+    " Full Stack Developer",
+    " Music Producer",
   ];
 
   const [greeting] = useState("Hello, I'm Kirby");
@@ -78,7 +78,7 @@ const CentreBlock = () => {
             className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-6"
             style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
           >
-            I am a {titleText}
+            I am a{titleText}
             <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
           </p>
           <p

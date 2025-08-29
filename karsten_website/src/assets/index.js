@@ -43,6 +43,8 @@ import dev from './dev.png';
 import autob from './autob.png';
 import soundb from './soundb.png';
 import uiuxb from './uiuxb.png';
+import eda from './eda.png';
+import edab from './edab.png';
 import devb from './devb.png';
 import postfooterbg from './PostFooterBG.png';
 import kirbyfloating from './kirby.gif';
@@ -58,8 +60,9 @@ import cityBG3 from './pixel-city3.gif';
 import mountainBG from './mountainBG.gif';
 import oilBG from './oil.gif';
 import levelBG from './levelBG.gif';
-import ICBC from './Insurance_Corporation_of_British_Columbia_Logo.svg';
+import ICBC from './icbc.png';
 import youtube from './youtube.png';
+import Synopsys from './synopsys.png';
 
 export {
   airbnb,
@@ -123,5 +126,8 @@ export {
   autob, 
   soundb,
   uiuxb, 
-  devb
+  devb,
+  Synopsys,
+  eda,
+  edab,
 };

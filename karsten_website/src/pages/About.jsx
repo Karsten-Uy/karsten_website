@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../style';
 import { motion } from 'framer-motion';
-import { karsten, auto, dev, sound, uiux, uiuxb, devb, soundb, autob } from '../assets'; // Import the images
+import { karsten, auto, dev, sound, edab, uiux, uiuxb, devb, soundb, autob } from '../assets'; // Import the images
 
 const About = () => {
   return (
@@ -35,10 +35,30 @@ const About = () => {
             <h3 className="text-white font-semibold text-[30px] mb-6" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }} >I can help you with</h3>
             <div className="flex flex-col gap-4">
               {[
-                { title: 'Design', class: 'I create visually captivating and user-friendly designs, seamlessly integrating them with development for flawless performance and exceptional user experiences.', logo: uiuxb },
-                { title: 'Development', class: 'I bring innovative ideas to life with the latest technology, building scalable applications with smooth animations and interactions using Next.js, React.js, GSAP, and Framer Motion.', logo: devb },
-                { title: 'Audio Production', class: 'I craft immersive soundscapes and tools that deliver clear, rich, and enjoyable audio experiences.', logo: soundb },
-                { title: 'Integrated Package', class: 'I provide a complete solution from concept to implementation, combining design, development, and audio production into a cohesive, high-quality package.', logo: autob }
+                { 
+                  title: 'EDA Development', 
+                  class: 'Design and implement workflows that accelerate semiconductor innovation by optimizing chip design, verification, and validation processes, enabling faster and more reliable hardware development.', 
+                  logo: edab, 
+                  link: '/uiux' 
+                },
+                { 
+                  title: 'Software Engineering', 
+                  class: 'Deliver end-to-end software tools that solve complex problems, from backend architecture to frontend interfaces, ensuring scalable, maintainable, and high-performance applications.', 
+                  logo: devb, 
+                  link: '/development' 
+                },
+                { 
+                  title: 'Automation', 
+                  class: 'Streamline complex workflows into scalable automated processes by integrating tools, scripting pipelines, and intelligent systems to improve efficiency and reduce manual effort.', 
+                  logo: autob, 
+                  link: '/automation' 
+                },
+                { 
+                  title: 'Audio Engineering', 
+                  class: 'Create immersive soundscapes and audio tools that enhance experiences, combining technical precision with creative design for music production, games, and interactive media.', 
+                  logo: soundb, 
+                  link: '/audio-engineering' 
+                }
               ].map((item, index) => (
                 <div key={index} className="flex flex-col bg-blue-gradient rounded-lg shadow-md py-4 px-6">
                   <div className="flex items-start mb-4">
