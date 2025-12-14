@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  ableton,
+  postgresql,
   adobe,
   aws,
   bp,
@@ -16,7 +16,7 @@ import {
   js,
   juce,
   netcore,
-  os,
+  linux,
   python,
   react,
   studioone,
@@ -24,7 +24,7 @@ import {
 } from '../../assets/TechLogos'; // Adjust the path as necessary
 
 const techLogos = [
-  ableton,
+  postgresql,
   adobe,
   aws,
   bp,
@@ -39,12 +39,12 @@ const techLogos = [
   js,
   juce,
   netcore,
-  os,
+  linux,
   python,
   react,
   studioone,
   tailwind,
-  ableton, // Duplicate for carousel effect
+  postgresql, // Duplicate for carousel effect
   adobe,
   aws,
   bp,
@@ -59,7 +59,7 @@ const techLogos = [
   js,
   juce,
   netcore,
-  os,
+  linux,
   python,
   react,
   studioone,

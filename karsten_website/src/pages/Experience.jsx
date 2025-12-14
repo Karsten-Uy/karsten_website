@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ICBC, karstenLogo, Synopsys } from "../assets"; // Adjust imports as needed
+import { ICBC, karstenLogo, Synopsys, ubcroomfinder } from "../assets"; // Adjust imports as needed
 import styles from "../style";
 
 const Experience = () => {
@@ -15,7 +15,7 @@ const Experience = () => {
   const jobs = [
     {
       company: "Synopsys Inc.",
-      role: "R&D EDA Engineer",
+      role: "R&D EDA Engineering Intern",
       date: "January 2025 - August 2025",
       class: "EDA Development",
       technologies: "C++, Python, Linux",
@@ -25,12 +25,12 @@ const Experience = () => {
     },
     {
       company: "Insurance Corporation of British Columbia",
-      role: "Full Stack Software Developer - Innovation and Automation",
+      role: "Full Stack Software Developer Intern",
       date: "May 2024 - December 2024",
       class: "Automation and Development",
-      technologies: "C#, Blue Prism, OutSystems",
+      technologies: "C#, Blue Prism, React",
       description:
-        "Developed and deployed RPA solutions using Blue Prism and Python, reducing annual costs and optimizing business processes. Collaborated with cross functional teams to manage workflows in JIRA and built scalable web applications with OutSystems, Flask, .NET, and SQL, boosting efficiency and user engagement. Monitored 30+ automation solutions to ensure seamless integration, maximum uptime, and enhanced productivity across enterprise systems.",
+        "Developed and deployed RPA solutions using Blue Prism and Python, reducing annual costs and optimizing business processes. Collaborated with cross functional teams to manage workflows in JIRA and built scalable web applications with React, OutSystems, Flask, .NET, and SQL, boosting efficiency and user engagement. Monitored 30+ automation solutions to ensure seamless integration, maximum uptime, and enhanced productivity across enterprise systems.",
       logo: ICBC,
     },
   ];
@@ -59,7 +59,7 @@ const Experience = () => {
     },
     {
       title: "KirbEqualizer",
-      date: "November 2023 – December 2023",
+      date: "November 2023 - December 2023",
       description:
         "A custom audio equalizer plugin developed with JUCE, featuring highpass, lowpass, and peak filters for precise audio tailoring. It offers adjustable cutoff frequencies, user-defined slopes, center frequency and bandwidth control, gain modification, and global output gain, with visual response curve providing real-time feedback.",
       class: "Development and Audio Engineering",
@@ -68,20 +68,31 @@ const Experience = () => {
       type: "video",
       media: "https://www.youtube.com/embed/GVV8VcHw9x0",
     },
+    // {
+    //   title: "Portfolio Website",
+    //   date: "August 2024",
+    //   description:
+    //     "This website is a dynamic showcase of my projects and experiences, skillfully built with Vite, React.js, and Tailwind CSS for a seamless and stylish user experience. Dive into my portfolio, explore featured projects, and connect with me through this creatively crafted digital space.",
+    //   class: "Web Development",
+    //   technologies: "React, Tailwind CSS, Framer Motion",
+    //   link: "https://github.com/Karsten-Uy/karsten_website",
+    //   type: "image",
+    //   media: karstenLogo,
+    // },
     {
-      title: "Portfolio Website",
-      date: "August 2024",
+      title: "UBC Room Finder",
+      date: "December 2025 - Present",
       description:
-        "This website is a dynamic showcase of my projects and experiences, skillfully built with Vite, React.js, and Tailwind CSS for a seamless and stylish user experience. Dive into my portfolio, explore featured projects, and connect with me through this creatively crafted digital space.",
+        "A full-stack web application that helps students find available classrooms and lecture spaces at UBC. It uses a Python-based scraper to ingest data from the UBC Online Timetable and a Next.js frontend backed by Supabase and deployed on Vercel, enabling user-friendly searching and filtering by date, time, and building.",
       class: "Web Development",
-      technologies: "React, Tailwind CSS, Framer Motion",
-      link: "https://github.com/Karsten-Uy/karsten_website",
+      technologies: "Next.js, PostgreSQL, Python",
+      link: "https://github.com/Karsten-Uy/ubc_room_finder/",
       type: "image",
-      media: karstenLogo,
+      media: ubcroomfinder,
     },
     {
       title: "Kirbeats Project",
-      date: "July 2022 – Present",
+      date: "July 2022 - Present",
       description:
         "An ongoing music production project focused on creating high-quality beats across various genres, including EDM and J-Rock. It involves producing song covers with instruments like electric guitar, acoustic guitar, bass, and drums. All videos are edited using software such as DaVinci Resolve, while audio is edited with Studio One 5.",
       class: "Audio Engineering",
@@ -249,7 +260,7 @@ const Experience = () => {
                   ></iframe>
                 </div>
               ) : (
-                <img src={project.media} alt={project.title} className="w-80 h-80" />
+                <img src={project.media} alt={project.title}/>
               )}
             </div>
           </div>

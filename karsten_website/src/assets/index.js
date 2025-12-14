@@ -63,6 +63,7 @@ import levelBG from './levelBG.gif';
 import ICBC from './icbc.png';
 import youtube from './youtube.png';
 import Synopsys from './synopsys.png';
+import ubcroomfinder from './ubc_room_finder.png';
 
 export {
   airbnb,
@@ -130,4 +131,5 @@ export {
   Synopsys,
   eda,
   edab,
+  ubcroomfinder,
 };

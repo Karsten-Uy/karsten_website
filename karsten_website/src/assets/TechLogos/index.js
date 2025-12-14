@@ -18,6 +18,8 @@ import python from './python.png'; // Assuming the file is named python.png
 import react from './react.png'; // Assuming the file is named react.png
 import studioone from './studioone.png'; // Assuming the file is named studioone.png
 import tailwind from './tailwind.png'; // Assuming the file is named tailwind.png
+import linux from './linux.png';
+import postgresql from './Postgresql.png';
 
 export {
   ableton,
@@ -39,5 +41,7 @@ export {
   python,
   react,
   studioone,
-  tailwind
+  tailwind,
+  linux,
+  postgresql,  
 };

@@ -18,20 +18,20 @@ const PostFooterHome = () => {
     'helix-at-home': 'An Arduino Pro Micro-based MIDI controller with 9 buttons, 3 knobs, 9 LEDs, and an expression pedal, sending 30 unique MIDI control signals for seamless DAW integration.',
     'kirbequalizer': 'A custom audio equalizer plugin, offering precision sound shaping with a user-friendly interface.',
     'kirbeats-project': 'An ongoing music production project focused on creating and engineering high-quality music as well as honing musical skills.',
-    'portfolio-website': 'This website which is designed to showcase professional projects and skills, featuring a modern UI/UX design and responsive layout.'
+    'ubc-room-finder': 'A full-stack platform that surfaces available classrooms and lecture spaces at UBC with a fast, intuitive user experience.'
   };
 
   const projects = [
     { title: 'Helix at Home', date: 'November 2024 - Present', class: 'Development and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['helix-at-home'], link: '/bass-drum-pad', externalLink: 'https://github.com/Karsten-Uy/HaH'},
     { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Development and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer', externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' },
     { title: 'Kirbeats Project', date: 'July 2022 – Present', class: 'Audio Engineering', technologies: 'Studio One 5, Ableton, Adobe Suite', description: tooltips['kirbeats-project'], link: '/kirbeats-project', externalLink: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
-    { title: 'Portfolio Website', date: 'December 2023 - Present', class: 'Web and Mobile App Development', technologies: 'React, Tailwind CSS, JavaScript', description: tooltips['portfolio-website'], link: '/portfolio-website', externalLink: 'https://github.com/Karsten-Uy/karsten_website' }
+    { title: 'UBC Room Finder', date: 'December 2025 - Present', class: 'Web Development', technologies: 'Next.js, PostgreSQL, Python', description: tooltips['ubc-room-finder'], link: '/ubc-room-finder', externalLink: 'https://ubcroomfinder.vercel.app/' }
   ];
 
   const career = [
     { 
       company: 'Synopsys Inc.',
-      title: 'R&D EDA Engineer',
+      title: 'R&D EDA Engineering Intern',
       date: 'January 2025 - August 2025', 
       class: 'EDA Development and Software Engineering', 
       technologies: 'C++, Python, Linux', 
@@ -40,10 +40,10 @@ const PostFooterHome = () => {
     },
     { 
       company: 'Insurance Corporation of British Columbia',
-      title: 'Full Stack Software Developer - Innovation and Automation', 
+      title: 'Full Stack Software Developer Intern - Innovation and Automation', 
       date: 'May 2024 – December 2024', 
       class: 'Software Engineering and Automation', 
-      technologies: 'C#, Blue Prism, OutSystems', 
+      technologies: 'C#, Blue Prism, React', 
       description: tooltips['icbc'], 
       link: '/icbc', 
       externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' }
