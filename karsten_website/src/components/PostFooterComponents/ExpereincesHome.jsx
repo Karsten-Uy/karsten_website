@@ -28,7 +28,7 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
       </h2>
       {career.map((job, index) => (
         <Link
-          to="/karsten_website/experience"
+          to="/experience"
           key={index}
           className="mb-6 flex flex-wrap relative block group justify-center"
           onMouseEnter={() => {
@@ -75,7 +75,7 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
       </h2>
       {projects.map((project, index) => (
         <Link
-          to="/karsten_website/experience" // Updated to link to the experience page for each project
+          to="/experience" // Updated to link to the experience page for each project
           key={index}
           className="mb-6 flex flex-wrap relative block group justify-center"
           onMouseEnter={() => {
@@ -121,7 +121,7 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
           className="inline-block"
         >
           <Link 
-            to="/karsten_website/experience" // Button linking to the experience page
+            to="/experience" // Button linking to the experience page
             className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
           >
             View more

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion';
 
 import { close, karstenLogo, menu } from '../assets';
 import { navLinks } from '../constants';
@@ -24,7 +24,7 @@ const Navbar = () => {
   const handleNavigation = (title, id) => {
     setActive(title);
     setToggle(false);
-    navigate(`/karsten_website/${id}`); // Update the navigation path
+    navigate(`/${id}`); 
   };
 
   return (
@@ -34,7 +34,7 @@ const Navbar = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Link to="/karsten_website/"> {/* Update the root link */}
+        <Link to="/">
           <img src={karstenLogo} alt="karsten logo" className="w-[70px]" />
         </Link>
       </motion.div>

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
-import './index.css'; // Ensure this file contains necessary styles
+import './index.css';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -15,10 +15,10 @@ import Page404 from './pages/Page404';
 const AppContent = () => {
   
   const location = useLocation();
-  const isHomePage = location.pathname === '/karsten_website/' || location.pathname === '/karsten_website/home';
-  const isAboutPage = location.pathname === '/karsten_website/about';
-  const isExperiencePage = location.pathname === '/karsten_website/experience';
-  const isContact = location.pathname === '/karsten_website/contact';
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
+  const isAboutPage = location.pathname === '/about';
+  const isExperiencePage = location.pathname === '/experience';
+  const isContact = location.pathname === '/contact';
 
   // Background image based on page
   let backgroundImage = skyBG; // Default for the homepage
@@ -66,16 +66,15 @@ const AppContent = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove); // Add mousemove listener
+    window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove); // Clean up
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
-    <div className="relative">  {/* Add relative positioning to the main container */}
-
+    <div className="relative">
       {/* Floating GIF */}
       <div
         style={{
@@ -98,7 +97,7 @@ const AppContent = () => {
             top: `${mousePos.y + scrollY + 35}px`,
             transform: 'translate(-50%, -50%)',
           }}
-          className="w-16 h-16" // Adjust size as needed
+          className="w-16 h-16"
         />
       </div>
 
@@ -118,7 +117,6 @@ const AppContent = () => {
           }}
         />
         
-
         {/* Navbar */}
         <div className={[styles.flexCenter, 'bg-primary flex-shrink-0 relative'].join(' ')} style={{ zIndex: 10 }}>
           <div className={[styles.boxWidth, 'mb-3'].join(' ')}>
@@ -131,19 +129,17 @@ const AppContent = () => {
           <div className='flex items-center justify-center flex-grow relative'>
             <div className='relative justify-start items-center'  style={{ zIndex: 5 }}>
               <Routes>
-                <Route path="/karsten_website/" index element={<Home />} />
-                <Route path="/karsten_website/home" element={<Home />} />
-                <Route path="/karsten_website/about" element={
-                  
+                <Route path="/" index element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={
                   <div className=''>
                     <About />
                   </div>
-
-                  } />
-                <Route path="/karsten_website/experience" element={<Experience />} />
-                <Route path="/karsten_website/projects" element={<Projects />} />
-                <Route path="/karsten_website/contact" element={<Contact />} />
-                <Route path="/karsten_website/*" element={<Page404 />} />
+                } />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/*" element={<Page404 />} />
               </Routes>
 
               {/* Scroll Down Component */}
@@ -173,32 +169,28 @@ const AppContent = () => {
           </div>
         </div>
 
-        
         {/* Footer */}
         <div 
           className={[
             styles.flexStart, 
-            'bg-repeat-x bg-center bg-auto h-[270px] sm:h-[120px]' // Use Tailwind CSS for background properties
+            'bg-repeat-x bg-center bg-auto h-[270px] sm:h-[120px]'
           ]} 
           style={{
             backgroundImage: `url(${grass})`,
-            backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
+            backgroundSize: 'auto 100%',
             zIndex: 10,
             alignItems: 'flex-end'
           }} 
         >
-
           <div className={[styles.boxWidth].join(' hidden sm:flex z-10')}>
             <Footer />
           </div>
         </div>
-
       </div>
 
       {/* PostFooterHome for Home Page */}
       {isHomePage && (
         <div className={[styles]}>
-          {/* PostFooterHome Section */}
           <div ref={postFooterRef} >
             <div
               className={['bg-primary', styles.flexStart].join(' ')}
@@ -212,30 +204,25 @@ const AppContent = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
               
               <div className="relative flex flex-col w-full items-center">
-                {/* PostFooterHome Section */}
                 <div className={[styles.boxWidth, 'relative w-full px-3'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>
 
-                {/* Footer Section */}
                 <div className="flex justify-center py-6 w-full px-4 sm:px-6 lg:px-8"
                 style={{
                   backgroundImage: `url(${rocks})`,
                   backgroundRepeat: 'repeat-x',
-                  backgroundSize: 'auto 100%', // Ensures the height is set and width repeats
+                  backgroundSize: 'auto 100%',
                   backgroundPosition: 'center',
                   height: 130,
                   alignItems: 'flex-end'
                 }} >
                   <div className={[styles.boxWidth, 'flex flex-col items-center z-10 w-full'].join(' ')}>
                     <div className="w-full flex flex-col sm:flex-row justify-between items-center">
-
-                      {/* place for "domainname ©2024 - Privacy Policy" */}
                       <p className="text-white text-sm text-center sm:text-left mb-2 sm:mb-0">
                         
                       </p>
 
-                      {/* Scroll to Top Button */}
                       <div className="flex justify-center mb-2 sm:mb-0">
                         <button onClick={scrollToTop} className="flex items-center">
                           <svg
@@ -263,10 +250,6 @@ const AppContent = () => {
                         Vancouver, Canada
                       </p>
                     </div>
-
-
-
-
                   </div>
                 </div>
               </div>
@@ -274,11 +257,6 @@ const AppContent = () => {
           </div>
         </div>
       )}
-
-
-
-   
-
     </div>
   );
 };

@@ -21,7 +21,7 @@ const AboutHomePage = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link 
-              to="/karsten_website/about"
+              to="/about"
               className={`inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold`}
             >
               Learn more
