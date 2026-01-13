@@ -9,7 +9,7 @@ const WhatIDo = () => {
         </h2>
         <div className="flex flex-wrap justify-center gap-0 px-4">
           {[
-            { title: 'EDA Development', class: 'Create workflows that accelerate semiconductor innovation', logo: eda, link: '/uiux' },
+            { title: 'Hardware Development', class: 'Develop robust hardware spanning RTL, FPGA, and embedded platforms', logo: eda, link: '/uiux' },
             { title: 'Software Engineering', class: 'Deliver end-to-end software tools that solve complex problems', logo: dev, link: '/development' },
             { title: 'Automation', class: 'Streamline complex workflows into scalable automated processes', logo: auto, link: '/automation' },
             { title: 'Audio Engineering', class: 'Create soundscapes and tools for enjoyable audio experiences', logo: sound, link: '/audio-engineering' }

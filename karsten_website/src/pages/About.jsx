@@ -36,7 +36,7 @@ const About = () => {
             <div className="flex flex-col gap-4">
               {[
                 { 
-                  title: 'EDA Development', 
+                  title: 'Hardware Development', 
                   class: 'Design and implement workflows that accelerate semiconductor innovation by optimizing chip design, verification, and validation processes, enabling faster and more reliable hardware development.', 
                   logo: edab, 
                   link: '/uiux' 

@@ -17,7 +17,7 @@ const Experience = () => {
       company: "Synopsys Inc.",
       role: "R&D EDA Engineering Intern",
       date: "January 2025 - August 2025",
-      class: "EDA Development",
+      class: "Automation and EDA Development",
       technologies: "C++, Python, Linux",
       description:
         "Worked in an IP R&D team to develop an AI-driven EDA verification flow for RTL design, creating Bash pipelines (20K+ samples) to train ML models and integrating them into a C++ RTL feature extractor with intuitive TCL scripts. Designed CLI and GUI workflows to streamline 10+ verification and compilation processes, integrated with hardware validation tools, and built a regression suite covering 100+ RTL designs. Ensured cross-platform deployment by packaging Python ML models with PyInstaller for Linux systems.",
@@ -27,7 +27,7 @@ const Experience = () => {
       company: "Insurance Corporation of British Columbia",
       role: "Full Stack Software Developer Intern",
       date: "May 2024 - December 2024",
-      class: "Automation and Development",
+      class: "Automation and Software Development",
       technologies: "C#, Blue Prism, React",
       description:
         "Developed and deployed RPA solutions using Blue Prism and Python, reducing annual costs and optimizing business processes. Collaborated with cross functional teams to manage workflows in JIRA and built scalable web applications with React, OutSystems, Flask, .NET, and SQL, boosting efficiency and user engagement. Monitored 30+ automation solutions to ensure seamless integration, maximum uptime, and enhanced productivity across enterprise systems.",
@@ -47,38 +47,16 @@ const Experience = () => {
     //   media: 'https://www.youtube.com/embed/eT4vC7aBdxU' // Updated embed link
     // },
     {
-      title: "Helix at Home",
-      date: "November 2024 - Present",
+      title: "Hardware Multi-FX Pedal",
+      date: "December 2025 - Present",
       description:
-        "An Arduino-based MIDI controller simulating a multi-effect guitar pedalboard with 9 buttons, 3 potentiometers, 9 LEDs, and an expression pedal. Engineered the mechanical and electrical design, soldering components for durability in live performance. Programmed in C++ using the MIDIUSB library to deliver 30+ MIDI control signals for seamless DAW integration.",
-      class: "Development and Audio Engineering",
-      technologies: "C++, Arduino, MIDI",
-      link: "https://github.com/Karsten-Uy/HaH",
+        "A real-time multi-effects audio processor on the DE1-SoC FPGA, implementing gain, EQ, compression, distortion, modulation, and time-based effects at 48 kHz, 16-bit audio. Developed fixed-point, pipelined DSP modules with sample-accurate FX chaining to meet 50 MHz timing. Integrated audio codec I/O and on-board hardware controls for low-latency, real-time parameter adjustment.",
+      class: "Hardware Development and Audio Engineering",
+      technologies: "System Verilog, Quartus Prime",
+      link: "https://github.com/Karsten-Uy/HaH_processor",
       type: "video",
-      media: "https://www.youtube.com/embed/NCPwh5nRK9E?start=10",
+      media: "https://www.youtube.com/embed/-QT1ypkydgE?si=nz3-ZUu_YqF0tH8a",
     },
-    {
-      title: "KirbEqualizer",
-      date: "November 2023 - December 2023",
-      description:
-        "A custom audio equalizer plugin developed with JUCE, featuring highpass, lowpass, and peak filters for precise audio tailoring. It offers adjustable cutoff frequencies, user-defined slopes, center frequency and bandwidth control, gain modification, and global output gain, with visual response curve providing real-time feedback.",
-      class: "Development and Audio Engineering",
-      technologies: "C++, JUCE, DSP",
-      link: "https://github.com/Karsten-Uy/KirbEqualizer",
-      type: "video",
-      media: "https://www.youtube.com/embed/GVV8VcHw9x0",
-    },
-    // {
-    //   title: "Portfolio Website",
-    //   date: "August 2024",
-    //   description:
-    //     "This website is a dynamic showcase of my projects and experiences, skillfully built with Vite, React.js, and Tailwind CSS for a seamless and stylish user experience. Dive into my portfolio, explore featured projects, and connect with me through this creatively crafted digital space.",
-    //   class: "Web Development",
-    //   technologies: "React, Tailwind CSS, Framer Motion",
-    //   link: "https://github.com/Karsten-Uy/karsten_website",
-    //   type: "image",
-    //   media: karstenLogo,
-    // },
     {
       title: "UBC Room Finder",
       date: "December 2025 - Present",
@@ -90,6 +68,39 @@ const Experience = () => {
       type: "image",
       media: ubcroomfinder,
     },
+    {
+      title: "Helix at Home",
+      date: "November 2024 - Present",
+      description:
+        "An Arduino-based MIDI controller simulating a multi-effect guitar pedalboard with 9 buttons, 3 potentiometers, 9 LEDs, and an expression pedal. Engineered the mechanical and electrical design, soldering components for durability in live performance. Programmed in C++ using the MIDIUSB library to deliver 30+ MIDI control signals for seamless DAW integration.",
+      class: "Development and Audio Engineering",
+      technologies: "C++, Arduino, MIDI",
+      link: "https://github.com/Karsten-Uy/HaH",
+      type: "video",
+      media: "https://www.youtube.com/embed/NCPwh5nRK9E?start=10",
+    },
+    // {
+    //   title: "KirbEqualizer",
+    //   date: "November 2023 - December 2023",
+    //   description:
+    //     "A custom audio equalizer plugin developed with JUCE, featuring highpass, lowpass, and peak filters for precise audio tailoring. It offers adjustable cutoff frequencies, user-defined slopes, center frequency and bandwidth control, gain modification, and global output gain, with visual response curve providing real-time feedback.",
+    //   class: "Development and Audio Engineering",
+    //   technologies: "C++, JUCE, DSP",
+    //   link: "https://github.com/Karsten-Uy/KirbEqualizer",
+    //   type: "video",
+    //   media: "https://www.youtube.com/embed/GVV8VcHw9x0",
+    // },
+    // {
+    //   title: "Portfolio Website",
+    //   date: "August 2024",
+    //   description:
+    //     "This website is a dynamic showcase of my projects and experiences, skillfully built with Vite, React.js, and Tailwind CSS for a seamless and stylish user experience. Dive into my portfolio, explore featured projects, and connect with me through this creatively crafted digital space.",
+    //   class: "Web Development",
+    //   technologies: "React, Tailwind CSS, Framer Motion",
+    //   link: "https://github.com/Karsten-Uy/karsten_website",
+    //   type: "image",
+    //   media: karstenLogo,
+    // },
     {
       title: "Kirbeats Project",
       date: "July 2022 - Present",

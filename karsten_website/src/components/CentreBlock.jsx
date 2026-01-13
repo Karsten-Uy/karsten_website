@@ -3,8 +3,8 @@ import styles from '../style';
 
 const CentreBlock = () => {
   const titles = [
-    "n EDA Engineer",
     " Software Engineer",
+    " Hardware Designer",
     " Full Stack Developer",
     " Music Producer",
   ];

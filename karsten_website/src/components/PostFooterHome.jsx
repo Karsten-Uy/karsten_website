@@ -16,16 +16,18 @@ const PostFooterHome = () => {
     'insurance-corporation-of-british-columbia': 'Developed web applications using React, Flask, .NET, and SQL, while deploying RPA automation solutions and managing 30+ automations to optimize processes and improve efficiency.',
     'synopsys-inc.': 'Developed next-generation AI-driven EDA tools in an IP R&D team for RTL design, integrating ML models into a C++ RTL feature extractor and building CLI/GUI workflows for 10+ verification processes.',
     'helix-at-home': 'An Arduino Pro Micro-based MIDI controller with 9 buttons, 3 knobs, 9 LEDs, and an expression pedal, sending 30 unique MIDI control signals for seamless DAW integration.',
-    'kirbequalizer': 'A custom audio equalizer plugin, offering precision sound shaping with a user-friendly interface.',
+    // 'kirbequalizer': 'A custom audio equalizer plugin, offering precision sound shaping with a user-friendly interface.',
     'kirbeats-project': 'An ongoing music production project focused on creating and engineering high-quality music as well as honing musical skills.',
-    'ubc-room-finder': 'A full-stack platform that surfaces available classrooms and lecture spaces at UBC with a fast, intuitive user experience.'
+    'ubc-room-finder': 'A full-stack platform that surfaces available classrooms and lecture spaces at UBC with a fast, intuitive user experience.',
+    'hardware-multi-fx-pedal': 'A real-time hardware multi-effects guitar processor with configurable DSP blocks and hands-on control on an FPGA.'
   };
 
   const projects = [
-    { title: 'Helix at Home', date: 'November 2024 - Present', class: 'Development and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['helix-at-home'], link: '/bass-drum-pad', externalLink: 'https://github.com/Karsten-Uy/HaH'},
-    { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Development and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer', externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' },
+    { title: 'UBC Room Finder', date: 'December 2025 - Present', class: 'Software Engineering and Automation', technologies: 'Next.js, PostgreSQL, Python', description: tooltips['ubc-room-finder'], link: '/ubc-room-finder', externalLink: 'https://ubcroomfinder.vercel.app/' },
+    { title: 'Hardware Multi-FX Pedal', date: 'December 2025 - Present', class: 'Hardware Development and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['helix-at-home'], link: '/bass-drum-pad', externalLink: 'https://github.com/Karsten-Uy/HaH'},
+    { title: 'Helix at Home', date: 'November 2024', class: 'Software Engineering and Audio Engineering', technologies: 'C++, Arduino, MIDI', description: tooltips['helix-at-home'], link: '/bass-drum-pad', externalLink: 'https://github.com/Karsten-Uy/HaH'},
+    // { title: 'KirbEqualizer', date: 'November 2023 – December 2023', class: 'Software Engineering and Audio Engineering', technologies: 'C++, JUCE, DSP', description: tooltips['kirbequalizer'], link: '/kirbequalizer', externalLink: 'https://github.com/Karsten-Uy/KirbEqualizer' },
     { title: 'Kirbeats Project', date: 'July 2022 – Present', class: 'Audio Engineering', technologies: 'Studio One 5, Ableton, Adobe Suite', description: tooltips['kirbeats-project'], link: '/kirbeats-project', externalLink: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
-    { title: 'UBC Room Finder', date: 'December 2025 - Present', class: 'Web Development', technologies: 'Next.js, PostgreSQL, Python', description: tooltips['ubc-room-finder'], link: '/ubc-room-finder', externalLink: 'https://ubcroomfinder.vercel.app/' }
   ];
 
   const career = [
@@ -33,7 +35,7 @@ const PostFooterHome = () => {
       company: 'Synopsys Inc.',
       title: 'R&D EDA Engineering Intern',
       date: 'January 2025 - August 2025', 
-      class: 'EDA Development and Software Engineering', 
+      class: 'Automation and Software Engineering', 
       technologies: 'C++, Python, Linux', 
       description: tooltips['synopsys'], 
       link: '/synopsys',
