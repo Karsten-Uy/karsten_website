@@ -64,6 +64,7 @@ import ICBC from './icbc.png';
 import youtube from './youtube.png';
 import Synopsys from './synopsys.png';
 import ubcroomfinder from './ubc_room_finder.png';
+import Intel from './intel.png';
 
 export {
   airbnb,
@@ -132,4 +133,5 @@ export {
   eda,
   edab,
   ubcroomfinder,
+  Intel,
 };

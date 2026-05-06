@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ICBC, karstenLogo, Synopsys, ubcroomfinder } from "../assets"; // Adjust imports as needed
+import { ICBC, karstenLogo, Synopsys, ubcroomfinder, Intel } from "../assets"; // Adjust imports as needed
 import styles from "../style";
 
 const Experience = () => {
@@ -13,6 +13,16 @@ const Experience = () => {
   });
 
   const jobs = [
+    {
+      company: "Intel",
+      role: "System Simulation Intern",
+      date: "May 2026 - Present",
+      class: "Hardware Development",
+      technologies: "",
+      description:
+        "Simulated hardware systems",
+      logo: Intel,
+    },
     {
       company: "Synopsys Inc.",
       role: "R&D EDA Engineering Intern",
@@ -50,10 +60,10 @@ const Experience = () => {
       title: "Hardware Multi-FX Pedal",
       date: "December 2025 - Present",
       description:
-        "A real-time multi-effects audio processor on the DE1-SoC FPGA, implementing gain, EQ, compression, distortion, modulation, and time-based effects at 48 kHz, 16-bit audio. Developed fixed-point, pipelined DSP modules with sample-accurate FX chaining to meet 50 MHz timing. Integrated audio codec I/O and on-board hardware controls for low-latency, real-time parameter adjustment.",
+        "A real-time multi-effects guitar processor in SystemVerilog on the DE1-SoC FPGA, implementing a 48 kHz, 16-bit pipelined DSP chain for live performance. The engine features high-fidelity fixed-point modules including lookahead compression, multi-stage amp distortion, and Schroeder reverb, all optimized for a total system latency of <1ms, featuring a YIN-algorithm pitch tracker, ADC-driven expression pedal support, and a persistent Flash memory preset system that manages four independent banks across power cycles.",
       class: "Hardware Development and Audio Engineering",
       technologies: "System Verilog, Quartus Prime",
-      link: "https://github.com/Karsten-Uy/HaH_processor",
+      link: "https://www.youtube.com/embed/onfJxRNhYNg?si=2LQUfOQEICjkqymk",
       type: "video",
       media: "https://www.youtube.com/embed/-QT1ypkydgE?si=nz3-ZUu_YqF0tH8a",
     },
