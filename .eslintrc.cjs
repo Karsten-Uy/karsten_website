@@ -16,5 +16,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    // No PropTypes / TypeScript in this project; data shapes live in src/data.
+    'react/prop-types': 'off',
   },
 }

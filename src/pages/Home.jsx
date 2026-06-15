@@ -1,4 +1,3 @@
-import React from 'react';
 import { CentreBlock } from '../components';
 import styles from '../style';
 import {motion} from 'framer-motion'

@@ -1,88 +1,26 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  postgresql,
-  adobe,
-  aws,
-  bp,
-  c,
-  csharp,
-  cpp,
-  css,
-  dvr,
-  git,
-  html,
-  java,
-  js,
-  juce,
-  netcore,
-  linux,
-  python,
-  react,
-  studioone,
-  tailwind
-} from '../../assets/TechLogos'; // Adjust the path as necessary
+import { techStack } from '../../data/home';
 
-const techLogos = [
-  postgresql,
-  adobe,
-  aws,
-  bp,
-  c,
-  csharp,
-  cpp,
-  css,
-  dvr,
-  git,
-  html,
-  java,
-  js,
-  juce,
-  netcore,
-  linux,
-  python,
-  react,
-  studioone,
-  tailwind,
-  postgresql, // Duplicate for carousel effect
-  adobe,
-  aws,
-  bp,
-  c,
-  csharp,
-  cpp,
-  css,
-  dvr,
-  git,
-  html,
-  java,
-  js,
-  juce,
-  netcore,
-  linux,
-  python,
-  react,
-  studioone,
-  tailwind
-];
+// Duplicate the list so the looping carousel has no visible seam.
+const logos = [...techStack.logos, ...techStack.logos];
 
 const TechLogosCarousel = () => {
   return (
     <div className="tech-logos-carousel mb-10 mx-20">
-      <h2 className="font-bold text-white text-3xl mb-6 text-center" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-        Tech Stack
+      <h2 className="font-bold text-white text-3xl mb-6 text-center pixel-shadow">
+        {techStack.heading}
       </h2>
-      <p className="text-lg mb-6 text-center text-white mb-5" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-        My expertise spans various technologies to create cutting-edge solutions
+      <p className="text-lg mb-6 text-center text-white mb-5 pixel-shadow">
+        {techStack.subtitle}
       </p>
 
       <motion.div className="carousel py-5">
-        <motion.div 
+        <motion.div
           className="inner-carousel"
           animate={{ x: ['0%', '-100%'] }}
           transition={{ duration: 15, ease: "linear", repeat: Infinity }}
         >
-          {techLogos.map((logo, index) => (
+          {logos.map((logo, index) => (
             <motion.div className="carousel-item" key={index}>
               <img src={logo} alt={`Technology ${index + 1}`} className="logo-image" />
             </motion.div>

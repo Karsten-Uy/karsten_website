@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reusable text shadow used across nearly every white-on-image text element.
+   Replaces the inline style={{ textShadow: '...' }} that was repeated ~30x. */
+@layer utilities {
+  .pixel-shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .pixel-shadow-sm {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,

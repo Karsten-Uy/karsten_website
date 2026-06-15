@@ -4,12 +4,29 @@
 import githubWhite from '../assets/github-mark-white.svg';
 import linkedin from '../assets/linkedin.svg';
 import youtube from '../assets/youtube.png';
+import karstenLogo from '../assets/karstenLogo.png';
 
 // Page background images.
 import skyBG from '../assets/skybg.gif';
 import levelBG from '../assets/levelBG.gif';
 import mountainBG from '../assets/mountainBG.gif';
 import cityBG3 from '../assets/pixel-city3.gif';
+
+// Brand / identity shown in the navbar.
+export const brand = {
+  logo: karstenLogo,
+  alt: 'karsten logo',
+};
+
+// Contact details used by the footer and contact page.
+export const contactInfo = {
+  email: 'karsten.uy@gmail.com',
+  resumeUrl:
+    'https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true',
+};
+
+// Shown in the home page post-footer.
+export const location = 'Vancouver, Canada';
 
 // Navbar links. `id` is the route path segment (e.g. "about" -> /about).
 export const navLinks = [
@@ -24,14 +41,6 @@ export const socialMedia = [
   { id: 'social-media-2', icon: githubWhite, link: 'https://github.com/Karsten-Uy' },
   { id: 'social-media-3', icon: linkedin, link: 'https://www.linkedin.com/in/karstenuy/' },
   { id: 'social-media-4', icon: youtube, link: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
-];
-
-// Rotating titles for the home-page typing animation (CentreBlock).
-export const heroTitles = [
-  ' Software Engineer',
-  ' Hardware Designer',
-  ' Full Stack Developer',
-  ' Music Producer',
 ];
 
 // Per-route appearance. `showOverlay` toggles the purple->teal gradient wash;

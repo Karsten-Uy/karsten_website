@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { close, karstenLogo, menu } from '../assets';
-import { navLinks } from '../data/siteConfig';
+import { close, menu } from '../assets';
+import { navLinks, brand } from '../data/siteConfig';
 
 const linkVariants = {
   hover: {
@@ -35,7 +34,7 @@ const Navbar = () => {
         whileTap={{ scale: 0.9 }}
       >
         <Link to="/">
-          <img src={karstenLogo} alt="karsten logo" className="w-[70px]" />
+          <img src={brand.logo} alt={brand.alt} className="w-[70px]" />
         </Link>
       </motion.div>
 

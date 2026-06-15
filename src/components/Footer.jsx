@@ -1,5 +1,5 @@
 import styles from "../style";
-import { socialMedia } from "../data/siteConfig";
+import { socialMedia, contactInfo } from "../data/siteConfig";
 import { motion } from 'framer-motion';
 import { email } from '../assets';
 
@@ -21,7 +21,7 @@ const Footer = () => {
           className="mb-6 sm:mb-0 z-10"
         >
           <a
-            href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"
+            href={contactInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-lg"
@@ -57,11 +57,11 @@ const Footer = () => {
           className="sm:mb-0"
         >
           <a
-            href="mailto:karsten.uy@gmail.com"
+            href={`mailto:${contactInfo.email}`}
             className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-lg"
           >
             <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
-            karsten.uy@gmail.com
+            {contactInfo.email}
           </a>
         </motion.div>
       </div>

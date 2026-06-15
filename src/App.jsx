@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
 import './index.css';
@@ -10,7 +10,7 @@ import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 import { kirbyfloating, rocks, grass, caveBG } from './assets';
-import { pageConfig, DEFAULT_PAGE } from './data/siteConfig';
+import { pageConfig, DEFAULT_PAGE, location as siteLocation } from './data/siteConfig';
 import Page404 from './pages/Page404';
 
 const AppContent = () => {
@@ -128,7 +128,7 @@ const AppContent = () => {
                   onClick={scrollToPostFooter} 
                   className="flex hidden sm:flex"
                 >
-                  <p className="text-white text-base font-semibold pr-2" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
+                  <p className="text-white text-base font-semibold pr-2 pixel-shadow">
                     Scroll down
                   </p>
                   <svg
@@ -217,17 +217,14 @@ const AppContent = () => {
                           >
                             <path d="M19 15l-7-7-7 7"></path>
                           </svg>
-                          <p
-                            className="text-white text-base font-semibold ml-2"
-                            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
-                          >
+                          <p className="text-white text-base font-semibold ml-2 pixel-shadow">
                             Back to top
                           </p>
                         </button>
                       </div>
 
                       <p className="text-white text-sm text-center sm:text-right">
-                        Vancouver, Canada
+                        {siteLocation}
                       </p>
                     </div>
                   </div>

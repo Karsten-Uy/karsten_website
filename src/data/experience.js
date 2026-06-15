@@ -6,6 +6,14 @@ import Intel from '../assets/intel.png';
 import Synopsys from '../assets/synopsys.png';
 import ICBC from '../assets/icbc.png';
 
+// Section headings for the Experience page.
+export const experienceContent = {
+  title: 'My Experiences',
+  careerHeading: 'Career',
+  projectsHeading: 'Projects',
+  projectCta: 'View Project',
+};
+
 export const career = [
   {
     id: 'intel',

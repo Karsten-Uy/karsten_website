@@ -21,15 +21,15 @@ import postAIaudio from '../assets/postAIAudio.mp3';
 export const projects = [
   // --- Experience / home highlights -----------------------------------------
   {
-    id: 'hardware-multi-fx-pedal',
-    title: 'Hardware Multi-FX Pedal',
+    id: 'kfx-engine',
+    title: 'KFX Engine',
     date: 'December 2025 - Present',
     category: 'Hardware Development and Audio Engineering',
-    technologies: 'System Verilog, Quartus Prime',
+    technologies: 'SystemVerilog, FPGA, Fixed-Point DSP, Python',
     description:
-      'A real-time multi-effects guitar processor in SystemVerilog on the DE1-SoC FPGA, implementing a 48 kHz, 16-bit pipelined DSP chain for live performance. The engine features high-fidelity fixed-point modules including lookahead compression, multi-stage amp distortion, and Schroeder reverb, all optimized for a total system latency of <1ms, featuring a YIN-algorithm pitch tracker, ADC-driven expression pedal support, and a persistent Flash memory preset system that manages four independent banks across power cycles.',
-    link: 'https://www.youtube.com/embed/onfJxRNhYNg?si=2LQUfOQEICjkqymk',
-    media: { type: 'embed', src: 'https://www.youtube.com/embed/-QT1ypkydgE?si=nz3-ZUu_YqF0tH8a' },
+      'A real-time multi-effects guitar processor written in SystemVerilog on the Intel Cyclone V (DE1-SoC) FPGA, running a 12-stage, 48 kHz/16-bit pipelined DSP chain with sub-millisecond (<1ms) latency for live performance. Its fixed-point modules include a 3rd-order polynomial tanh amp distortion, an 8-sample lookahead compressor, and a multiplier-free Feedback Delay Network reverb of eight fractional-delay lines coupled by a lossless 8x8 Hadamard matrix, all holding 50 MHz timing closure through pipelining and multicycle-path constraints, alongside an always-on YIN pitch tracker for chromatic tuning. A live JTAG-UART host link (Avalon-MM adapter) and a transport-agnostic command-parser FSM let a Python Tkinter GUI and CLI read, write, dump, and save a 512-byte parameter store on the running board, while four preset banks persist across power cycles in EPCQ SPI flash via a custom erase/program FSM. A gain-ramp fade FSM and GPIO/ADC expression-pedal controls round out the engine, which also mirrors to a class-compliant Arduino USB-MIDI controller.',
+    link: 'https://github.com/Karsten-Uy/KFX_Engine',
+    media: { type: 'embed', src: 'https://www.youtube.com/embed/onfJxRNhYNg?si=2LQUfOQEICjkqymk' },
     showOnExperience: true,
     showOnProjects: false,
     featured: true,

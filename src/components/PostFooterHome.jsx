@@ -1,6 +1,6 @@
 // src/components/PostFooterHome.jsx
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AboutHomePage, TechLogosCarousel, WhatIDo, ExperiencesHome } from './PostFooterComponents';
 import { featuredCareer } from '../data/experience';
 import { featuredProjects } from '../data/projects';

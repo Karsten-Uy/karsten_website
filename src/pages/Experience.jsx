@@ -1,68 +1,48 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { career } from "../data/experience";
+import { career, experienceContent } from "../data/experience";
 import { experienceProjects } from "../data/projects";
 
 const Experience = () => {
-  const [selectedExperience, setSelectedExperience] = useState(null);
+  const [selectedExperience] = useState(null);
 
+  // Shadow now lives in the `pixel-shadow` CSS class; this only carries the
+  // hover color transition.
   const textStyle = (isSelected) => ({
-    textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
     color: isSelected ? "black" : "white",
     transition: "color 0.3s ease-in-out, text-shadow 0.3s ease-in-out",
   });
 
   return (
     <section className="text-left text-white mt-14 mb-10 px-10 xl:max-w-[1280px]">
-      <h1
-        className="font-bold text-6xl mb-4 mt-10"
-        style={{ textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)" }}
-      >
-        My Experiences
+      <h1 className="font-bold text-6xl mb-4 mt-10 pixel-shadow">
+        {experienceContent.title}
       </h1>
       <hr className="border-t border-white-400 my-8" />
 
-      <h2
-        className="font-bold text-4xl mb-4"
-        style={{ textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)" }}
-      >
-        Career
+      <h2 className="font-bold text-4xl mb-4 pixel-shadow">
+        {experienceContent.careerHeading}
       </h2>
 
       {career.map((job, index) => (
         <motion.div key={index} className="mb-6 flex flex-col">
           <div className="flex mb-4">
             <div className="w-1/2 text-left p-4 flex flex-col">
-              <p
-                className="font-semibold text-2xl"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <p className="font-semibold text-2xl pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.company}
               </p>
-              <h3
-                className="italic text-lg"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <h3 className="italic text-lg pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.role}
               </h3>
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.date}
               </p>
             </div>
             <div className="w-1/2 text-right p-4 flex flex-col justify-between items-end">
-              <p
-                className="text-white font-semibold"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <p className="text-white font-semibold pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.category}
               </p>
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.technologies}
               </p>
             </div>
@@ -70,10 +50,7 @@ const Experience = () => {
 
           <div className="flex items-center">
             <div className="w-full text-left p-4 flex flex-col">
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === job.company)}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === job.company)}>
                 {job.description}
               </p>
             </div>
@@ -90,11 +67,8 @@ const Experience = () => {
 
       <hr className="border-t border-white-400 my-8" />
 
-      <h2
-        className="font-bold text-4xl mb-4"
-        style={{ textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)" }}
-      >
-        Projects
+      <h2 className="font-bold text-4xl mb-4 pixel-shadow">
+        {experienceContent.projectsHeading}
       </h2>
 
       {experienceProjects.map((project, index) => (
@@ -102,30 +76,18 @@ const Experience = () => {
           {/* Project Section */}
           <div className="flex mb-4">
             <div className="w-1/2 text-left p-4 flex flex-col ">
-              <h3
-                className="font-semibold text-2xl"
-                style={textStyle(selectedExperience === project.link.slice(1))}
-              >
+              <h3 className="font-semibold text-2xl pixel-shadow" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.title}
               </h3>
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === project.link.slice(1))}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.date}
               </p>
             </div>
             <div className="w-1/2 text-right p-4 flex flex-col justify-between">
-              <p
-                className="text-white font-semibold"
-                style={textStyle(selectedExperience === project.link.slice(1))}
-              >
+              <p className="text-white font-semibold pixel-shadow" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.category}
               </p>
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === project.link.slice(1))}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.technologies}
               </p>
             </div>
@@ -134,10 +96,7 @@ const Experience = () => {
           {/* Project Media Section */}
           <div className="flex">
             <div className="w-1/2 text-left p-4 flex flex-col">
-              <p
-                className="text-white"
-                style={textStyle(selectedExperience === project.link.slice(1))}
-              >
+              <p className="text-white pixel-shadow" style={textStyle(selectedExperience === project.link.slice(1))}>
                 {project.description}
               </p>
               <motion.div
@@ -151,7 +110,7 @@ const Experience = () => {
                   rel="noopener noreferrer"
                   className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold shadow-lg"
                 >
-                  View Project
+                  {experienceContent.projectCta}
                 </a>
               </motion.div>
             </div>

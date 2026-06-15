@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../style';
-import { heroTitles as titles } from '../data/siteConfig';
+import { hero } from '../data/home';
+
+const titles = hero.titles;
 
 const CentreBlock = () => {
-  const [greeting] = useState("Hello, I'm Kirby");
+  const greeting = hero.greeting;
   const [titleText, setTitleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [titleIndex, setTitleIndex] = useState(0);
@@ -62,28 +64,19 @@ const CentreBlock = () => {
     <section id="home" className={`relative flex items-start ${styles.paddingY}`}>
       <div className={`${styles.flexStart} flex-col xl:px-0`}>
         <div>
-          <p
-            className="text-left font-source-code-pro font-bold text-white md:mr-10 md:text-[80px] text-[50px] mb-2 sm:mb-4"
-            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
-          >
+          <p className="text-left font-source-code-pro font-bold text-white md:mr-10 md:text-[80px] text-[50px] mb-2 sm:mb-4 pixel-shadow">
             {greeting}
           </p>
-          <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-6"
-            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
-          >
-            I am a{titleText}
+          <p className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] mb-4 sm:mb-6 pixel-shadow">
+            {hero.prefix}{titleText}
             <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
           </p>
-          <p
-            className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px]"
-            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}
-          >
-            based in Canada
+          <p className="font-source-code-pro font-normal text-white md:mr-10 md:text-[30px] text-[25px] pixel-shadow">
+            {hero.suffix}
           </p>
         </div>
       </div>
-      
+
     </section>
   );
 };
