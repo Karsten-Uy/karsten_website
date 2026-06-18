@@ -229,8 +229,12 @@ const AppContent = () => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
-              
+
               <div className="relative flex flex-col w-full items-center">
+                {/* Extra dark veil to fade the cave backdrop a touch more. Scoped to this
+                    post-footer wrapper (which is `relative`) so it does NOT leak up and
+                    darken the hero / mountain background above. */}
+                <div className="absolute inset-0 bg-[#08040c]/35" style={{ zIndex: 0 }} />
                 <div className={[styles.boxWidth, 'relative w-full px-3'].join(' ')} style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>

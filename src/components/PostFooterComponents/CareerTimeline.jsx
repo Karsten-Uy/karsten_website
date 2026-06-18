@@ -17,11 +17,11 @@ const renderBullet = (text) =>
   );
 
 const CareerTimeline = () => (
-  <section className="mb-8 rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 text-left backdrop-blur-sm sm:p-9">
-    <p className="mb-2 font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm">
+  <section className="mb-10 text-left">
+    <p className="mb-2 text-center font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm pixel-shadow">
       Experience
     </p>
-    <h2 className="mb-6 text-3xl font-bold text-white sm:mb-8 sm:text-5xl">My career so far</h2>
+    <h2 className="mb-6 text-center text-3xl font-bold text-white sm:mb-8 sm:text-5xl pixel-shadow">My career so far</h2>
 
     <div className="space-y-5">
       {careerTimeline.map((job, i) => (
@@ -37,9 +37,9 @@ const CareerTimeline = () => (
           </div>
 
           {/* Role card */}
-          <div className="flex-1 rounded-2xl border border-white/10 bg-[#0b0f1f]/70 p-5 sm:p-6">
+          <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl">{job.company}</h3>
+              <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl pixel-shadow">{job.company}</h3>
               {(job.current || job.period) && (
                 <span
                   className={`flex-none whitespace-nowrap rounded-full border px-3 py-1 font-source-code-pro text-xs ${
@@ -58,9 +58,9 @@ const CareerTimeline = () => (
               )}
             </div>
 
-            <p className="mt-1 mb-3 font-source-code-pro text-sm text-white/60 sm:text-base">{job.subtitle}</p>
+            <p className="mt-1 mb-3 font-source-code-pro text-sm text-white/70 sm:text-base pixel-shadow">{job.subtitle}</p>
 
-            <ul className="space-y-1.5 font-source-code-pro text-sm text-white/85 sm:text-[15px]">
+            <ul className="space-y-1.5 font-source-code-pro text-sm text-white/85 sm:text-[15px] pixel-shadow">
               {job.bullets.map((b, bi) => (
                 <li key={bi} className="flex gap-2">
                   <span className="flex-none text-[#5ce1e6]">▸</span>

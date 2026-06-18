@@ -4,18 +4,21 @@ import { techStack } from '../../data/home';
 // tooltip with the tool name and where it was used. Everything is driven by
 // `techStack` in data/home.js — add a tool there and it appears here.
 const TechStack = () => (
-  <section className="mb-8 rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm sm:p-9">
-    <h2 className="mb-8 text-center text-3xl font-bold text-white sm:text-4xl">{techStack.heading}</h2>
+  <section className="mb-10">
+    <p className="mb-2 text-center font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm pixel-shadow">
+      Toolbox
+    </p>
+    <h2 className="mb-8 text-center text-3xl font-bold text-white sm:text-4xl pixel-shadow">{techStack.heading}</h2>
 
-    <div className="space-y-4">
+    <div className="divide-y divide-white/10">
       {techStack.groups.map((group) => (
         <div
           key={group.title}
-          className="flex flex-col gap-4 rounded-2xl border border-white/5 bg-[#0b0f1f]/40 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-5"
+          className="flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:gap-6"
         >
           <div className="sm:w-44 sm:flex-none">
-            <h3 className="font-bold leading-tight text-white sm:text-lg">{group.title}</h3>
-            <p className="mt-1 font-source-code-pro text-xs tracking-wide text-[#5ce1e6]">{group.tagline}</p>
+            <h3 className="font-bold leading-tight text-white sm:text-lg pixel-shadow">{group.title}</h3>
+            <p className="mt-1 font-source-code-pro text-xs tracking-wide text-[#5ce1e6] pixel-shadow">{group.tagline}</p>
           </div>
 
           <div className="flex flex-wrap gap-3">
