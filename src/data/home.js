@@ -31,7 +31,7 @@ import tailwind from '../assets/TechLogos/tailwind.png';
 // the highlighted nickname shown in quotes.
 export const hero = {
   eyebrow: "Hello, I'm",
-  name: { first: 'Karsten', nick: 'kirby', last: 'Uy' },
+  name: { first: 'Karsten', nick: 'Kirby', last: 'Uy' },
   prefix: 'I am a',
   location: 'based in Canada',
   titles: [
@@ -53,23 +53,68 @@ export const aboutIntro = {
   ctaTo: '/about',
 };
 
-// "What I Do" cards on the home page.
+// "What I Do" numbered capability index on the home page.
 export const whatIDo = {
   heading: 'What I Do',
+  subtitle: 'Four disciplines I move between, often on the same project.',
   cards: [
-    { title: 'Hardware Development', description: 'Develop robust hardware spanning RTL, FPGA, and embedded platforms', logo: eda },
-    { title: 'Software Engineering', description: 'Deliver end-to-end software tools that solve complex problems', logo: dev },
-    { title: 'Automation', description: 'Streamline complex workflows into scalable automated processes', logo: auto },
-    { title: 'Audio Engineering', description: 'Create soundscapes and tools for enjoyable audio experiences', logo: sound },
+    { title: 'Hardware Development', description: 'Robust hardware spanning RTL, FPGA, and embedded platforms.', logo: eda },
+    { title: 'Software Engineering', description: 'End-to-end software tools that solve complex problems.', logo: dev },
+    { title: 'Automation', description: 'Complex workflows turned into scalable automated processes.', logo: auto },
+    { title: 'Audio Engineering', description: 'Soundscapes and tools for enjoyable audio experiences.', logo: sound },
   ],
 };
 
-// Tech-stack carousel. The component duplicates this list for the looping effect.
+// Tech stack, grouped by discipline (mirrors the "What I Do" areas).
+// To add a tool: import its logo at the top of this file, then drop a
+// { name, logo, where } object into the right group's `items` array.
+// `where` is the text shown in the hover tooltip (where the skill was used).
 export const techStack = {
   heading: 'Tech Stack',
-  subtitle: 'My expertise spans various technologies to create cutting-edge solutions',
-  logos: [
-    postgresql, adobe, aws, bp, c, csharp, cpp, css, dvr, git,
-    html, java, js, juce, netcore, linux, python, react, studioone, tailwind,
+  groups: [
+    {
+      title: 'Hardware & Embedded',
+      tagline: 'RTL · FPGA · firmware',
+      items: [
+        { name: 'C++', logo: cpp, where: 'KFX Engine fixed-point DSP; Synopsys RTL feature extractor' },
+        { name: 'C', logo: c, where: 'Embedded firmware and FPGA tooling' },
+        { name: 'Linux', logo: linux, where: 'Synopsys cross-platform ML packaging and dev' },
+        { name: 'Git', logo: git, where: 'Version control across every project' },
+      ],
+    },
+    {
+      title: 'Software & Web',
+      tagline: 'Full-stack apps',
+      items: [
+        { name: 'React', logo: react, where: 'ICBC web apps; this portfolio' },
+        { name: 'JavaScript', logo: js, where: 'Front-end across web projects' },
+        { name: 'HTML', logo: html, where: 'Web UI and portfolio markup' },
+        { name: 'CSS', logo: css, where: 'Responsive layouts and styling' },
+        { name: 'Tailwind', logo: tailwind, where: 'Styling for this site' },
+        { name: 'Java', logo: java, where: 'OOP coursework and projects' },
+        { name: 'PostgreSQL', logo: postgresql, where: 'UBC Room Finder database' },
+        { name: 'AWS', logo: aws, where: 'Cloud hosting and deployment' },
+      ],
+    },
+    {
+      title: 'Automation & Backend',
+      tagline: 'RPA · pipelines',
+      items: [
+        { name: 'Python', logo: python, where: 'Synopsys ML pipelines; UBC scraper; ICBC RPA' },
+        { name: 'C#', logo: csharp, where: 'ICBC enterprise tooling' },
+        { name: '.NET', logo: netcore, where: 'ICBC web and service development' },
+        { name: 'Blue Prism', logo: bp, where: 'ICBC RPA automation (30+ bots)' },
+      ],
+    },
+    {
+      title: 'Audio & Media',
+      tagline: 'Production · DSP',
+      items: [
+        { name: 'JUCE', logo: juce, where: 'KirbEqualizer audio plugin' },
+        { name: 'Studio One', logo: studioone, where: 'Kirbeats music production' },
+        { name: 'DaVinci Resolve', logo: dvr, where: 'Kirbeats video editing' },
+        { name: 'Adobe Suite', logo: adobe, where: 'Cover art and media for Kirbeats' },
+      ],
+    },
   ],
 };

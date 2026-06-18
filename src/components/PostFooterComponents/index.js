@@ -1,11 +1,11 @@
-import TechLogosCarousel from './TechLogosCarousel'
-import WhatIDo from './WhatIDo'
-import AboutHomePage from './AboutHomePage'
-import ExperiencesHome from './ExperiencesHome'
+import TechStack from './TechStack'
+import AboutCapabilities from './AboutCapabilities'
+import CareerTimeline from './CareerTimeline'
+import FeaturedWork from './FeaturedWork'
 
 export {
-    TechLogosCarousel,
-    WhatIDo,
-    AboutHomePage,
-    ExperiencesHome
+    TechStack,
+    AboutCapabilities,
+    CareerTimeline,
+    FeaturedWork
 }

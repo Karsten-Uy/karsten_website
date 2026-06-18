@@ -1,0 +1,91 @@
+import { careerTimeline } from '../../data/homeShowcase';
+
+// Splits a bullet on {chip} markers and renders the marked spans as highlighted
+// pills (e.g. "20K+ samples"), leaving the rest as plain text.
+const renderBullet = (text) =>
+  text.split(/(\{[^}]+\})/g).map((part, i) =>
+    part.startsWith('{') && part.endsWith('}') ? (
+      <span
+        key={i}
+        className="mx-0.5 inline-flex items-center rounded-md border border-[#5ce1e6]/40 bg-[#5ce1e6]/10 px-1.5 py-px text-[0.9em] text-[#5ce1e6]"
+      >
+        {part.slice(1, -1)}
+      </span>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+
+const CareerTimeline = () => (
+  <section className="mb-8 rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 text-left backdrop-blur-sm sm:p-9">
+    <p className="mb-2 font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm">
+      Experience
+    </p>
+    <h2 className="mb-6 text-3xl font-bold text-white sm:mb-8 sm:text-5xl">My career so far</h2>
+
+    <div className="space-y-5">
+      {careerTimeline.map((job, i) => (
+        <div key={job.id} className="flex gap-4 sm:gap-5">
+          {/* Logo + vertical connector to the next role */}
+          <div className="relative flex flex-none flex-col items-center">
+            {i < careerTimeline.length - 1 && (
+              <span className="absolute left-1/2 top-14 -bottom-5 w-0.5 -translate-x-1/2 bg-white/15 sm:top-16" />
+            )}
+            <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-[#0b0f1f] sm:h-16 sm:w-16">
+              <img src={job.logo} alt={`${job.company} logo`} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+            </div>
+          </div>
+
+          {/* Role card */}
+          <div className="flex-1 rounded-2xl border border-white/10 bg-[#0b0f1f]/70 p-5 sm:p-6">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl">{job.company}</h3>
+              {(job.current || job.period) && (
+                <span
+                  className={`flex-none whitespace-nowrap rounded-full border px-3 py-1 font-source-code-pro text-xs ${
+                    job.current ? 'border-[#5ce1e6]/50 text-[#5ce1e6]' : 'border-white/20 text-white/70'
+                  }`}
+                >
+                  {job.current ? (
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#5ce1e6]" />
+                      {job.period || 'Current'}
+                    </span>
+                  ) : (
+                    job.period
+                  )}
+                </span>
+              )}
+            </div>
+
+            <p className="mt-1 mb-3 font-source-code-pro text-sm text-white/60 sm:text-base">{job.subtitle}</p>
+
+            <ul className="space-y-1.5 font-source-code-pro text-sm text-white/85 sm:text-[15px]">
+              {job.bullets.map((b, bi) => (
+                <li key={bi} className="flex gap-2">
+                  <span className="flex-none text-[#5ce1e6]">▸</span>
+                  <span>{renderBullet(b)}</span>
+                </li>
+              ))}
+            </ul>
+
+            {job.tags.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {job.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-xs text-white/75"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+export default CareerTimeline;
