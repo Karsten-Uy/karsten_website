@@ -34,7 +34,6 @@ import play from './play.png';
 import kirbequalizerDemo from './KirbEqualizerDemo.mp4';
 import preAIaudio from './preAIaudio.mp3';
 import postAIaudio from './postAIAudio.mp3';
-import rgmVid from './rgmVid.mp4';
 import email from './email.png';
 import auto from './auto.png';
 import sound from './sound.png';
@@ -48,6 +47,7 @@ import edab from './edab.png';
 import devb from './devb.png';
 import postfooterbg from './PostFooterBG.png';
 import kirbyfloating from './kirby.gif';
+import mountainsBG from './mountainsBG.gif';
 import skyBG from './skybg.gif';
 import waterBG from './water-fish.gif';
 import cityBG from './pixel-city.gif';
@@ -103,7 +103,6 @@ export {
   kirbequalizerDemo,
   preAIaudio,
   postAIaudio,
-  rgmVid,
   email,
   auto,
   dev,

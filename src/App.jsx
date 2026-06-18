@@ -53,6 +53,23 @@ const AppContent = () => {
     };
   }, []);
 
+  // Flickering stars scattered across the header. Positions are fixed (so they
+  // don't reshuffle on re-render); each twinkles on its own duration/delay.
+  const headerStars = [
+    { left: '5%',  top: '22%', size: 2, dur: '2.6s', delay: '0s',   color: '#eaf2ff' },
+    { left: '12%', top: '58%', size: 2, dur: '3.2s', delay: '0.7s', color: '#bfe9ff' },
+    { left: '20%', top: '34%', size: 3, dur: '2.2s', delay: '1.1s', color: '#eaf2ff' },
+    { left: '29%', top: '64%', size: 2, dur: '3.6s', delay: '0.3s', color: '#cdebff' },
+    { left: '37%', top: '26%', size: 2, dur: '2.8s', delay: '1.4s', color: '#eaf2ff' },
+    { left: '46%', top: '52%', size: 3, dur: '3.0s', delay: '0.2s', color: '#bfe9ff' },
+    { left: '54%', top: '30%', size: 2, dur: '2.4s', delay: '0.9s', color: '#eaf2ff' },
+    { left: '62%', top: '60%', size: 2, dur: '3.4s', delay: '1.6s', color: '#cdebff' },
+    { left: '70%', top: '36%', size: 2, dur: '2.6s', delay: '0.5s', color: '#eaf2ff' },
+    { left: '78%', top: '56%', size: 3, dur: '3.1s', delay: '1.2s', color: '#bfe9ff' },
+    { left: '86%', top: '24%', size: 2, dur: '2.9s', delay: '0.1s', color: '#eaf2ff' },
+    { left: '94%', top: '50%', size: 2, dur: '3.3s', delay: '0.8s', color: '#cdebff' },
+  ];
+
   return (
     <div className="relative">
       {/* Floating GIF */}
@@ -98,8 +115,38 @@ const AppContent = () => {
         />
         
         {/* Navbar */}
-        <div className={[styles.flexCenter, 'bg-primary flex-shrink-0 relative'].join(' ')} style={{ zIndex: 10 }}>
-          <div className={[styles.boxWidth, 'mb-3'].join(' ')}>
+        <div
+          className={[styles.flexCenter, 'flex-shrink-0 relative'].join(' ')}
+          style={{
+            zIndex: 10,
+            // Translucent header block that fades out at the bottom so the nav
+            // stays legible while the scene still shows through. Extra bottom
+            // padding pushes the fade below the logo so its lower edge is covered.
+            paddingBottom: '2rem',
+            backgroundImage:
+              'linear-gradient(to bottom, rgba(0,4,15,0.8) 0%, rgba(0,4,15,0.7) 70%, rgba(0,4,15,0) 100%)',
+          }}
+        >
+          {/* Flickering star field behind the nav */}
+          <div aria-hidden="true" className="absolute inset-0 overflow-hidden" style={{ zIndex: 1 }}>
+            {headerStars.map((s, i) => (
+              <span
+                key={i}
+                className="hdr-star"
+                style={{
+                  left: s.left,
+                  top: s.top,
+                  width: s.size,
+                  height: s.size,
+                  background: s.color,
+                  animationDuration: s.dur,
+                  animationDelay: s.delay,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className={[styles.boxWidth, 'mb-3 relative'].join(' ')} style={{ zIndex: 2 }}>
             <Navbar />
           </div>
         </div>
@@ -195,7 +242,11 @@ const AppContent = () => {
                   backgroundSize: 'auto 100%',
                   backgroundPosition: 'center',
                   height: 130,
-                  alignItems: 'flex-end'
+                  alignItems: 'flex-end',
+                  // Sit above the cursor-following Kirby layer (zIndex 5) so the
+                  // rocks occlude it — Kirby "disappears" behind the ground here.
+                  position: 'relative',
+                  zIndex: 6,
                 }} >
                   <div className={[styles.boxWidth, 'flex flex-col items-center z-10 w-full'].join(' ')}>
                     <div className="w-full flex flex-col sm:flex-row justify-between items-center">

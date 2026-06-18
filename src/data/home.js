@@ -27,11 +27,13 @@ import react from '../assets/TechLogos/react.png';
 import studioone from '../assets/TechLogos/studioone.png';
 import tailwind from '../assets/TechLogos/tailwind.png';
 
-// Hero (CentreBlock). `titles` rotate in the typing animation.
+// Hero (CentreBlock). `titles` rotate in the typing animation; `name.nick` is
+// the highlighted nickname shown in quotes.
 export const hero = {
-  greeting: "Hello, I'm Kirby",
+  eyebrow: "Hello, I'm",
+  name: { first: 'Karsten', nick: 'kirby', last: 'Uy' },
   prefix: 'I am a',
-  suffix: 'based in Canada',
+  location: 'based in Canada',
   titles: [
     ' Software Engineer',
     ' Hardware Designer',

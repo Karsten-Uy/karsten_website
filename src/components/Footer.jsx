@@ -24,7 +24,7 @@ const Footer = () => {
             href={contactInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-lg"
+            className="text-white bg-primary hover:bg-blue-gradient text-xs py-2 px-4 pixel-border"
           >
             Resume
           </a>
@@ -37,7 +37,7 @@ const Footer = () => {
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center bg-primary border border-white hover:bg-primary text-xs py-2 px-2 rounded-lg"
+              className="flex items-center bg-primary hover:bg-primary text-xs py-2 px-2 pixel-border"
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img
@@ -58,7 +58,7 @@ const Footer = () => {
         >
           <a
             href={`mailto:${contactInfo.email}`}
-            className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-lg"
+            className="flex items-center text-white bg-primary hover:bg-primary text-xs py-2 px-4 pixel-border"
           >
             <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
             {contactInfo.email}

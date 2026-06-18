@@ -13,7 +13,6 @@
 //     featured         -> appears in the home-page post-footer highlights
 
 import ubcroomfinder from '../assets/ubc_room_finder.png';
-import rgmVid from '../assets/rgmVid.mp4';
 import kirbequalizerDemo from '../assets/KirbEqualizerDemo.mp4';
 import preAIaudio from '../assets/preAIaudio.mp3';
 import postAIaudio from '../assets/postAIAudio.mp3';
@@ -78,17 +77,6 @@ export const projects = [
   },
 
   // --- Projects page media cards --------------------------------------------
-  {
-    id: 'rhythmic-groove-master',
-    title: 'Rhythmic Groove Master',
-    description:
-      'A MIDI controller, powered by Arduino Pro Micro, designed for bass or guitar, enabling simultaneous drum and bass performance, with code written in C++.',
-    link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster',
-    media: { type: 'video', src: rgmVid },
-    showOnExperience: false,
-    showOnProjects: true,
-    featured: false,
-  },
   {
     id: 'kirbequalizer',
     title: 'KirbEqualizer',

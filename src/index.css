@@ -13,6 +13,49 @@
   .pixel-shadow-sm {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
+
+  /* Flickering pixel stars (used in the header). Each star sets its own
+     duration/delay inline so the field twinkles out of sync. */
+  .hdr-star {
+    position: absolute;
+    background: #eaf2ff;
+    pointer-events: none;
+    image-rendering: pixelated;
+    animation: hdrTwinkle 3s ease-in-out infinite;
+  }
+
+  /* Hard-edged 8-bit frame drawn from an inline SVG border-image: a solid white
+     outline (2 "blocks" thick) with a single-block notched corner, reading as a
+     rounded pixel border rather than a smooth one. The notched corner needs a
+     border-image — a box-shadow can only cut a full square corner.
+     The white fills the whole ring out to the inner edge, so the dark button
+     fill butts right up against it (no transparent inner gap).
+     `--pixel` is the on-screen size of one border block: the 5x5 tile uses a
+     2-block corner (slice 2), so border-width = 2 * --pixel. Block size and line
+     thickness are decoupled this way — raise --pixel for chunkier pixels while
+     the line stays just 2 blocks thin. `background-clip: padding-box` keeps the
+     dark fill out of the notched corners so the page shows through them.
+     Matches the Minecraft/Pixelify aesthetic; replaces `border border-white
+     rounded-lg` on the footer buttons. */
+  .pixel-border {
+    --pixel: 2px;
+    border-style: solid;
+    border-width: calc(var(--pixel) * 2);
+    border-color: #fff; /* fallback when border-image is unsupported */
+    border-radius: 0;
+    border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5' shape-rendering='crispEdges'%3E%3Cg fill='%23ffffff'%3E%3Crect x='1' y='0' width='3' height='1'/%3E%3Crect x='0' y='1' width='5' height='1'/%3E%3Crect x='0' y='2' width='2' height='1'/%3E%3Crect x='3' y='2' width='2' height='1'/%3E%3Crect x='0' y='3' width='5' height='1'/%3E%3Crect x='1' y='4' width='3' height='1'/%3E%3C/g%3E%3C/svg%3E");
+    border-image-slice: 2;
+    border-image-repeat: stretch;
+    background-clip: padding-box;
+    image-rendering: pixelated;
+  }
+}
+
+@keyframes hdrTwinkle {
+  0%, 100% { opacity: 0.18; }
+  20%      { opacity: 1; }
+  45%      { opacity: 0.35; }
+  70%      { opacity: 0.85; }
 }
 
 :root {

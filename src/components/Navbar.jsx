@@ -45,12 +45,12 @@ const Navbar = () => {
             variants={linkVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`font-source-code-pro font-normal cursor-pointer text-base sm:text-lg ${
-              active === nav.title ? 'text-white' : 'text-white'
-            } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
+            className={`font-source-code-pro font-normal cursor-pointer text-base sm:text-lg text-white ${
+              index === navLinks.length - 1 ? 'mr-0' : 'mr-10'
+            }`}
             onClick={() => handleNavigation(nav.title, nav.id)}
           >
-            <Link to={`/${nav.id}`} className={active === nav.title ? 'text-white' : 'text-white'}>
+            <Link to={`/${nav.id}`} className="text-white">
               {nav.title}
             </Link>
           </motion.li>
