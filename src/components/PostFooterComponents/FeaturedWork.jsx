@@ -1,8 +1,9 @@
 import { featuredWork } from '../../data/homeShowcase';
 
-// Selected work as a 2-up card grid: media preview (with a VIDEO / LIVE WEB
-// badge and a play overlay for video links) on top, then title, kind, tags,
-// and a date + CTA footer pinned to the bottom so cards line up.
+// Selected work as a compact 2×2 grid. Each card is horizontal — a thumbnail on
+// the left, with title / kind / tags / CTA stacked on the right — so the cards
+// are wide and the thumbs stay low-profile. Hovering a card lifts it and flips
+// it to the bright cyan accent with black text, matching the "What I Do" cards.
 const FeaturedWork = () => (
   <section className="mb-10 text-left">
     <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
@@ -10,71 +11,50 @@ const FeaturedWork = () => (
     </p>
     <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-6xl pixel-shadow">Projects</h2>
 
-    <div className="grid gap-5 sm:grid-cols-2">
+    <div className="grid gap-4 sm:grid-cols-2">
       {featuredWork.map((p) => (
         <a
           key={p.id}
           href={p.cta.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f1f]/60 transition-colors hover:border-[#5ce1e6]/40"
+          className="group flex gap-4 rounded-2xl border border-white/10 bg-[#0b0f1f]/60 p-3 transition-all duration-200 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.55)]"
         >
-          {/* Media preview */}
-          <div className="relative aspect-video w-full overflow-hidden">
+          {/* Thumbnail (left) — 16:9 so YouTube frames sit flush with no black bars */}
+          <div className="aspect-video w-2/5 flex-none self-start overflow-hidden rounded-xl border border-white/10 transition-colors duration-200 group-hover:border-black/20">
             <img
               src={p.thumb}
               alt=""
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
-
-            {/* VIDEO / LIVE WEB badge */}
-            <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 font-source-code-pro text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-              {p.hasPlay ? (
-                <>
-                  <span className="block h-0 w-0 border-y-[4px] border-l-[6px] border-y-transparent border-l-[#5ce1e6]" />
-                  Video
-                </>
-              ) : (
-                <>
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#5ce1e6]" />
-                  Live Web
-                </>
-              )}
-            </span>
-
-            {/* Play overlay (video links only) */}
-            {p.hasPlay && (
-              <span className="absolute inset-0 grid place-items-center">
-                <span className="grid h-14 w-14 place-items-center rounded-full bg-white/85 shadow-lg transition-transform duration-150 group-hover:scale-110">
-                  <span className="ml-1 block h-0 w-0 border-y-[9px] border-l-[15px] border-y-transparent border-l-[#0b0f1f]" />
-                </span>
-              </span>
-            )}
           </div>
 
-          {/* Content */}
-          <div className="flex flex-1 flex-col p-5">
-            <h3 className="text-2xl font-bold leading-tight text-white">{p.title}</h3>
-            <p className="mt-1 font-source-code-pro text-sm tracking-[0.15em] text-[#5ce1e6]">{p.kind}</p>
+          {/* Content (right) */}
+          <div className="flex min-w-0 flex-1 flex-col">
+            <h3 className="text-xl font-bold leading-tight text-white transition-colors duration-200 group-hover:text-black sm:text-2xl">
+              {p.title}
+            </h3>
+            <p className="mt-1 font-source-code-pro text-xs font-bold uppercase tracking-[0.15em] text-[#5ce1e6] transition-colors duration-200 group-hover:text-black/70">
+              {p.kind}
+            </p>
+            <p className="mt-2 font-source-code-pro text-sm leading-snug text-white/65 transition-colors duration-200 group-hover:text-black/75">
+              {p.summary}
+            </p>
 
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-2 flex flex-wrap gap-1.5">
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-sm text-white/75"
+                  className="rounded-full border border-[#5ce1e6]/40 px-2 py-0.5 font-source-code-pro text-xs text-[#7de7eb] transition-colors duration-200 group-hover:border-black/40 group-hover:text-black"
                 >
                   {t}
                 </span>
               ))}
             </div>
 
-            {/* Footer: date + CTA, pinned to the bottom */}
-            <div className="mt-auto flex items-end justify-between pt-4">
-              <p className="font-source-code-pro text-sm text-white/55 sm:text-base">{p.period}</p>
-              <span className="inline-flex items-center gap-1 font-source-code-pro text-base text-[#5ce1e6] group-hover:underline">
-                {p.cta.label} <span aria-hidden="true">↗</span>
-              </span>
-            </div>
+            <span className="mt-auto inline-flex items-center gap-1 pt-3 font-source-code-pro text-sm font-semibold text-[#5ce1e6] transition-colors duration-200 group-hover:text-black">
+              {p.cta.label} <span aria-hidden="true">↗</span>
+            </span>
           </div>
         </a>
       ))}

@@ -23,9 +23,9 @@ const CareerTimeline = () => (
     </p>
     <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-6xl pixel-shadow">My career so far</h2>
 
-    <div className="mx-auto max-w-5xl space-y-5">
+    <div className="career-spotlight mx-auto max-w-5xl space-y-5">
       {careerTimeline.map((job, i) => (
-        <div key={job.id} className="flex gap-4 sm:gap-5">
+        <div key={job.id} className="career-row flex gap-4 sm:gap-5">
           {/* Logo + vertical connector to the next role */}
           <div className="relative flex flex-none flex-col items-center">
             {i < careerTimeline.length - 1 && (

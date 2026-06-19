@@ -222,6 +222,17 @@
   box-shadow: var(--card-shadow);
 }
 
+/* "Spotlight" hover for the home career timeline: hovering one role keeps it lit
+   while the others fade back and desaturate, pulling focus to the active role.
+   With nothing hovered, every row renders normally. */
+.career-spotlight .career-row {
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+.career-spotlight:has(.career-row:hover) .career-row:not(:hover) {
+  opacity: 0.35;
+  filter: grayscale(0.75);
+}
+
 .feedback-container .feedback-card:last-child {
   margin-right: 0px;
 }
