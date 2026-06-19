@@ -13,6 +13,8 @@
 //     featured         -> appears in the home-page post-footer highlights
 
 import ubcroomfinder from '../assets/ubc_room_finder.png';
+// Placeholder image — swap '../assets/robot.png' for the real MODaN image once it's added to assets.
+import modan from '../assets/robot.png';
 import kirbequalizerDemo from '../assets/KirbEqualizerDemo.mp4';
 import preAIaudio from '../assets/preAIaudio.mp3';
 import postAIaudio from '../assets/postAIAudio.mp3';
@@ -48,15 +50,15 @@ export const projects = [
     featured: true,
   },
   {
-    id: 'helix-at-home',
-    title: 'Helix at Home',
-    date: 'November 2024 - Present',
-    category: 'Development and Audio Engineering',
-    technologies: 'C++, Arduino, MIDI',
+    id: 'modan',
+    title: 'MODaN',
+    date: 'January 2026 - April 2026',
+    category: 'Robotics and Autonomous Systems',
+    technologies: 'Python, ROS2, OpenCV, Kalman Filters',
     description:
-      'An Arduino-based MIDI controller simulating a multi-effect guitar pedalboard with 9 buttons, 3 potentiometers, 9 LEDs, and an expression pedal. Engineered the mechanical and electrical design, soldering components for durability in live performance. Programmed in C++ using the MIDIUSB library to deliver 30+ MIDI control signals for seamless DAW integration.',
-    link: 'https://github.com/Karsten-Uy/HaH',
-    media: { type: 'embed', src: 'https://www.youtube.com/embed/NCPwh5nRK9E?start=10' },
+      'Moving Obstacle Detection and Navigation — an autonomous racing perception and navigation system built on the F1Tenth platform. A real-time perception pipeline using an Intel RealSense D435i applies depth-gating and morphological filtering to segment obstacles at a deterministic 10 Hz, while a sensor-fusion engine of multi-frame Kalman filters tracks dynamic obstacle trajectories to cut state-estimation error from LiDAR noise and occlusions. The reactive navigation stack injects 3D visual data into LiDAR-based Follow-the-Gap to steer around moving obstacles in real time, and a ROS2 safety-interlock node evaluates Time-to-Collision at predicted intercept points to preemptively override motor commands and prevent high-speed collisions.',
+    link: 'https://github.com/Karsten-Uy',
+    media: { type: 'image', src: modan },
     showOnExperience: true,
     showOnProjects: false,
     featured: true,

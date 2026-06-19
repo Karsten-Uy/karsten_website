@@ -5,10 +5,10 @@ import { featuredWork } from '../../data/homeShowcase';
 // and a date + CTA footer pinned to the bottom so cards line up.
 const FeaturedWork = () => (
   <section className="mb-10 text-left">
-    <p className="mb-2 text-center font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm pixel-shadow">
+    <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
       Featured Work
     </p>
-    <h2 className="mb-6 text-center text-3xl font-bold text-white sm:mb-8 sm:text-5xl pixel-shadow">Projects</h2>
+    <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-6xl pixel-shadow">Projects</h2>
 
     <div className="grid gap-5 sm:grid-cols-2">
       {featuredWork.map((p) => (
@@ -28,7 +28,7 @@ const FeaturedWork = () => (
             />
 
             {/* VIDEO / LIVE WEB badge */}
-            <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 font-source-code-pro text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+            <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 font-source-code-pro text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
               {p.hasPlay ? (
                 <>
                   <span className="block h-0 w-0 border-y-[4px] border-l-[6px] border-y-transparent border-l-[#5ce1e6]" />
@@ -54,14 +54,14 @@ const FeaturedWork = () => (
 
           {/* Content */}
           <div className="flex flex-1 flex-col p-5">
-            <h3 className="text-xl font-bold leading-tight text-white">{p.title}</h3>
-            <p className="mt-1 font-source-code-pro text-xs tracking-[0.15em] text-[#5ce1e6]">{p.kind}</p>
+            <h3 className="text-2xl font-bold leading-tight text-white">{p.title}</h3>
+            <p className="mt-1 font-source-code-pro text-sm tracking-[0.15em] text-[#5ce1e6]">{p.kind}</p>
 
             <div className="mt-3 flex flex-wrap gap-2">
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-xs text-white/75"
+                  className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-sm text-white/75"
                 >
                   {t}
                 </span>
@@ -70,8 +70,8 @@ const FeaturedWork = () => (
 
             {/* Footer: date + CTA, pinned to the bottom */}
             <div className="mt-auto flex items-end justify-between pt-4">
-              <p className="font-source-code-pro text-xs text-white/55 sm:text-sm">{p.period}</p>
-              <span className="inline-flex items-center gap-1 font-source-code-pro text-sm text-[#5ce1e6] group-hover:underline">
+              <p className="font-source-code-pro text-sm text-white/55 sm:text-base">{p.period}</p>
+              <span className="inline-flex items-center gap-1 font-source-code-pro text-base text-[#5ce1e6] group-hover:underline">
                 {p.cta.label} <span aria-hidden="true">↗</span>
               </span>
             </div>

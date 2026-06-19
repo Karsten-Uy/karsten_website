@@ -18,37 +18,45 @@ const renderBullet = (text) =>
 
 const CareerTimeline = () => (
   <section className="mb-10 text-left">
-    <p className="mb-2 text-center font-source-code-pro text-xs font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-sm pixel-shadow">
+    <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
       Experience
     </p>
-    <h2 className="mb-6 text-center text-3xl font-bold text-white sm:mb-8 sm:text-5xl pixel-shadow">My career so far</h2>
+    <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-6xl pixel-shadow">My career so far</h2>
 
-    <div className="space-y-5">
+    <div className="mx-auto max-w-5xl space-y-5">
       {careerTimeline.map((job, i) => (
         <div key={job.id} className="flex gap-4 sm:gap-5">
           {/* Logo + vertical connector to the next role */}
           <div className="relative flex flex-none flex-col items-center">
             {i < careerTimeline.length - 1 && (
-              <span className="absolute left-1/2 top-14 -bottom-5 w-0.5 -translate-x-1/2 bg-white/15 sm:top-16" />
+              <span className="absolute left-1/2 top-14 -bottom-5 w-0.5 -translate-x-1/2 bg-gradient-to-b from-[#5ce1e6]/80 to-[#5ce1e6]/0 sm:top-16" />
             )}
-            <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-[#0b0f1f] sm:h-16 sm:w-16">
+            <div
+              className={`relative z-10 grid h-14 w-14 place-items-center rounded-2xl border bg-[#0b0f1f] sm:h-16 sm:w-16 ${
+                job.current
+                  ? 'border-[#5ce1e6]/50 shadow-[0_0_16px_rgba(92,225,230,0.5)]'
+                  : 'border-white/10'
+              }`}
+            >
               <img src={job.logo} alt={`${job.company} logo`} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
             </div>
           </div>
 
           {/* Role card */}
           <div className="min-w-0 flex-1">
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl pixel-shadow">{job.company}</h3>
+            <div className="flex flex-wrap items-center gap-3">
+              <h3 className="text-2xl font-bold leading-tight text-white sm:text-3xl pixel-shadow">{job.company}</h3>
               {(job.current || job.period) && (
                 <span
-                  className={`flex-none whitespace-nowrap rounded-full border px-3 py-1 font-source-code-pro text-xs ${
-                    job.current ? 'border-[#5ce1e6]/50 text-[#5ce1e6]' : 'border-white/20 text-white/70'
+                  className={`flex-none whitespace-nowrap rounded-full border px-3 py-1 text-center font-source-code-pro text-sm ${
+                    job.current
+                      ? 'border-[#5ce1e6]/40 bg-gradient-to-r from-[#2d6cdf] to-[#33bbcf] text-white shadow-[0_0_12px_rgba(92,225,230,0.5)]'
+                      : 'border-white/20 text-white/70'
                   }`}
                 >
                   {job.current ? (
-                    <span className="inline-flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#5ce1e6]" />
+                    <span className="inline-flex items-center justify-center gap-1.5 leading-none">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#5ce1e6] shadow-[0_0_6px_#5ce1e6]" />
                       {job.period || 'Current'}
                     </span>
                   ) : (
@@ -58,9 +66,9 @@ const CareerTimeline = () => (
               )}
             </div>
 
-            <p className="mt-1 mb-3 font-source-code-pro text-sm text-white/70 sm:text-base pixel-shadow">{job.subtitle}</p>
+            <p className="mt-1 mb-3 font-source-code-pro text-base text-white/70 sm:text-lg pixel-shadow">{job.subtitle}</p>
 
-            <ul className="space-y-1.5 font-source-code-pro text-sm text-white/85 sm:text-[15px] pixel-shadow">
+            <ul className="space-y-1.5 font-source-code-pro text-base text-white/85 sm:text-[17px] pixel-shadow">
               {job.bullets.map((b, bi) => (
                 <li key={bi} className="flex gap-2">
                   <span className="flex-none text-[#5ce1e6]">▸</span>
@@ -74,7 +82,7 @@ const CareerTimeline = () => (
                 {job.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-xs text-white/75"
+                    className="rounded-full border border-white/15 px-2.5 py-0.5 font-source-code-pro text-sm text-white/75"
                   >
                     {t}
                   </span>

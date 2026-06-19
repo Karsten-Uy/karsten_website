@@ -56,7 +56,7 @@ export const aboutIntro = {
 // "What I Do" numbered capability index on the home page.
 export const whatIDo = {
   heading: 'What I Do',
-  subtitle: 'Four disciplines I move between, often on the same project.',
+  subtitle: 'Four disciplines, one project',
   cards: [
     { title: 'Hardware Development', description: 'Robust hardware spanning RTL, FPGA, and embedded platforms.', logo: eda },
     { title: 'Software Engineering', description: 'End-to-end software tools that solve complex problems.', logo: dev },

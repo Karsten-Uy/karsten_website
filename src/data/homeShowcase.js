@@ -10,6 +10,8 @@ import Intel from '../assets/intel.png';
 import Synopsys from '../assets/synopsys.png';
 import ICBC from '../assets/icbc.png';
 import ubcroomfinder from '../assets/ubc_room_finder.png';
+// Placeholder image — swap '../assets/robot.png' for the real MODaN image once it's added to assets.
+import modan from '../assets/robot.png';
 
 const ytThumb = (id) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 
@@ -78,14 +80,14 @@ export const featuredWork = [
     hasPlay: false,
   },
   {
-    id: 'helix',
-    title: 'Helix at Home',
-    kind: 'EMBEDDED · MIDI',
-    tags: ['C++', 'Arduino'],
-    period: 'Nov 2024 — Present',
-    cta: { label: 'Watch', href: 'https://www.youtube.com/watch?v=NCPwh5nRK9E' },
-    thumb: ytThumb('NCPwh5nRK9E'),
-    hasPlay: true,
+    id: 'modan',
+    title: 'MODaN',
+    kind: 'ROBOTICS · PERCEPTION',
+    tags: ['Python', 'ROS2'],
+    period: 'Jan 2026 — Apr 2026',
+    cta: { label: 'View', href: 'https://github.com/Karsten-Uy' },
+    thumb: modan,
+    hasPlay: false,
   },
   {
     id: 'kirbeats',

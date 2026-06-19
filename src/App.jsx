@@ -5,7 +5,7 @@ import './index.css';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import { Navbar, Footer, PostFooterHome } from './components';
+import { Navbar, Footer, PostFooterHome, CaveStalactites } from './components';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
@@ -231,6 +231,11 @@ const AppContent = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 0 }} />
 
               <div className="relative flex flex-col w-full items-center">
+                {/* Stalactites hang from the dirt footer into the cave, fading from
+                    dirt-brown at the ground to cave-rock at the tips — the transition
+                    between the two grounds. Sits in normal flow at the top of the cave
+                    so it reserves its own space above the post-footer content. */}
+                <CaveStalactites />
                 {/* Extra dark veil to fade the cave backdrop a touch more. Scoped to this
                     post-footer wrapper (which is `relative`) so it does NOT leak up and
                     darken the hero / mountain background above. */}
