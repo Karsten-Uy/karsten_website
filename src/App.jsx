@@ -106,10 +106,16 @@ const AppContent = () => {
       <div className="bg-primary min-h-screen w-full flex flex-col relative">
         {/* Main Content Background */}
         <div
-          className={['absolute inset-0', styles.paddingX, 'flex flex-col'].join(' ')}
+          className={['absolute inset-x-0 top-0 bottom-[198px] sm:bottom-[88px]', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
+            // Anchor the scene to its bottom and stop it around the grass line so the
+            // forest at the image's bottom edge sits on the grass instead of being
+            // cut by — and buried behind — the dirt strip. The slight overlap into
+            // the grass keeps foliage behind the grass blades' transparent gaps.
+            backgroundPosition: 'center bottom',
+            backgroundRepeat: 'no-repeat',
             zIndex: 0,
           }}
         />
