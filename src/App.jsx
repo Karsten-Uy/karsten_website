@@ -246,7 +246,9 @@ const AppContent = () => {
                     post-footer wrapper (which is `relative`) so it does NOT leak up and
                     darken the hero / mountain background above. */}
                 <div className="absolute inset-0 bg-[#08040c]/35" style={{ zIndex: 0 }} />
-                <div className={[styles.boxWidth, 'relative w-full px-3'].join(' ')} style={{ zIndex: 10 }}>
+                {/* Match the About page's content width so the home post-footer
+                    shares the same horizontal margins (w-[min(92vw,1024px)]). */}
+                <div className="relative mx-auto w-[min(92vw,1024px)]" style={{ zIndex: 10 }}>
                   <PostFooterHome />
                 </div>
 

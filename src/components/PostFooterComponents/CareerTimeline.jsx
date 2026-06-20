@@ -17,12 +17,9 @@ const renderBullet = (text) =>
   );
 
 const CareerTimeline = () => (
+  // Header ("Experience / My career so far") now lives in the 02 SectionDivider
+  // in PostFooterHome, so this block starts straight at the timeline.
   <section className="mb-10 text-left">
-    <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
-      Experience
-    </p>
-    <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-6xl pixel-shadow">My career so far</h2>
-
     <div className="career-spotlight mx-auto max-w-5xl space-y-5">
       {careerTimeline.map((job, i) => (
         <div key={job.id} className="career-row flex gap-4 sm:gap-5">

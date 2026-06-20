@@ -5,6 +5,7 @@ import githubWhite from '../assets/github-mark-white.svg';
 import linkedin from '../assets/linkedin.svg';
 import youtube from '../assets/youtube.png';
 import karstenLogo from '../assets/karstenLogo_pixel_art.png';
+import resumePdf from '../assets/resume.pdf';
 
 // Page background images.
 import mountainsBG from '../assets/mountainsBG.gif';
@@ -21,8 +22,7 @@ export const brand = {
 // Contact details used by the footer and contact page.
 export const contactInfo = {
   email: 'karsten.uy@gmail.com',
-  resumeUrl:
-    'https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true',
+  resumeUrl: resumePdf,
 };
 
 // Shown in the home page post-footer.

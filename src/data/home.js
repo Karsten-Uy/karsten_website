@@ -118,3 +118,60 @@ export const techStack = {
     },
   ],
 };
+
+// Numbered banners that split the home post-footer into three acts, in the
+// natural first-visit reading order (who I am → what I've done → reach out).
+// The cave-scene backdrop is shared; only the header copy changes per act.
+// Rendered by SectionDivider.jsx and laid out in PostFooterHome.jsx.
+export const sectionDividers = {
+  about: {
+    number: '01',
+    eyebrow: 'Who I Am',
+    title: 'About',
+    subtitle: 'The person behind the projects',
+  },
+  experience: {
+    number: '02',
+    eyebrow: 'The Work',
+    title: 'Experience',
+    subtitle: 'My career so far',
+  },
+  contact: {
+    number: '03',
+    eyebrow: "Let's Connect",
+    title: 'Contact',
+    subtitle: 'Reach out, or keep exploring',
+  },
+};
+
+// "Where to next?" — the last band on the home page, sending visitors to the
+// three main destinations. The 01/02/03 markers suggest a reading order for a
+// first-time visitor (who am I → what I've done → reach out). `icon` keys map to
+// inline SVGs in the KeepExploring component.
+export const keepExploring = {
+  eyebrow: 'Keep exploring',
+  heading: 'Where to next?',
+  cards: [
+    {
+      icon: 'about',
+      title: 'About',
+      description: 'Who I am, what I build, and the disciplines I work across.',
+      ctaLabel: 'Read more',
+      to: '/about',
+    },
+    {
+      icon: 'experience',
+      title: 'Experience',
+      description: 'My career timeline — Intel, Synopsys, ICBC — and the projects.',
+      ctaLabel: 'See the work',
+      to: '/experience',
+    },
+    {
+      icon: 'contact',
+      title: 'Contact',
+      description: 'Open to internships & new-grad roles. Drop me a line.',
+      ctaLabel: 'Get in touch',
+      to: '/contact',
+    },
+  ],
+};

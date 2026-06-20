@@ -1,10 +1,15 @@
-// Curated content for the two home-page showcase sections (the career timeline
-// and the featured-work list). Kept separate from the canonical career/projects
-// data so the home cards can show short, hand-tuned copy without touching the
-// full lists used by the Experience/Projects pages.
+// Curated content for the showcase sections shared by the home post-footer
+// (compact career timeline + featured-work grid) and the Experience page
+// (full "Work Experience" timeline + "Projects" bands). Kept separate from the
+// canonical career/projects lists so this hand-tuned copy can evolve without
+// touching the long-form data used elsewhere.
 //
 // In a bullet, wrap a stat in {curly braces} to render it as a highlighted chip,
 // e.g. "Trained ML models on {20K+ samples} via Bash pipelines".
+//
+// featuredWork fields: the home grid reads {summary, tags, cta, thumb}; the
+// Experience bands additionally read {blurb, badge, actions} for the wider,
+// more detail-forward layout.
 
 import Intel from '../assets/intel.png';
 import Synopsys from '../assets/synopsys.png';
@@ -64,43 +69,69 @@ export const featuredWork = [
     title: 'Hardware Multi-FX Pedal',
     kind: 'HARDWARE · AUDIO DSP',
     summary: 'Real-time guitar effects synthesized on an FPGA in SystemVerilog.',
-    tags: ['SystemVerilog', 'FPGA'],
+    blurb:
+      'Real-time guitar effects synthesized on an FPGA in SystemVerilog — distortion, delay and modulation at sub-millisecond latency. A 12-stage fixed-point pipeline runs at 48 kHz with presets tuned live over USB.',
+    tags: ['SystemVerilog', 'Quartus Prime', 'FPGA'],
     period: 'Dec 2025 — Present',
-    cta: { label: 'Watch', href: 'https://www.youtube.com/watch?v=onfJxRNhYNg' },
+    badge: 'DEMO',
     thumb: ytThumb('onfJxRNhYNg'),
     hasPlay: true,
+    cta: { label: 'Watch', href: 'https://www.youtube.com/watch?v=onfJxRNhYNg' },
+    actions: [
+      { label: 'Watch', href: 'https://www.youtube.com/watch?v=onfJxRNhYNg', primary: true },
+      { label: 'Details', href: 'https://github.com/Karsten-Uy/KFX_Engine' },
+    ],
   },
   {
     id: 'ubc',
     title: 'UBC Room Finder',
     kind: 'FULL-STACK WEB',
     summary: 'Find open study and class rooms across UBC in real time.',
-    tags: ['Next.js', 'PostgreSQL'],
+    blurb:
+      'Finds open study and class rooms across UBC in real time. A Python scraper ingests the timetable; a Next.js + Supabase app filters by building, date and time.',
+    tags: ['Next.js', 'PostgreSQL', 'Python'],
     period: 'Dec 2025 — Present',
-    cta: { label: 'View repo', href: 'https://github.com/Karsten-Uy/ubc_room_finder/' },
+    badge: 'LIVE',
     thumb: ubcroomfinder,
     hasPlay: false,
+    cta: { label: 'View repo', href: 'https://github.com/Karsten-Uy/ubc_room_finder/' },
+    actions: [
+      { label: 'View code', href: 'https://github.com/Karsten-Uy/ubc_room_finder/', primary: true },
+    ],
   },
   {
     id: 'modan',
     title: 'MODaN',
     kind: 'ROBOTICS · PERCEPTION',
     summary: 'ROS2 perception pipeline for autonomous mobile robot navigation.',
-    tags: ['Python', 'ROS2'],
+    blurb:
+      'A ROS2 perception pipeline for autonomous mobile robot navigation — depth-gated obstacle detection and Kalman tracking feeding a Follow-the-Gap motion planner.',
+    tags: ['Python', 'ROS2', 'OpenCV'],
     period: 'Jan 2026 — Apr 2026',
-    cta: { label: 'View', href: 'https://github.com/Karsten-Uy' },
+    badge: 'RESEARCH',
     thumb: modan,
     hasPlay: false,
+    cta: { label: 'View', href: 'https://github.com/Karsten-Uy' },
+    actions: [
+      { label: 'View', href: 'https://github.com/Karsten-Uy', primary: true },
+    ],
   },
   {
     id: 'kirbeats',
     title: 'Kirbeats Project',
     kind: 'MUSIC PRODUCTION',
     summary: 'Original beats and tracks produced in Studio One and Ableton.',
+    blurb:
+      'Original beats and tracks produced in Studio One and Ableton, with mixing and video edits in DaVinci Resolve.',
     tags: ['Studio One', 'Ableton'],
     period: 'Jul 2022 — Present',
-    cta: { label: 'Listen', href: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
+    badge: 'AUDIO',
     thumb: ytThumb('Ve9CfWA3qNA'),
     hasPlay: true,
+    cta: { label: 'Listen', href: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA' },
+    actions: [
+      { label: 'Listen', href: 'https://www.youtube.com/channel/UCpk5lRmQTTeHq7ISLFpiwzA', primary: true },
+      { label: 'Watch', href: 'https://www.youtube.com/watch?v=Ve9CfWA3qNA' },
+    ],
   },
 ];
