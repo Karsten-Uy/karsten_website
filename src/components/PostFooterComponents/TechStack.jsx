@@ -19,13 +19,13 @@ const TechStack = () => {
 
   return (
     <section className="mb-10">
-      <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
+      <p className="mb-2 font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
         Toolbox
       </p>
-      <h2 className="mb-6 text-center text-4xl font-bold text-white sm:text-5xl pixel-shadow">{techStack.heading}</h2>
+      <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl pixel-shadow">{techStack.heading}</h2>
 
       {/* Category filters */}
-      <div className="mb-6 flex flex-wrap justify-center gap-2">
+      <div className="mb-6 flex flex-wrap justify-start gap-2">
         {categories.map((cat) => {
           const on = active === cat;
           return (
@@ -48,7 +48,7 @@ const TechStack = () => {
       </div>
 
       {/* Tool wall — fills the section width */}
-      <div className="flex flex-wrap justify-center gap-2.5">
+      <div className="flex flex-wrap justify-start gap-2.5">
         {tools.map((item) => {
           const lit = active === ALL || item.category === active;
           const highlighted = active !== ALL && item.category === active;

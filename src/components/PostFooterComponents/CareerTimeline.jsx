@@ -17,9 +17,13 @@ const renderBullet = (text) =>
   );
 
 const CareerTimeline = () => (
-  // Header ("Experience / My career so far") now lives in the 02 SectionDivider
-  // in PostFooterHome, so this block starts straight at the timeline.
+  // The 02 SectionDivider in PostFooterHome carries the big "Experience" title;
+  // this block adds a quieter eyebrow and the timeline of roles, each role body
+  // sitting in its own card.
   <section className="mb-10 text-left">
+    <p className="mb-5 font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
+      My career so far
+    </p>
     <div className="career-spotlight mx-auto max-w-5xl space-y-5">
       {careerTimeline.map((job, i) => (
         <div key={job.id} className="career-row flex gap-4 sm:gap-5">
@@ -40,8 +44,8 @@ const CareerTimeline = () => (
           </div>
 
           {/* Role card */}
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-3">
+          <div className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-[#0b0f1f]/60 p-4 sm:p-5">
+            <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
               <h3 className="text-2xl font-bold leading-tight text-white sm:text-3xl pixel-shadow">{job.company}</h3>
               {(job.current || job.period) && (
                 <span

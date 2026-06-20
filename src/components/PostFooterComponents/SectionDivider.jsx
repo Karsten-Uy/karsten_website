@@ -1,53 +1,60 @@
-import { caveBG } from '../../assets';
+// Game-HUD section banner that splits the home post-footer into three "levels"
+// (01 About / 02 Experience / 03 Contact). Each bar leans into the arcade theme:
+// pixel bracket corners, a LEVEL 0N · EYEBROW label, an N / TOTAL counter, the
+// big title, and a segmented meter that fills further every level — so the three
+// bars together read as a progress gauge for how far down the page you are.
 
-// Numbered banner that splits the home post-footer into three acts
-// (01 About / 02 Experience / 03 Contact). The cave scene is shared across all
-// three — only the index and header copy change — so the dividers read as one
-// family. The big ghosted number is decorative (the <h2> carries the heading for
-// screen readers); the numbering is honest here because the three acts have a
-// real first-visit reading order: who I am -> what I've done -> how to reach me.
-const SectionDivider = ({ number, eyebrow, title, subtitle }) => (
-  <section className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.35)]">
-    {/* Shared cave backdrop, darkened left-to-right so the header stays legible */}
-    <div
-      aria-hidden="true"
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: `url(${caveBG})` }}
-    />
-    <div
-      aria-hidden="true"
-      className="absolute inset-0 bg-gradient-to-r from-[#08040c]/90 via-[#08040c]/65 to-[#08040c]/35"
-    />
+// Fixed segment count so the meter reads as a chunky arcade gauge; lit segments
+// scale with the level, giving clean thirds (5 / 10 / 15).
+const SEGMENTS = 15;
 
-    <div className="relative flex flex-col gap-3 px-5 py-6 sm:px-9 sm:py-7">
-      <div className="flex items-center gap-4 sm:gap-6">
-        {/* Ghosted index — decorative outline; the heading lives in the <h2> */}
-        <span
-          aria-hidden="true"
-          className="select-none text-6xl font-bold leading-none text-transparent sm:text-8xl"
-          style={{ WebkitTextStroke: '2px rgba(125,231,235,0.5)' }}
-        >
-          {number}
+// Brighter L-shaped accents at each corner — the "HUD frame" over the box border.
+const Corners = () => (
+  <>
+    <span aria-hidden="true" className="pointer-events-none absolute left-1.5 top-1.5 h-3 w-3 border-l-2 border-t-2 border-[#5ce1e6]" />
+    <span aria-hidden="true" className="pointer-events-none absolute right-1.5 top-1.5 h-3 w-3 border-r-2 border-t-2 border-[#5ce1e6]" />
+    <span aria-hidden="true" className="pointer-events-none absolute bottom-1.5 left-1.5 h-3 w-3 border-b-2 border-l-2 border-[#5ce1e6]" />
+    <span aria-hidden="true" className="pointer-events-none absolute bottom-1.5 right-1.5 h-3 w-3 border-b-2 border-r-2 border-[#5ce1e6]" />
+  </>
+);
+
+const SectionDivider = ({ level, total, eyebrow, title }) => {
+  const lit = Math.round((level / total) * SEGMENTS);
+  const pad = String(level).padStart(2, '0');
+
+  return (
+    <section className="relative mb-8 rounded-lg border border-[#5ce1e6]/20 bg-[#0b0f1f]/85 px-5 py-5 shadow-[0_0_30px_rgba(8,4,12,0.5)] backdrop-blur-sm sm:px-7 sm:py-6">
+      <Corners />
+
+      {/* Level label (left) + progress counter (right) */}
+      <div className="flex items-center justify-between font-source-code-pro text-[11px] font-bold uppercase tracking-[0.3em] sm:text-xs">
+        <span className="text-[#5ce1e6] pixel-shadow">
+          Level {pad} <span className="text-[#5ce1e6]/40">·</span> {eyebrow}
         </span>
-
-        <div className="min-w-0">
-          <p className="mb-1 font-source-code-pro text-[11px] font-bold uppercase tracking-[0.4em] text-[#5ce1e6] pixel-shadow sm:text-sm">
-            {eyebrow}
-          </p>
-          <h2 className="text-4xl font-bold leading-none text-white pixel-shadow sm:text-6xl">
-            {title}
-          </h2>
-        </div>
+        <span className="tracking-[0.2em] text-white/45">
+          {level} / {total}
+        </span>
       </div>
 
-      {/* Full-width rule, fading out to the right like the cave it sits on */}
-      <div className="h-px w-full bg-gradient-to-r from-[#5ce1e6]/60 via-[#5ce1e6]/25 to-transparent" />
+      <h2 className="mt-2 text-4xl font-bold leading-none text-white pixel-shadow sm:text-5xl">
+        {title}
+      </h2>
 
-      <p className="font-source-code-pro text-sm text-white/75 pixel-shadow sm:text-base">
-        {subtitle}
-      </p>
-    </div>
-  </section>
-);
+      {/* Segmented meter — decorative; fills to this level's share of the page */}
+      <div aria-hidden="true" className="mt-4 flex gap-1">
+        {Array.from({ length: SEGMENTS }).map((_, i) => (
+          <span
+            key={i}
+            className={
+              i < lit
+                ? 'h-2.5 flex-1 rounded-[2px] bg-[#5ce1e6] shadow-[0_0_8px_rgba(92,225,230,0.6)]'
+                : 'h-2.5 flex-1 rounded-[2px] bg-[#5ce1e6]/10'
+            }
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default SectionDivider;

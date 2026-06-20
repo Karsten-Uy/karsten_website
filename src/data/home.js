@@ -45,6 +45,10 @@ export const hero = {
 // Label on the "View more" button under the home highlights.
 export const featuredCta = 'View more';
 
+// "View full experience" button below the selected-projects list — bridges the
+// home highlights to the full Experience page (timeline + project bands).
+export const projectsCta = { label: 'View full experience', to: '/experience' };
+
 // Post-footer intro band (AboutHomePage).
 export const aboutIntro = {
   title: 'Programming the sounds of tomorrow',
@@ -119,35 +123,29 @@ export const techStack = {
   ],
 };
 
-// Numbered banners that split the home post-footer into three acts, in the
+// Game-HUD banners that split the home post-footer into three "levels", in the
 // natural first-visit reading order (who I am → what I've done → reach out).
-// The cave-scene backdrop is shared; only the header copy changes per act.
-// Rendered by SectionDivider.jsx and laid out in PostFooterHome.jsx.
+// `level`/`total` drive the LEVEL 0N label, the N / TOTAL counter, and how far
+// the segmented meter fills. Rendered by SectionDivider.jsx, laid out in
+// PostFooterHome.jsx.
 export const sectionDividers = {
-  about: {
-    number: '01',
-    eyebrow: 'Who I Am',
-    title: 'About',
-    subtitle: 'The person behind the projects',
-  },
-  experience: {
-    number: '02',
-    eyebrow: 'The Work',
-    title: 'Experience',
-    subtitle: 'My career so far',
-  },
-  contact: {
-    number: '03',
-    eyebrow: "Let's Connect",
-    title: 'Contact',
-    subtitle: 'Reach out, or keep exploring',
-  },
+  about: { level: 1, total: 3, eyebrow: 'Who I Am', title: 'About' },
+  experience: { level: 2, total: 3, eyebrow: 'The Work', title: 'Experience' },
+  contact: { level: 3, total: 3, eyebrow: "Let's Connect", title: 'Contact' },
 };
 
-// "Where to next?" — the last band on the home page, sending visitors to the
-// three main destinations. The 01/02/03 markers suggest a reading order for a
-// first-time visitor (who am I → what I've done → reach out). `icon` keys map to
-// inline SVGs in the KeepExploring component.
+// Closing contact band that opens the 03 section — a centered call to reach out,
+// sitting above the "Keep exploring" navigation cards.
+export const contactBand = {
+  heading: 'Reach out, or keep exploring',
+  body: 'Open to internships & new-grad roles. Drop me a line.',
+  ctaLabel: 'Get in touch',
+  ctaTo: '/contact',
+};
+
+// The last band on the home page, sending visitors to the three main
+// destinations (who I am → what I've done → reach out). Rendered as compact
+// navigation cards beneath the contact band.
 export const keepExploring = {
   eyebrow: 'Keep exploring',
   heading: 'Where to next?',

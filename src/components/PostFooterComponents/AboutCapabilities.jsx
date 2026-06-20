@@ -12,11 +12,13 @@ const AboutCapabilities = () => (
     <section className="mb-10">
       <div className="group cursor-pointer rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:p-9">
         <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
-          <img
-            src={karsten}
-            alt="Karsten Uy"
-            className="h-20 w-20 flex-none rounded-2xl border border-white/15 object-cover transition-colors duration-200 group-hover:border-black/20 sm:h-24 sm:w-24"
-          />
+          <div className="relative h-24 w-24 flex-none overflow-hidden rounded-2xl border border-white/15 transition-colors duration-200 group-hover:border-black/20 sm:h-auto sm:w-44 sm:self-stretch">
+            <img
+              src={karsten}
+              alt="Karsten Uy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
           <div className="flex-1">
             <p className="mb-1 font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] transition-colors duration-200 group-hover:text-black">
               About
@@ -38,10 +40,10 @@ const AboutCapabilities = () => (
 
     {/* What I Do — 4-up capability cards */}
     <section className="mb-10">
-      <p className="mb-2 text-center font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
+      <p className="mb-2 font-source-code-pro text-sm font-bold uppercase tracking-[0.3em] text-[#5ce1e6] sm:text-base pixel-shadow">
         {whatIDo.heading}
       </p>
-      <h2 className="mb-6 text-center text-4xl font-bold text-white sm:mb-8 sm:text-5xl pixel-shadow">{whatIDo.subtitle}</h2>
+      <h2 className="mb-6 text-3xl font-bold text-white sm:mb-8 sm:text-4xl pixel-shadow">{whatIDo.subtitle}</h2>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {whatIDo.cards.map((item) => (
