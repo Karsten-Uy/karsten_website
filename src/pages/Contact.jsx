@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { contactPage, emailConfig } from '../data/contact';
+import { pageFade } from '../utils/motion';
 
 // Two-column Contact page: a message form (left) sitting over the page
 // background, and a solid dark identity card (right) listing the direct ways to
@@ -119,10 +120,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      {...pageFade}
       className="mx-auto grid w-[min(92vw,1024px)] gap-8 py-8 text-left sm:py-12 lg:grid-cols-[1.35fr_1fr] lg:gap-10"
     >
       {/* Left — message form (sits over the page background) */}
@@ -181,7 +179,7 @@ const Contact = () => {
         {/* Profile header */}
         <div className="flex items-center gap-4">
           <div className="grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl border-2 border-[#5ce1e6]/60 bg-[#0b0f1f] shadow-[0_0_16px_rgba(92,225,230,0.35)]">
-            <img src={card.avatar} alt={card.name} className="h-full w-full object-cover" />
+            <img src={card.avatar} alt={card.name} decoding="async" className="h-full w-full object-cover" />
           </div>
           <div className="min-w-0">
             <p className="text-2xl font-bold leading-tight text-white pixel-shadow">{card.name}</p>

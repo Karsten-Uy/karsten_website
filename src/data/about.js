@@ -12,9 +12,7 @@ import dev from '../assets/dev.png';
 import musicProd from '../assets/music_prod.png';
 import sound from '../assets/sound.png';
 
-import Intel from '../assets/intel.png';
-import Synopsys from '../assets/synopsys.png';
-import ICBC from '../assets/icbc.png';
+import { companyLogos } from './companyLogos';
 
 export const aboutPage = {
   // ---- Hero intro panel -------------------------------------------------
@@ -53,9 +51,9 @@ export const aboutPage = {
     ],
     workedWithHeading: 'Worked with',
     logos: [
-      { src: Intel, alt: 'Intel' },
-      { src: Synopsys, alt: 'Synopsys' },
-      { src: ICBC, alt: 'ICBC' },
+      { src: companyLogos.Intel, alt: 'Intel' },
+      { src: companyLogos.Synopsys, alt: 'Synopsys' },
+      { src: companyLogos.ICBC, alt: 'ICBC' },
     ],
     cta: { label: 'Learn more', to: '/experience' },
   },

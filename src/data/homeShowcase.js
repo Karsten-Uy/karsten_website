@@ -11,11 +11,9 @@
 // Experience bands additionally read {blurb, badge, actions} for the wider,
 // more detail-forward layout.
 
-import Intel from '../assets/intel.png';
-import Synopsys from '../assets/synopsys.png';
-import ICBC from '../assets/icbc.png';
 import ubcroomfinder from '../assets/ubc_room_finder.png';
 import arc4Thumb from '../assets/arc4.jpg';
+import { companyLogos } from './companyLogos';
 
 const ytThumb = (id) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 
@@ -24,7 +22,7 @@ export const careerTimeline = [
   {
     id: 'intel',
     company: 'Intel',
-    logo: Intel,
+    logo: companyLogos.Intel,
     subtitle: 'System Simulation Intern · Hardware Development',
     bullets: ['Building system simulations to validate next-generation hardware.'],
     tags: ['SystemC', 'Bazel', 'Linux'],
@@ -34,7 +32,7 @@ export const careerTimeline = [
   {
     id: 'synopsys',
     company: 'Synopsys Inc.',
-    logo: Synopsys,
+    logo: companyLogos.Synopsys,
     subtitle: 'R&D Software Engineer Intern · EDA Tooling',
     bullets: [
       'Built an AI-driven EDA verification flow for RTL design.',
@@ -48,7 +46,7 @@ export const careerTimeline = [
   {
     id: 'icbc',
     company: 'ICBC',
-    logo: ICBC,
+    logo: companyLogos.ICBC,
     subtitle: 'Full-Stack Software Developer Intern · Automation & Software',
     bullets: [
       'Shipped RPA solutions in Blue Prism + Python, cutting annual costs.',

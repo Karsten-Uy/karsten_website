@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { aboutPage } from '../data/about';
+import { pageFade } from '../utils/motion';
 
 // Narrative-scroll About page. Reuses the home post-footer's visual language
 // (cyan accent, dark rounded cards that lift + flip to cyan on hover, tool
@@ -17,10 +18,7 @@ const PANEL_HOVER =
 
 const About = () => (
   <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
+    {...pageFade}
     className="mx-auto w-[min(92vw,1024px)] space-y-12 py-8 text-left sm:py-12"
   >
     {/* 1 — Hero: photo + about + status chips. Hover lifts + cyan-highlights the
@@ -32,6 +30,7 @@ const About = () => (
         <img
           src={photo}
           alt="Karsten Uy"
+          decoding="async"
           className="h-32 w-32 flex-none rounded-2xl object-cover sm:h-44 sm:w-44"
         />
         <div className="min-w-0 flex-1">
@@ -108,7 +107,7 @@ const About = () => (
                 className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-[#0b0f1f]/70 p-1.5 transition-colors duration-200 group-hover:border-black/20 group-hover:bg-[#0b0f1f]"
                 title={l.alt}
               >
-                <img src={l.src} alt={l.alt} className="h-full w-full object-contain" />
+                <img src={l.src} alt={l.alt} loading="lazy" decoding="async" className="h-full w-full object-contain" />
               </div>
             ))}
           </div>
@@ -136,7 +135,7 @@ const About = () => (
             className="flex gap-4 rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.45)] sm:gap-6"
           >
             <div className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60">
-              <img src={d.logo} alt="" className="h-7 w-7 object-contain" />
+              <img src={d.logo} alt="" loading="lazy" decoding="async" className="h-7 w-7 object-contain" />
             </div>
             <div className="min-w-0 flex-1">
               <h3 className="text-lg font-bold leading-tight text-white sm:text-xl">

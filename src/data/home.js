@@ -8,7 +8,6 @@ import musicProd from '../assets/music_prod.png';
 
 import postgresql from '../assets/TechLogos/Postgresql.png';
 import adobe from '../assets/TechLogos/adobe.png';
-import aws from '../assets/TechLogos/aws.png';
 import bp from '../assets/TechLogos/bp.png';
 import c from '../assets/TechLogos/c.png';
 import csharp from '../assets/TechLogos/csharp.png';
@@ -22,6 +21,7 @@ import js from '../assets/TechLogos/js.png';
 import juce from '../assets/TechLogos/juce.png';
 import netcore from '../assets/TechLogos/netcore.png';
 import linux from '../assets/TechLogos/linux.png';
+import bazel from '../assets/TechLogos/bazel.svg';
 import python from '../assets/TechLogos/python.png';
 import react from '../assets/TechLogos/react.png';
 import studioone from '../assets/TechLogos/studioone.png';
@@ -88,12 +88,13 @@ export const techStack = {
       tagline: 'FPGA · DSP · firmware',
       items: [
         { name: 'SystemVerilog', logo: systemverilog, where: 'KFX Engine & ARC4 Decryptor RTL; Digital Systems Design' },
-        { name: 'C++', logo: cpp, where: 'KFX Engine fixed-point DSP modeling' },
-        { name: 'C', logo: c, where: 'Embedded firmware — JTAG-UART host link, FSMs' },
-        { name: 'Python', logo: python, where: 'KFX host tooling (Tkinter GUI + CLI)' },
+        { name: 'C++', logo: cpp, where: 'Synopsys EDA Tools, Intel SystemC modelling' },
+        { name: 'C', logo: c, where: 'Intel' },
+        { name: 'Python', logo: python, where: 'DSP modelling, ICBC automations, and more' },
         { name: 'Quartus', logo: quartus, where: 'FPGA synthesis & timing closure for KFX and ARC4' },
         { name: 'Arduino', logo: arduino, where: 'Class-compliant USB-MIDI controller for KFX' },
         { name: 'Linux', logo: linux, where: 'Cross-platform embedded and dev environment' },
+        { name: 'Bazel', logo: bazel, where: 'Build tooling for system simulation at Intel' },
         { name: 'Git', logo: git, where: 'Version control across every project' },
       ],
     },
@@ -120,7 +121,6 @@ export const techStack = {
         { name: 'Tailwind', logo: tailwind, where: 'Styling for this site' },
         { name: 'PostgreSQL', logo: postgresql, where: 'UBC Room Finder database' },
         { name: 'Java', logo: java, where: 'OOP coursework and projects' },
-        { name: 'AWS', logo: aws, where: 'Cloud hosting and deployment' },
       ],
     },
     {

@@ -2,16 +2,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from '../style';
 import { notFound } from '../data/notFound';
+import { pageFade } from '../utils/motion';
 
 const Page404 = () => {
   return (
     <div className={styles.flexStart}>
       <div className={styles.boxWidth}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.div {...pageFade}>
           <section className={`flex justify-center items-center ${styles.paddingY}`}>
             <div className="flex flex-col items-center xl:px-0 sm:px-16 px-6">
               <div className={`flex flex-col items-center py-[60px] px-[60px] bg-discount-gradient rounded-[10px]`}>

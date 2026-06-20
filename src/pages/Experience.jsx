@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { careerTimeline, featuredWork } from '../data/homeShowcase';
+import { pageFade } from '../utils/motion';
+import Bullet from '../components/Bullet';
 
 // The Experience page is one transparent panel — a page header, the Work
 // Experience timeline (one card per role, hung off a connecting line), and
@@ -17,22 +19,6 @@ const CHIP =
 
 // Glyph shown in a project's corner badge, keyed by badge label.
 const BADGE_GLYPH = { DEMO: '▶', RESEARCH: '✦', AUDIO: '♪', LIVE: '●' };
-
-// Splits a bullet on {chip} markers and renders the marked spans as highlighted
-// pills (e.g. "20K+ samples"), leaving the rest as plain text.
-const renderBullet = (text) =>
-  text.split(/(\{[^}]+\})/g).map((part, i) =>
-    part.startsWith('{') && part.endsWith('}') ? (
-      <span
-        key={i}
-        className="mx-0.5 inline-flex items-center rounded-md border border-[#5ce1e6]/40 bg-[#5ce1e6]/10 px-1.5 py-px text-[0.9em] text-[#5ce1e6]"
-      >
-        {part.slice(1, -1)}
-      </span>
-    ) : (
-      <span key={i}>{part}</span>
-    )
-  );
 
 // Faint, static night-sky accents — evokes the pixel sky without any extra
 // motion. Purely decorative.
@@ -97,10 +83,7 @@ const SectionHeader = ({ icon, title, count, className = '' }) => (
 
 const Experience = () => (
   <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
+    {...pageFade}
     className="mx-auto w-[min(94vw,1120px)] py-8 text-left sm:py-12"
   >
     <section className="relative overflow-hidden rounded-[28px] p-6 sm:p-10">
@@ -137,6 +120,8 @@ const Experience = () => (
                   <img
                     src={job.logo}
                     alt={`${job.company} logo`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -181,7 +166,7 @@ const Experience = () => (
                     {job.bullets.map((b, bi) => (
                       <li key={bi} className="flex gap-2">
                         <span className="flex-none text-[#5ce1e6]">›</span>
-                        <span>{renderBullet(b)}</span>
+                        <span><Bullet text={b} /></span>
                       </li>
                     ))}
                   </ul>
@@ -223,6 +208,8 @@ const Experience = () => (
                     <img
                       src={p.thumb}
                       alt={`${p.title} preview`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover"
                     />
                   </div>

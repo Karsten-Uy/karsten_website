@@ -43,7 +43,9 @@ const Footer = () => {
                 <img
                   src={social.icon}
                   alt={social.link}
-                  className="w-[25px] h-[25px] object-contain cursor-pointer filter "
+                  loading="lazy"
+                  decoding="async"
+                  className="w-[25px] h-[25px] object-contain cursor-pointer"
                 />
               </a>
             </motion.div>
@@ -60,7 +62,7 @@ const Footer = () => {
             href={`mailto:${contactInfo.email}`}
             className="flex items-center text-white rock-surface text-xs py-2 px-4 pixel-shadow"
           >
-            <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
+            <img src={email} alt="Email Icon" loading="lazy" decoding="async" className="w-[25px] h-[15px] mr-2" />
             {contactInfo.email}
           </a>
         </motion.div>

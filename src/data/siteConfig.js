@@ -11,7 +11,6 @@ import resumePdf from '../assets/resume.pdf';
 import mountainsBG from '../assets/mountainsBG.gif';
 import levelBG from '../assets/levelBG.gif';
 import mountainBG from '../assets/mountainBG.gif';
-import cityBG3 from '../assets/pixel-city3.gif';
 import skyBG from '../assets/skybg.gif';
 
 // Brand / identity shown in the navbar.

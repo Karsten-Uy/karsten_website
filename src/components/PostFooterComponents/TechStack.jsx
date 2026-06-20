@@ -67,7 +67,7 @@ const TechStack = () => {
                   .join(' ')}
               >
                 <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-white p-1">
-                  <img src={item.logo} alt="" className="h-full w-full object-contain" />
+                  <img src={item.logo} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" />
                 </span>
                 {item.name}
               </span>

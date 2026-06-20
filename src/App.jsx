@@ -1,17 +1,38 @@
-import { useRef, useEffect, useLayoutEffect, useState } from 'react';
+import { useRef, useEffect, useLayoutEffect, useState, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
 import './index.css';
 
 import Home from './pages/Home';
-import About from './pages/About';
 import { Navbar, Footer, PostFooterHome, CaveStalactites } from './components';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
-import Contact from './pages/Contact';
 import { kirbyfloating, rocks, grass, caveBG } from './assets';
 import { pageConfig, DEFAULT_PAGE, location as siteLocation } from './data/siteConfig';
-import Page404 from './pages/Page404';
+
+// Route components are code-split so each page's JS loads only when visited.
+// Home stays eager since it's the landing route.
+const About = lazy(() => import('./pages/About'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Page404 = lazy(() => import('./pages/Page404'));
+
+// Flickering stars scattered across the header. Positions are fixed (so they
+// don't reshuffle); each twinkles on its own duration/delay. Module-scoped so
+// the array isn't rebuilt on every render.
+const headerStars = [
+  { left: '5%',  top: '22%', size: 2, dur: '2.6s', delay: '0s',   color: '#eaf2ff' },
+  { left: '12%', top: '58%', size: 2, dur: '3.2s', delay: '0.7s', color: '#bfe9ff' },
+  { left: '20%', top: '34%', size: 3, dur: '2.2s', delay: '1.1s', color: '#eaf2ff' },
+  { left: '29%', top: '64%', size: 2, dur: '3.6s', delay: '0.3s', color: '#cdebff' },
+  { left: '37%', top: '26%', size: 2, dur: '2.8s', delay: '1.4s', color: '#eaf2ff' },
+  { left: '46%', top: '52%', size: 3, dur: '3.0s', delay: '0.2s', color: '#bfe9ff' },
+  { left: '54%', top: '30%', size: 2, dur: '2.4s', delay: '0.9s', color: '#eaf2ff' },
+  { left: '62%', top: '60%', size: 2, dur: '3.4s', delay: '1.6s', color: '#cdebff' },
+  { left: '70%', top: '36%', size: 2, dur: '2.6s', delay: '0.5s', color: '#eaf2ff' },
+  { left: '78%', top: '56%', size: 3, dur: '3.1s', delay: '1.2s', color: '#bfe9ff' },
+  { left: '86%', top: '24%', size: 2, dur: '2.9s', delay: '0.1s', color: '#eaf2ff' },
+  { left: '94%', top: '50%', size: 2, dur: '3.3s', delay: '0.8s', color: '#cdebff' },
+];
 
 const AppContent = () => {
 
@@ -21,13 +42,10 @@ const AppContent = () => {
     pageConfig[location.pathname] ?? DEFAULT_PAGE;
 
   const postFooterRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
 
-  // State for mouse position (desktop: Kirby follows the cursor).
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  // On mobile Kirby is driven imperatively (requestAnimationFrame) via this ref
-  // instead of by the cursor — idle drift, scroll puffs, and tap-to-attract.
+  // Kirby (the floating mascot) is positioned imperatively via this ref — on both
+  // desktop (cursor-follow) and mobile (rAF drift) — so neither cursor moves nor
+  // scrolling ever trigger a React re-render of the whole app.
   const kirbyRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,22 +59,37 @@ const AppContent = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleMouseMove = (event) => {
-    setMousePos({ x: event.clientX, y: event.clientY });
-  };
+  // Desktop: Kirby trails the cursor. Write straight to the DOM on mousemove /
+  // scroll instead of through state — no per-event re-render. `top` is a document
+  // coordinate (clientY + scrollY) so he stays under the cursor as the page scrolls.
+  // useLayoutEffect places him before first paint (no top-left flash).
+  useLayoutEffect(() => {
+    if (isMobile) return undefined;
+    const el = kirbyRef.current;
+    if (!el) return undefined;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    let clientX = 0;
+    let clientY = 0;
+    const place = () => {
+      el.style.left = `${clientX + 10}px`;
+      el.style.top = `${clientY + window.scrollY + 35}px`;
     };
+    el.style.transform = 'translate(-50%, -50%)';
+    place();
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    const onMove = (e) => {
+      clientX = e.clientX;
+      clientY = e.clientY;
+      place();
+    };
+    const onScroll = () => place();
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   // Treat narrow viewports as "mobile" (matches the site's 768px breakpoint).
   // To test on a laptop, shrink the window under 768px or use DevTools device mode.
@@ -163,23 +196,6 @@ const AppContent = () => {
     };
   }, [isMobile]);
 
-  // Flickering stars scattered across the header. Positions are fixed (so they
-  // don't reshuffle on re-render); each twinkles on its own duration/delay.
-  const headerStars = [
-    { left: '5%',  top: '22%', size: 2, dur: '2.6s', delay: '0s',   color: '#eaf2ff' },
-    { left: '12%', top: '58%', size: 2, dur: '3.2s', delay: '0.7s', color: '#bfe9ff' },
-    { left: '20%', top: '34%', size: 3, dur: '2.2s', delay: '1.1s', color: '#eaf2ff' },
-    { left: '29%', top: '64%', size: 2, dur: '3.6s', delay: '0.3s', color: '#cdebff' },
-    { left: '37%', top: '26%', size: 2, dur: '2.8s', delay: '1.4s', color: '#eaf2ff' },
-    { left: '46%', top: '52%', size: 3, dur: '3.0s', delay: '0.2s', color: '#bfe9ff' },
-    { left: '54%', top: '30%', size: 2, dur: '2.4s', delay: '0.9s', color: '#eaf2ff' },
-    { left: '62%', top: '60%', size: 2, dur: '3.4s', delay: '1.6s', color: '#cdebff' },
-    { left: '70%', top: '36%', size: 2, dur: '2.6s', delay: '0.5s', color: '#eaf2ff' },
-    { left: '78%', top: '56%', size: 3, dur: '3.1s', delay: '1.2s', color: '#bfe9ff' },
-    { left: '86%', top: '24%', size: 2, dur: '2.9s', delay: '0.1s', color: '#eaf2ff' },
-    { left: '94%', top: '50%', size: 2, dur: '3.3s', delay: '0.8s', color: '#cdebff' },
-  ];
-
   return (
     <div className="relative">
       {/* Floating GIF */}
@@ -199,16 +215,8 @@ const AppContent = () => {
           ref={kirbyRef}
           src={kirbyfloating}
           alt="Kirby Floating"
-          style={
-            isMobile
-              ? { position: 'absolute', willChange: 'left, top, transform' }
-              : {
-                  position: 'absolute',
-                  left: `${mousePos.x + 10}px`,
-                  top: `${mousePos.y + scrollY + 35}px`,
-                  transform: 'translate(-50%, -50%)',
-                }
-          }
+          decoding="async"
+          style={{ position: 'absolute', willChange: 'left, top, transform' }}
           className="w-16 h-16"
         />
       </div>
@@ -282,19 +290,21 @@ const AppContent = () => {
         <div className={['flex-grow flex flex-col relative justify-center'].join(' ')}>
           <div className='flex items-center justify-center flex-grow relative'>
             <div className='relative justify-start items-center'  style={{ zIndex: 5 }}>
-              <Routes>
-                <Route path="/" index element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={
-                  <div className=''>
-                    <About />
-                  </div>
-                } />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/*" element={<Page404 />} />
-              </Routes>
+              <Suspense fallback={null}>
+                <Routes>
+                  <Route path="/" index element={<Home />} />
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/about" element={
+                    <div className=''>
+                      <About />
+                    </div>
+                  } />
+                  <Route path="/experience" element={<Experience />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/*" element={<Page404 />} />
+                </Routes>
+              </Suspense>
 
               {/* Scroll Down Component */}
               {isHomePage && (
@@ -351,7 +361,7 @@ const AppContent = () => {
               style={{
                 backgroundImage: `url(${caveBG})`,
                 backgroundSize: 'cover',
-                backgroundPosition: `center ${scrollY * 0.0}px`,
+                backgroundPosition: 'center 0px',
                 backgroundAttachment: 'fixed',
               }}
             >

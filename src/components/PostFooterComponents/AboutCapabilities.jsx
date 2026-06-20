@@ -19,6 +19,8 @@ const AboutCapabilities = () => (
             <img
               src={karsten}
               alt="Karsten Uy"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
@@ -52,7 +54,7 @@ const AboutCapabilities = () => (
             className="group cursor-pointer rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.55)]"
           >
             <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60">
-              <img src={item.logo} alt="" className="h-7 w-7 object-contain" />
+              <img src={item.logo} alt="" loading="lazy" decoding="async" className="h-7 w-7 object-contain" />
             </div>
             <h3 className="font-bold leading-tight text-white text-lg sm:text-xl">{item.title}</h3>
             <p className="mt-2 font-source-code-pro text-base text-white/70">{item.description}</p>

@@ -1,20 +1,5 @@
 import { careerTimeline } from '../../data/homeShowcase';
-
-// Splits a bullet on {chip} markers and renders the marked spans as highlighted
-// pills (e.g. "20K+ samples"), leaving the rest as plain text.
-const renderBullet = (text) =>
-  text.split(/(\{[^}]+\})/g).map((part, i) =>
-    part.startsWith('{') && part.endsWith('}') ? (
-      <span
-        key={i}
-        className="mx-0.5 inline-flex items-center rounded-md border border-[#5ce1e6]/40 bg-[#5ce1e6]/10 px-1.5 py-px text-[0.9em] text-[#5ce1e6]"
-      >
-        {part.slice(1, -1)}
-      </span>
-    ) : (
-      <span key={i}>{part}</span>
-    )
-  );
+import Bullet from '../Bullet';
 
 const CareerTimeline = () => (
   // The 02 SectionDivider in PostFooterHome carries the big "Experience" title;
@@ -39,7 +24,7 @@ const CareerTimeline = () => (
                   : 'border-white/10'
               }`}
             >
-              <img src={job.logo} alt={`${job.company} logo`} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+              <img src={job.logo} alt={`${job.company} logo`} loading="lazy" decoding="async" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
             </div>
           </div>
 
@@ -73,7 +58,7 @@ const CareerTimeline = () => (
               {job.bullets.map((b, bi) => (
                 <li key={bi} className="flex gap-2">
                   <span className="flex-none text-[#5ce1e6]">▸</span>
-                  <span>{renderBullet(b)}</span>
+                  <span><Bullet text={b} /></span>
                 </li>
               ))}
             </ul>
