@@ -15,8 +15,7 @@ import Intel from '../assets/intel.png';
 import Synopsys from '../assets/synopsys.png';
 import ICBC from '../assets/icbc.png';
 import ubcroomfinder from '../assets/ubc_room_finder.png';
-// Placeholder image — swap '../assets/robot.png' for the real MODaN image once it's added to assets.
-import modan from '../assets/robot.png';
+import arc4Thumb from '../assets/arc4.jpg';
 
 const ytThumb = (id) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 
@@ -28,7 +27,7 @@ export const careerTimeline = [
     logo: Intel,
     subtitle: 'System Simulation Intern · Hardware Development',
     bullets: ['Building system simulations to validate next-generation hardware.'],
-    tags: [],
+    tags: ['SystemC', 'Bazel', 'Linux'],
     period: 'May 2026 – Present',
     current: true,
   },
@@ -36,7 +35,7 @@ export const careerTimeline = [
     id: 'synopsys',
     company: 'Synopsys Inc.',
     logo: Synopsys,
-    subtitle: 'R&D EDA Engineering Intern · Automation & EDA',
+    subtitle: 'R&D Software Engineer Intern · EDA Tooling',
     bullets: [
       'Built an AI-driven EDA verification flow for RTL design.',
       'Trained ML models on {20K+ samples} via Bash pipelines, wired into a C++ RTL feature extractor.',
@@ -83,6 +82,22 @@ export const featuredWork = [
     ],
   },
   {
+    id: 'arc4',
+    title: 'Parallel ARC4 Decryptor',
+    kind: 'HARDWARE · FPGA',
+    summary: 'A massively parallel ARC4 key-cracking engine on FPGA.',
+    blurb:
+      'A synthesizable ARC4 engine on the DE1-SoC running 150+ parallel cores at 120 MHz — cracking ciphertext at 3,500+ keys/sec. Timing closure and 92% resource utilization were reached through RTL pipelining, verified with ModelSim testbenches.',
+    tags: ['SystemVerilog', 'FPGA', 'ModelSim'],
+    period: 'Nov — Dec 2025',
+    badge: 'HARDWARE',
+    thumb: arc4Thumb,
+    hasPlay: false,
+    // No public link — coursework project that can't be shared publicly.
+    cta: null,
+    actions: [],
+  },
+  {
     id: 'ubc',
     title: 'UBC Room Finder',
     kind: 'FULL-STACK WEB',
@@ -94,26 +109,10 @@ export const featuredWork = [
     badge: 'LIVE',
     thumb: ubcroomfinder,
     hasPlay: false,
-    cta: { label: 'View repo', href: 'https://github.com/Karsten-Uy/ubc_room_finder/' },
+    cta: { label: 'View site', href: 'https://ubcroomfinder.vercel.app/' },
     actions: [
-      { label: 'View code', href: 'https://github.com/Karsten-Uy/ubc_room_finder/', primary: true },
-    ],
-  },
-  {
-    id: 'modan',
-    title: 'MODaN',
-    kind: 'ROBOTICS · PERCEPTION',
-    summary: 'ROS2 perception pipeline for autonomous mobile robot navigation.',
-    blurb:
-      'A ROS2 perception pipeline for autonomous mobile robot navigation — depth-gated obstacle detection and Kalman tracking feeding a Follow-the-Gap motion planner.',
-    tags: ['Python', 'ROS2', 'OpenCV'],
-    period: 'Jan 2026 — Apr 2026',
-    badge: 'RESEARCH',
-    thumb: modan,
-    hasPlay: false,
-    cta: { label: 'View', href: 'https://github.com/Karsten-Uy' },
-    actions: [
-      { label: 'View', href: 'https://github.com/Karsten-Uy', primary: true },
+      { label: 'View site', href: 'https://ubcroomfinder.vercel.app/', primary: true },
+      { label: 'View code', href: 'https://github.com/Karsten-Uy/ubc_room_finder/' },
     ],
   },
   {

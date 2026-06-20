@@ -386,3 +386,205 @@ Hover for home expereinces
 /*
 Pixel boxes
 */
+
+/* ============================================================
+   MOBILE PAUSE MENU  (full-screen arcade nav, < 768px)
+   Rendered by Navbar.jsx through framer-motion (backdrop fade +
+   staggered rows). Layout/animation is JS; this is the static
+   pixel skin. Palette mirrors the site theme (cyan #5ce1e6 /
+   teal #33bbcf / panel #1b1934 / edge #3a2f6b). Hardcoded here
+   because design.css's :root vars are not loaded.
+   ============================================================ */
+.pause-menu {
+  background: rgba(8, 4, 12, 0.9);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  padding: 24px;
+}
+/* Safety: the overlay is portaled to <body>, so width-gate it in CSS too —
+   it must never appear at desktop widths regardless of toggle state. */
+@media (min-width: 768px) {
+  .pause-menu { display: none !important; }
+}
+
+/* Close control (the overlay covers the navbar's hamburger). */
+.pause-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #7de7eb;
+  background: #1b1934;
+  border: 3px solid #3a2f6b;
+  box-shadow: 0 0 0 3px #08040c;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+.pause-close:hover {
+  color: #fff;
+  border-color: #33bbcf;
+}
+
+/* CRT scanlines + edge vignette over the dimmed scene (non-interactive). */
+.pause-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  opacity: 0.5;
+}
+.pause-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(5, 3, 10, 0.85) 100%);
+}
+
+.pause-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+}
+
+.pause-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid #2a2552;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: #7de7eb;
+  text-shadow: 0 3px 0 #1a1233;
+}
+.pause-led {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  background: #5ce1e6;
+  box-shadow: 0 0 10px #5ce1e6;
+  animation: pauseBlink 1.4s steps(2) infinite;
+}
+@keyframes pauseBlink {
+  50% { opacity: 0.2; }
+}
+
+/* Big thumb-sized rows (60px tall). */
+.pause-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 0 18px;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #a59ed6;
+  background: #1b1934;
+  border: 3px solid #3a2f6b;
+  box-shadow: 0 0 0 3px #08040c, 0 6px 0 #100e22;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s, background 0.12s, transform 0.06s;
+}
+.pause-row:hover {
+  color: #7de7eb;
+  border-color: #33bbcf;
+  background: #221f42;
+}
+.pause-row:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 3px #08040c, 0 3px 0 #100e22;
+}
+.pause-row.is-active {
+  color: #fff;
+  border-color: #33bbcf;
+  background: #221f42;
+}
+.pause-row-cursor {
+  width: 18px;
+  flex: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #5ce1e6;
+}
+.pause-row-label {
+  flex: 1;
+}
+.pause-row-chevron {
+  font-size: 20px;
+  color: #4a4378;
+}
+.pause-row:hover .pause-row-chevron,
+.pause-row.is-active .pause-row-chevron {
+  color: #5ce1e6;
+}
+
+.pause-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 3px solid #2a2552;
+}
+.pause-jacks {
+  display: flex;
+  gap: 10px;
+}
+.pause-jack {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #2a2750, #100e22);
+  border: 3px solid #4a3f72;
+  box-shadow: 0 0 0 3px #08040c;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.pause-jack:hover {
+  border-color: #5ce1e6;
+  box-shadow: 0 0 0 3px #08040c, 0 0 12px rgba(92, 225, 230, 0.5);
+}
+.pause-jack img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+/* The resume jack uses an inline stroke SVG instead of a logo image. */
+.pause-jack svg {
+  width: 22px;
+  height: 22px;
+  color: #bcd0f5;
+  image-rendering: auto;
+  transition: color 0.15s;
+}
+.pause-jack:hover svg {
+  color: #7de7eb;
+}

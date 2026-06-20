@@ -23,15 +23,16 @@ const About = () => (
     transition={{ duration: 0.5 }}
     className="mx-auto w-[min(92vw,1024px)] space-y-12 py-8 text-left sm:py-12"
   >
-    {/* 1 — Hero: photo + about + status chips */}
+    {/* 1 — Hero: photo + about + status chips. Hover lifts + cyan-highlights the
+        panel (no full-blue flip), matching the home "What I Do" cards. */}
     <section
-      className={`rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm hover:scale-[1.01] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:p-9 ${PANEL_HOVER}`}
+      className="rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#5ce1e6] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:p-9"
     >
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
         <img
           src={photo}
           alt="Karsten Uy"
-          className="h-32 w-32 flex-none rounded-2xl border border-white/15 object-cover transition-colors duration-200 group-hover:border-black/20 sm:h-44 sm:w-44"
+          className="h-32 w-32 flex-none rounded-2xl object-cover sm:h-44 sm:w-44"
         />
         <div className="min-w-0 flex-1">
           <p className={`mb-2 ${EYEBROW}`}>{eyebrow}</p>
@@ -75,7 +76,8 @@ const About = () => (
         </div>
       </div>
 
-      <aside
+      <Link
+        to={glance.cta.to}
         className={`flex flex-col rounded-2xl border border-white/10 bg-[#0b0f1f]/50 p-6 backdrop-blur-sm hover:shadow-[0_0_28px_rgba(92,225,230,0.45)] ${PANEL_HOVER}`}
       >
         <p className={`mb-4 ${EYEBROW}`}>{glance.heading}</p>
@@ -110,14 +112,13 @@ const About = () => (
               </div>
             ))}
           </div>
-          <Link
-            to={glance.cta.to}
+          <span
             className="inline-flex items-center gap-1 rounded-lg border border-[#5ce1e6]/40 px-4 py-2 font-source-code-pro text-sm font-semibold text-[#5ce1e6] transition-colors duration-200 group-hover:border-black/50 group-hover:text-black"
           >
             {glance.cta.label} <span aria-hidden="true">→</span>
-          </Link>
+          </span>
         </div>
-      </aside>
+      </Link>
     </section>
 
     {/* 3 — What I do: one row per discipline, with tool chips */}
@@ -132,23 +133,23 @@ const About = () => (
         {disciplines.items.map((d) => (
           <div
             key={d.title}
-            className="group flex gap-4 rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.45)] sm:gap-6"
+            className="flex gap-4 rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.45)] sm:gap-6"
           >
-            <div className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60 transition-colors duration-200 group-hover:border-black/20 group-hover:bg-[#0b0f1f]">
+            <div className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60">
               <img src={d.logo} alt="" className="h-7 w-7 object-contain" />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-lg font-bold leading-tight text-white transition-colors duration-200 group-hover:text-black sm:text-xl">
+              <h3 className="text-lg font-bold leading-tight text-white sm:text-xl">
                 {d.title}
               </h3>
-              <p className="mt-1 font-source-code-pro text-base text-white/70 transition-colors duration-200 group-hover:text-black/80">
+              <p className="mt-1 font-source-code-pro text-base text-white/70">
                 {d.description}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {d.tools.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-[#5ce1e6]/40 px-2 py-0.5 font-source-code-pro text-xs text-[#7de7eb] transition-colors duration-200 group-hover:border-black/40 group-hover:text-black"
+                    className="rounded-full border border-[#5ce1e6]/40 px-2 py-0.5 font-source-code-pro text-xs text-[#7de7eb]"
                   >
                     {t}
                   </span>
@@ -160,8 +161,9 @@ const About = () => (
       </div>
     </section>
 
-    {/* 4 — Closing call to action */}
-    <section
+    {/* 4 — Closing call to action. The whole block is the link to contact. */}
+    <Link
+      to={cta.to}
       className={`flex flex-col items-start justify-between gap-5 rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm hover:scale-[1.01] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:flex-row sm:items-center sm:p-9 ${PANEL_HOVER}`}
     >
       <div>
@@ -172,15 +174,14 @@ const About = () => (
           {cta.body}
         </p>
       </div>
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-none">
-        <Link
-          to={cta.to}
-          className="inline-flex items-center gap-1 rounded-lg bg-blue-gradient px-6 py-3 font-source-code-pro text-base font-semibold text-black transition-colors duration-200 group-hover:bg-none group-hover:bg-[#0b0f1f] group-hover:text-[#5ce1e6]"
-        >
-          {cta.label} <span aria-hidden="true">→</span>
-        </Link>
-      </motion.div>
-    </section>
+      <motion.span
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="inline-flex flex-none items-center gap-1 rounded-lg bg-blue-gradient px-6 py-3 font-source-code-pro text-base font-semibold text-black transition-colors duration-200 group-hover:bg-none group-hover:bg-[#0b0f1f] group-hover:text-[#5ce1e6]"
+      >
+        {cta.label} <span aria-hidden="true">→</span>
+      </motion.span>
+    </Link>
   </motion.div>
 );
 

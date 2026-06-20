@@ -28,7 +28,7 @@ const KeepExploring = () => (
       {keepExploring.eyebrow}
     </p>
 
-    <div className="grid gap-4 sm:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2">
       {keepExploring.cards.map((card) => (
         <Link
           key={card.to}

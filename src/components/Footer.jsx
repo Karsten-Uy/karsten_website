@@ -14,11 +14,11 @@ const Footer = () => {
   return (
     <section className={`${styles.flexCenter} py-4  px-8 flex-col mt-auto`}>
       <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
-        {/* Resume Button with Motion */}
+        {/* Resume Button with Motion — hidden < 768px (lives in the mobile pause menu). */}
         <motion.div
           whileHover="hover"
           variants={hoverVariants}
-          className="mb-6 sm:mb-0 z-10"
+          className="hidden sm:block mb-6 sm:mb-0 z-10"
         >
           <a
             href={contactInfo.resumeUrl}
@@ -30,8 +30,8 @@ const Footer = () => {
           </a>
         </motion.div>
 
-        {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 sm:mb-0 ">
+        {/* Social Media Icons — hidden < 768px (live in the mobile pause menu). */}
+        <div className="hidden sm:flex flex-wrap justify-center gap-3 mb-4 sm:mb-0 ">
           {socialMedia.map((social) => (
             <motion.div
               key={social.id}

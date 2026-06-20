@@ -175,8 +175,9 @@ const Contact = () => {
         </form>
       </section>
 
-      {/* Right — identity card */}
-      <aside className="rounded-2xl border border-white/10 bg-[#11101d]/80 p-5 backdrop-blur-sm sm:p-6">
+      {/* Right — identity card. Lifts + cyan-highlights on hover (no full-blue
+          flip); only the clickable channel buttons below flip fully to blue. */}
+      <aside className="self-start rounded-2xl border border-white/10 bg-[#11101d]/80 p-5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.4)] sm:p-6">
         {/* Profile header */}
         <div className="flex items-center gap-4">
           <div className="grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl border-2 border-[#5ce1e6]/60 bg-[#0b0f1f] shadow-[0_0_16px_rgba(92,225,230,0.35)]">
@@ -205,16 +206,16 @@ const Contact = () => {
               href={ch.href}
               target={ch.type === 'email' ? undefined : '_blank'}
               rel={ch.type === 'email' ? undefined : 'noopener noreferrer'}
-              className="group flex items-center gap-3.5 rounded-xl border border-white/10 bg-[#0b0f1f]/50 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#5ce1e6]/50 hover:bg-[#5ce1e6]/[0.06]"
+              className="group flex items-center gap-3.5 rounded-xl border border-white/10 bg-[#0b0f1f]/50 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#5ce1e6] hover:bg-[#5ce1e6]"
             >
-              <span className="grid h-10 w-10 flex-none place-items-center rounded-lg border border-[#5ce1e6]/30 bg-[#0b0f1f]/70 text-[#5ce1e6] transition-colors duration-200 group-hover:border-[#5ce1e6]/60">
+              <span className="grid h-10 w-10 flex-none place-items-center rounded-lg border border-[#5ce1e6]/30 bg-[#0b0f1f]/70 text-[#5ce1e6] transition-colors duration-200 group-hover:border-black/20 group-hover:bg-[#0b0f1f]">
                 {ICONS[ch.type]}
               </span>
               <span className="min-w-0">
-                <span className="block font-source-code-pro text-[11px] font-bold uppercase tracking-[0.2em] text-[#5ce1e6]">
+                <span className="block font-source-code-pro text-[11px] font-bold uppercase tracking-[0.2em] text-[#5ce1e6] transition-colors duration-200 group-hover:text-black">
                   {ch.label}
                 </span>
-                <span className="block truncate font-source-code-pro text-sm text-white/85">
+                <span className="block truncate font-source-code-pro text-sm text-white/85 transition-colors duration-200 group-hover:text-black">
                   {ch.value}
                 </span>
               </span>

@@ -10,7 +10,10 @@ const AboutCapabilities = () => (
   <>
     {/* About — faded intro panel */}
     <section className="mb-10">
-      <div className="group cursor-pointer rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:p-9">
+      <Link
+        to={aboutIntro.ctaTo}
+        className="group block cursor-pointer rounded-3xl border border-white/10 bg-[#222a47]/55 p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_36px_rgba(92,225,230,0.5)] sm:p-9"
+      >
         <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
           <div className="relative h-24 w-24 flex-none overflow-hidden rounded-2xl border border-white/15 transition-colors duration-200 group-hover:border-black/20 sm:h-auto sm:w-44 sm:self-stretch">
             <img
@@ -27,15 +30,12 @@ const AboutCapabilities = () => (
             <p className="mt-2 font-source-code-pro text-base text-white/70 transition-colors duration-200 group-hover:text-black/80 sm:text-lg">{aboutIntro.body}</p>
           </div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-none">
-            <Link
-              to={aboutIntro.ctaTo}
-              className="inline-flex items-center gap-1 rounded-lg bg-blue-gradient px-5 py-3 font-source-code-pro text-base font-semibold text-black transition-colors duration-200 group-hover:bg-none group-hover:bg-[#0b0f1f] group-hover:text-[#5ce1e6]"
-            >
+            <span className="inline-flex items-center gap-1 rounded-lg bg-blue-gradient px-5 py-3 font-source-code-pro text-base font-semibold text-black transition-colors duration-200 group-hover:bg-none group-hover:bg-[#0b0f1f] group-hover:text-[#5ce1e6]">
               {aboutIntro.ctaLabel} <span aria-hidden="true">→</span>
-            </Link>
+            </span>
           </motion.div>
         </div>
-      </div>
+      </Link>
     </section>
 
     {/* What I Do — 4-up capability cards */}
@@ -49,13 +49,13 @@ const AboutCapabilities = () => (
         {whatIDo.cards.map((item) => (
           <div
             key={item.title}
-            className="group cursor-pointer rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-[#5ce1e6] hover:bg-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.55)]"
+            className="group cursor-pointer rounded-2xl border border-white/10 bg-[#0b0f1f]/40 p-5 transition-all duration-200 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-[#5ce1e6] hover:shadow-[0_0_28px_rgba(92,225,230,0.55)]"
           >
-            <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60 transition-colors duration-200 group-hover:border-black/20 group-hover:bg-[#0b0f1f]">
+            <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl border border-[#5ce1e6]/30 bg-[#0b0f1f]/60">
               <img src={item.logo} alt="" className="h-7 w-7 object-contain" />
             </div>
-            <h3 className="font-bold leading-tight text-white text-lg sm:text-xl transition-colors duration-200 group-hover:text-black">{item.title}</h3>
-            <p className="mt-2 font-source-code-pro text-base text-white/70 transition-colors duration-200 group-hover:text-black/80">{item.description}</p>
+            <h3 className="font-bold leading-tight text-white text-lg sm:text-xl">{item.title}</h3>
+            <p className="mt-2 font-source-code-pro text-base text-white/70">{item.description}</p>
           </div>
         ))}
       </div>

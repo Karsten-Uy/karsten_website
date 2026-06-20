@@ -9,7 +9,7 @@
 import karsten from '../assets/karsten.png';
 import eda from '../assets/eda.png';
 import dev from '../assets/dev.png';
-import auto from '../assets/auto.png';
+import musicProd from '../assets/music_prod.png';
 import sound from '../assets/sound.png';
 
 import Intel from '../assets/intel.png';
@@ -21,23 +21,24 @@ export const aboutPage = {
   eyebrow: 'About',
   photo: karsten,
   // Heading renders as `lead` + accent word (cyan) + `tail`, e.g.
-  // "Programming the sounds of tomorrow".
-  title: { lead: 'Programming the ', accent: 'sounds', tail: ' of tomorrow' },
+  // "Engineering the sounds of tomorrow" (mirrors the home About panel).
+  title: { lead: 'Engineering the ', accent: 'sounds', tail: ' of tomorrow' },
   intro:
-    'I specialize in engineering innovative solutions and experiences, with unwavering dedication to excellence that resonate with audiences.',
+    'I design real-time audio DSP and the hardware it runs on — from fixed-point FPGA effect chains to the firmware and tools behind them. Engineer by training, producer by ear.',
   // Status pills under the intro. `dot: true` adds a glowing LED.
   chips: [
     { label: 'Vancouver, BC', dot: true },
     { label: 'Open to work' },
-    { label: 'EE × CS' },
+    { label: 'UBC Computer Engineering' },
+    { label: 'Graduating Nov 2027' },
   ],
 
   // ---- My story (narrative beside the stat card) ------------------------
   story: {
     eyebrow: 'My Story',
     paragraphs: [
-      'I work at the seam where hardware meets sound. From RTL and FPGA design to the software and automation that ties systems together, I like building things end to end — then making them feel good to use and hear.',
-      "My north star is craft: tools that are fast, interfaces that get out of the way, and audio that has character. Outside the lab you'll find me chasing pixel-art games, synth patches, and the occasional over-engineered side project.",
+      'I work where audio meets silicon, designing real-time DSP and the FPGA, firmware, and tooling that make it run. RTL effect chains, embedded control, host software: I like owning the whole signal path, from spec to the sound that comes out.',
+      "That ear was trained on stage. I've played guitar and bass for 10+ years and still perform live, and I produce and mix my own music. So I build audio tools the way a musician actually wants them: fast, low-latency, and full of character. Off the clock you'll catch me gigging, biking, or over-engineering a side project.",
     ],
   },
 
@@ -45,8 +46,8 @@ export const aboutPage = {
   glance: {
     heading: 'At a glance',
     stats: [
-      { value: '8+', label: 'Years building' },
-      { value: '40+', label: 'Projects shipped' },
+      { value: '3+', label: 'Years building' },
+      { value: '10+', label: 'Years performing' },
       { value: '4', label: 'Disciplines' },
       { value: '3', label: 'Internships' },
     ],
@@ -62,35 +63,35 @@ export const aboutPage = {
   // ---- What I do (one row per discipline, with tool chips) --------------
   disciplines: {
     eyebrow: 'What I Do',
-    heading: 'Four disciplines, one project',
+    heading: 'Where audio meets silicon',
     items: [
       {
-        title: 'Hardware Development',
+        title: 'Audio DSP',
         description:
-          'Robust hardware spanning RTL, FPGA, and embedded platforms — from spec to silicon-ready.',
+          'Real-time fixed-point audio DSP: distortion, dynamics, reverb, and pitch tracking.',
+        logo: sound,
+        tools: ['C++', 'Python', 'JUCE'],
+      },
+      {
+        title: 'FPGA & Embedded',
+        description:
+          'Audio algorithms running on real silicon: FPGA pipelines, firmware, and MIDI hardware.',
         logo: eda,
-        tools: ['Verilog', 'FPGA', 'Embedded C'],
+        tools: ['SystemVerilog', 'Quartus', 'Embedded C'],
       },
       {
         title: 'Software Engineering',
         description:
-          'End-to-end software tools that solve complex problems — clean architecture, real users in mind.',
+          'End-to-end full-stack tools that ship: clean architecture, real users in mind.',
         logo: dev,
         tools: ['React', 'Python', 'C#'],
       },
       {
-        title: 'Automation',
+        title: 'Music Production',
         description:
-          'Complex workflows turned into scalable, automated processes that just run.',
-        logo: auto,
-        tools: ['Python', 'Bash', 'Blue Prism'],
-      },
-      {
-        title: 'Audio Engineering',
-        description:
-          'Soundscapes and tools for enjoyable audio experiences — DSP that has character.',
-        logo: sound,
-        tools: ['JUCE', 'DSP', 'Studio One'],
+          "A producer's ear: I build for musicians because I am one.",
+        logo: musicProd,
+        tools: ['Studio One', 'Mixing', 'Sound Design'],
       },
     ],
   },

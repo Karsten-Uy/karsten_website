@@ -3,8 +3,8 @@
 
 import eda from '../assets/eda.png';
 import dev from '../assets/dev.png';
-import auto from '../assets/auto.png';
 import sound from '../assets/sound.png';
+import musicProd from '../assets/music_prod.png';
 
 import postgresql from '../assets/TechLogos/Postgresql.png';
 import adobe from '../assets/TechLogos/adobe.png';
@@ -25,20 +25,27 @@ import linux from '../assets/TechLogos/linux.png';
 import python from '../assets/TechLogos/python.png';
 import react from '../assets/TechLogos/react.png';
 import studioone from '../assets/TechLogos/studioone.png';
+import ableton from '../assets/TechLogos/ableton.png';
 import tailwind from '../assets/TechLogos/tailwind.png';
+import systemverilog from '../assets/TechLogos/sv.png';
+import quartus from '../assets/TechLogos/quartus.png';
+import arduino from '../assets/TechLogos/arduino.png';
+import audacity from '../assets/TechLogos/Audacity.png';
 
 // Hero (CentreBlock). `titles` rotate in the typing animation; `name.nick` is
-// the highlighted nickname shown in quotes.
+// the highlighted nickname shown in quotes. The component renders `prefix + title`,
+// so the article (a/an) lives inside each title to read correctly before
+// vowel-initial words ("an Audio…", "an Embedded…").
 export const hero = {
   eyebrow: "Hello, I'm",
   name: { first: 'Karsten', nick: 'Kirby', last: 'Uy' },
-  prefix: 'I am a',
+  prefix: 'I am',
   location: 'based in Canada',
   titles: [
-    ' Software Engineer',
-    ' Hardware Designer',
-    ' Full Stack Developer',
-    ' Music Producer',
+    ' an Audio DSP Engineer',
+    ' a Hardware Designer',
+    ' an Embedded Engineer',
+    ' a Music Producer',
   ],
 };
 
@@ -51,8 +58,8 @@ export const projectsCta = { label: 'View full experience', to: '/experience' };
 
 // Post-footer intro band (AboutHomePage).
 export const aboutIntro = {
-  title: 'Programming the sounds of tomorrow',
-  body: 'I specialize in engineering innovative solutions and experiences, with unwavering dedication to excellence that resonate with audiences.',
+  title: 'Engineering the sounds of tomorrow',
+  body: 'I design real-time audio DSP and the hardware it runs on — from fixed-point FPGA effect chains to the firmware and tools behind them. Engineer by training, producer by ear.',
   ctaLabel: 'Learn more',
   ctaTo: '/about',
 };
@@ -60,12 +67,12 @@ export const aboutIntro = {
 // "What I Do" numbered capability index on the home page.
 export const whatIDo = {
   heading: 'What I Do',
-  subtitle: 'Four disciplines, one project',
+  subtitle: 'Where audio meets silicon',
   cards: [
-    { title: 'Hardware Development', description: 'Robust hardware spanning RTL, FPGA, and embedded platforms.', logo: eda },
-    { title: 'Software Engineering', description: 'End-to-end software tools that solve complex problems.', logo: dev },
-    { title: 'Automation', description: 'Complex workflows turned into scalable automated processes.', logo: auto },
-    { title: 'Audio Engineering', description: 'Soundscapes and tools for enjoyable audio experiences.', logo: sound },
+    { title: 'Audio DSP', description: 'Real-time fixed-point audio DSP: distortion, dynamics, reverb, and pitch tracking.', logo: sound },
+    { title: 'FPGA & Embedded', description: 'Audio algorithms running on real silicon — FPGA pipelines, firmware, and MIDI hardware.', logo: eda },
+    { title: 'Software Engineering', description: 'End-to-end full-stack tools that ship.', logo: dev },
+    { title: 'Music Production', description: "A producer's ear — I build for musicians because I am one.", logo: musicProd },
   ],
 };
 
@@ -77,13 +84,29 @@ export const techStack = {
   heading: 'Tech Stack',
   groups: [
     {
-      title: 'Hardware & Embedded',
-      tagline: 'RTL · FPGA · firmware',
+      title: 'Audio DSP & Hardware',
+      tagline: 'FPGA · DSP · firmware',
       items: [
-        { name: 'C++', logo: cpp, where: 'KFX Engine fixed-point DSP; Synopsys RTL feature extractor' },
-        { name: 'C', logo: c, where: 'Embedded firmware and FPGA tooling' },
-        { name: 'Linux', logo: linux, where: 'Synopsys cross-platform ML packaging and dev' },
+        { name: 'SystemVerilog', logo: systemverilog, where: 'KFX Engine & ARC4 Decryptor RTL; Digital Systems Design' },
+        { name: 'C++', logo: cpp, where: 'KFX Engine fixed-point DSP modeling' },
+        { name: 'C', logo: c, where: 'Embedded firmware — JTAG-UART host link, FSMs' },
+        { name: 'Python', logo: python, where: 'KFX host tooling (Tkinter GUI + CLI)' },
+        { name: 'Quartus', logo: quartus, where: 'FPGA synthesis & timing closure for KFX and ARC4' },
+        { name: 'Arduino', logo: arduino, where: 'Class-compliant USB-MIDI controller for KFX' },
+        { name: 'Linux', logo: linux, where: 'Cross-platform embedded and dev environment' },
         { name: 'Git', logo: git, where: 'Version control across every project' },
+      ],
+    },
+    {
+      title: 'Music Production',
+      tagline: 'Production · plugins',
+      items: [
+        { name: 'JUCE', logo: juce, where: 'KirbEqualizer audio plugin' },
+        { name: 'Studio One', logo: studioone, where: 'Kirbeats music production' },
+        { name: 'Ableton', logo: ableton, where: 'Kirbeats music production' },
+        { name: 'Audacity', logo: audacity, where: 'Audio recording and editing' },
+        { name: 'DaVinci Resolve', logo: dvr, where: 'Kirbeats video editing' },
+        { name: 'Adobe Suite', logo: adobe, where: 'Cover art and media for Kirbeats' },
       ],
     },
     {
@@ -95,29 +118,18 @@ export const techStack = {
         { name: 'HTML', logo: html, where: 'Web UI and portfolio markup' },
         { name: 'CSS', logo: css, where: 'Responsive layouts and styling' },
         { name: 'Tailwind', logo: tailwind, where: 'Styling for this site' },
-        { name: 'Java', logo: java, where: 'OOP coursework and projects' },
         { name: 'PostgreSQL', logo: postgresql, where: 'UBC Room Finder database' },
+        { name: 'Java', logo: java, where: 'OOP coursework and projects' },
         { name: 'AWS', logo: aws, where: 'Cloud hosting and deployment' },
       ],
     },
     {
       title: 'Automation & Backend',
-      tagline: 'RPA · pipelines',
+      tagline: 'RPA · enterprise',
       items: [
-        { name: 'Python', logo: python, where: 'Synopsys ML pipelines; UBC scraper; ICBC RPA' },
         { name: 'C#', logo: csharp, where: 'ICBC enterprise tooling' },
         { name: '.NET', logo: netcore, where: 'ICBC web and service development' },
         { name: 'Blue Prism', logo: bp, where: 'ICBC RPA automation (30+ bots)' },
-      ],
-    },
-    {
-      title: 'Audio & Media',
-      tagline: 'Production · DSP',
-      items: [
-        { name: 'JUCE', logo: juce, where: 'KirbEqualizer audio plugin' },
-        { name: 'Studio One', logo: studioone, where: 'Kirbeats music production' },
-        { name: 'DaVinci Resolve', logo: dvr, where: 'Kirbeats video editing' },
-        { name: 'Adobe Suite', logo: adobe, where: 'Cover art and media for Kirbeats' },
       ],
     },
   ],
@@ -163,13 +175,6 @@ export const keepExploring = {
       description: 'My career timeline — Intel, Synopsys, ICBC — and the projects.',
       ctaLabel: 'See the work',
       to: '/experience',
-    },
-    {
-      icon: 'contact',
-      title: 'Contact',
-      description: 'Open to internships & new-grad roles. Drop me a line.',
-      ctaLabel: 'Get in touch',
-      to: '/contact',
     },
   ],
 };

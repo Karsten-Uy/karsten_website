@@ -21,7 +21,7 @@ export const career = [
     role: 'System Simulation Intern',
     date: 'May 2026 - Present',
     category: 'Hardware Development',
-    technologies: '',
+    technologies: 'SystemC, Bazel, Linux',
     description: 'Simulated hardware systems',
     logo: Intel,
     featured: true,

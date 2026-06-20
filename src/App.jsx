@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useLayoutEffect, useState } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styles from './style';
 import './index.css';
@@ -17,14 +17,19 @@ const AppContent = () => {
 
   const location = useLocation();
   // Per-route appearance comes from a single config map (see data/siteConfig.js).
-  const { background: backgroundImage, showOverlay, isHome: isHomePage } =
+  const { background: backgroundImage, showOverlay, darken, isHome: isHomePage } =
     pageConfig[location.pathname] ?? DEFAULT_PAGE;
 
   const postFooterRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
 
-  // State for mouse position
+  // State for mouse position (desktop: Kirby follows the cursor).
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // On mobile Kirby is driven imperatively (requestAnimationFrame) via this ref
+  // instead of by the cursor — idle drift, scroll puffs, and tap-to-attract.
+  const kirbyRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const scrollToPostFooter = () => {
     if (postFooterRef.current) {
@@ -52,6 +57,111 @@ const AppContent = () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  // Treat narrow viewports as "mobile" (matches the site's 768px breakpoint).
+  // To test on a laptop, shrink the window under 768px or use DevTools device mode.
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Mobile "alive" Kirby. A single rAF loop blends three behaviors and writes the
+  // result straight to the DOM (no per-frame React re-render):
+  //   • idle drift  — slow horizontal sine sweep + a slower vertical bob, with
+  //                   tilt/stretch from horizontal velocity so he floats (not slides);
+  //   • scroll      — each scroll burst gives an occasional "puff up" pulse;
+  //   • tap/drag    — pointer down/move pulls him toward the touch point, then he
+  //                   eases back into idle drift ~1s after the last touch.
+  // Pointer events cover both touch and mouse, so a click on a narrow laptop
+  // window attracts him too — handy for testing without a touchscreen.
+  useLayoutEffect(() => {
+    if (!isMobile) return undefined;
+    const el = kirbyRef.current;
+    if (!el) return undefined;
+
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    const pos = { x: window.innerWidth / 2, y: window.innerHeight * 0.34 };
+    const target = { x: pos.x, y: pos.y };
+    let prevX = pos.x;
+    let puff = 1;
+    let lastPuff = 0;
+    let attractUntil = 0;
+    let pressed = false;
+    let start;
+    let raf;
+
+    // Place him immediately so there's no first-frame flash at the origin.
+    el.style.left = `${pos.x}px`;
+    el.style.top = `${pos.y + window.scrollY}px`;
+    el.style.transform = 'translate(-50%, -50%)';
+
+    const attract = (x, y) => {
+      target.x = x;
+      target.y = y;
+      attractUntil = performance.now() + 1000;
+    };
+    const onDown = (e) => { pressed = true; attract(e.clientX, e.clientY); };
+    const onMove = (e) => { if (pressed) attract(e.clientX, e.clientY); };
+    const onUp = () => { pressed = false; };
+    const onScroll = () => {
+      const now = performance.now();
+      if (now - lastPuff > 1400) { puff = 1.28; lastPuff = now; }
+    };
+
+    window.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const frame = (now) => {
+      if (start === undefined) start = now;
+      const t = now - start;
+      const W = window.innerWidth;
+      const H = window.innerHeight;
+
+      // Idle path: lazy horizontal sweep (~10.7s) + a slower vertical bob (~16s).
+      const idleX = W / 2 + W * 0.3 * Math.sin(t / 1700);
+      const idleY = H * 0.34 + 28 * Math.sin(t / 2600);
+
+      const attracting = now < attractUntil;
+      const tx = attracting ? target.x : idleX;
+      const ty = attracting ? target.y : idleY;
+      const ease = attracting ? 0.14 : 0.04; // snappy toward a touch, lazy in idle
+
+      pos.x += (tx - pos.x) * ease;
+      pos.y += (ty - pos.y) * ease;
+
+      // Horizontal velocity → tilt + squash/stretch (he rounds out at the turns).
+      const vx = pos.x - prevX;
+      prevX = pos.x;
+      const rot = clamp(vx * 1.1, -10, 10);
+      const stretch = clamp(Math.abs(vx) * 0.02, 0, 0.12);
+
+      puff += (1 - puff) * 0.05; // puff decays back to 1
+      const sx = (1 + stretch) * puff;
+      const sy = (1 - stretch) * puff;
+
+      el.style.left = `${pos.x}px`;
+      el.style.top = `${pos.y + window.scrollY}px`;
+      el.style.transform =
+        `translate(-50%, -50%) rotate(${rot.toFixed(2)}deg) scale(${sx.toFixed(3)}, ${sy.toFixed(3)})`;
+
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [isMobile]);
 
   // Flickering stars scattered across the header. Positions are fixed (so they
   // don't reshuffle on re-render); each twinkles on its own duration/delay.
@@ -86,14 +196,19 @@ const AppContent = () => {
         }}
       >
         <img
+          ref={kirbyRef}
           src={kirbyfloating}
           alt="Kirby Floating"
-          style={{
-            position: 'absolute',
-            left: `${mousePos.x + 10}px`,
-            top: `${mousePos.y + scrollY + 35}px`,
-            transform: 'translate(-50%, -50%)',
-          }}
+          style={
+            isMobile
+              ? { position: 'absolute', willChange: 'left, top, transform' }
+              : {
+                  position: 'absolute',
+                  left: `${mousePos.x + 10}px`,
+                  top: `${mousePos.y + scrollY + 35}px`,
+                  transform: 'translate(-50%, -50%)',
+                }
+          }
           className="w-16 h-16"
         />
       </div>
@@ -103,10 +218,16 @@ const AppContent = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-800 to-teal-400 opacity-50" style={{ zIndex: 1 }} />
       )}
 
+      {/* Optional per-route darkening veil (set `darken` in siteConfig). Sits above
+          the gradient overlay but below page content so the whole scene reads darker. */}
+      { darken && (
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(6,8,18,${darken})`, zIndex: 2 }} />
+      )}
+
       <div className="bg-primary min-h-screen w-full flex flex-col relative">
         {/* Main Content Background */}
         <div
-          className={['absolute inset-x-0 top-0 bottom-[198px] sm:bottom-[88px]', styles.paddingX, 'flex flex-col'].join(' ')}
+          className={['absolute inset-x-0 top-0 bottom-[120px] sm:bottom-[88px]', styles.paddingX, 'flex flex-col'].join(' ')}
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
@@ -206,7 +327,7 @@ const AppContent = () => {
         <div 
           className={[
             styles.flexStart, 
-            'bg-repeat-x bg-center bg-auto h-[270px] sm:h-[120px]'
+            'bg-repeat-x bg-center bg-auto h-[160px] sm:h-[120px]'
           ]} 
           style={{
             backgroundImage: `url(${grass})`,

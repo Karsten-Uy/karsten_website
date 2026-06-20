@@ -162,7 +162,10 @@ const CaveStalactites = () => (
     className="relative w-full pointer-events-none select-none"
     style={{
       height: TILE_H,
-      zIndex: 2,
+      // Sit above the cursor-following Kirby layer (zIndex 5 in App.jsx) so the
+      // nubs occlude it — Kirby slips behind the ground here, matching the rocks
+      // footer below. Stays under the post-footer content (zIndex 10).
+      zIndex: 6,
       backgroundImage: `url("${DATA_URI}")`,
       backgroundRepeat: 'repeat-x',
       backgroundPosition: 'top center',

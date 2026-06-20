@@ -15,6 +15,7 @@
 import ubcroomfinder from '../assets/ubc_room_finder.png';
 // Placeholder image — swap '../assets/robot.png' for the real MODaN image once it's added to assets.
 import modan from '../assets/robot.png';
+import arc4Img from '../assets/arc4.jpg';
 import kirbequalizerDemo from '../assets/KirbEqualizerDemo.mp4';
 import preAIaudio from '../assets/preAIaudio.mp3';
 import postAIaudio from '../assets/postAIAudio.mp3';
@@ -36,6 +37,20 @@ export const projects = [
     featured: true,
   },
   {
+    id: 'arc4-decryptor',
+    title: 'Parallel ARC4 Decryptor',
+    date: 'November 2025 - December 2025',
+    category: 'Hardware Development',
+    technologies: 'SystemVerilog, FPGA, ModelSim',
+    description:
+      'A synthesizable ARC4 decryption engine on the Intel Cyclone V (DE1-SoC) FPGA that instantiates 150+ parallel cores to crack ciphertext at 3,500+ keys/sec. Timing closure was achieved at 120 MHz by pipelining the RTL and optimizing resource utilization to 92% while mitigating routing congestion during the Quartus fitting stage. Functional correctness and throughput were verified using ModelSim and SystemVerilog UVM-inspired testbenches.',
+    // No public link — coursework project that can't be shared publicly.
+    media: { type: 'image', src: arc4Img },
+    showOnExperience: true,
+    showOnProjects: false,
+    featured: true,
+  },
+  {
     id: 'ubc-room-finder',
     title: 'UBC Room Finder',
     date: 'December 2025 - Present',
@@ -43,7 +58,7 @@ export const projects = [
     technologies: 'Next.js, PostgreSQL, Python',
     description:
       'A full-stack web application that helps students find available classrooms and lecture spaces at UBC. It uses a Python-based scraper to ingest data from the UBC Online Timetable and a Next.js frontend backed by Supabase and deployed on Vercel, enabling user-friendly searching and filtering by date, time, and building.',
-    link: 'https://github.com/Karsten-Uy/ubc_room_finder/',
+    link: 'https://ubcroomfinder.vercel.app/',
     media: { type: 'image', src: ubcroomfinder },
     showOnExperience: true,
     showOnProjects: false,
@@ -61,7 +76,7 @@ export const projects = [
     media: { type: 'image', src: modan },
     showOnExperience: true,
     showOnProjects: false,
-    featured: true,
+    featured: false,
   },
   {
     id: 'kirbeats-project',
