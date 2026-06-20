@@ -3,7 +3,8 @@ import Footer from "./Footer";
 import CentreBlock from "./CentreBlock";
 import ProjectCard from "./ProjectCard";
 import PostFooterHome from "./PostFooterHome";
-import TechLogosCarousel from "./PostFooterComponents/TechLogosCarousel";
+import CaveStalactites from "./CaveStalactites";
+import TechStack from "./PostFooterComponents/TechStack";
 
 export {
     Navbar,
@@ -11,5 +12,6 @@ export {
     CentreBlock,
     ProjectCard,
     PostFooterHome,
-    TechLogosCarousel
+    CaveStalactites,
+    TechStack
 }

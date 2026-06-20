@@ -1,5 +1,5 @@
 import styles from "../style";
-import { socialMedia } from "../data/siteConfig";
+import { socialMedia, contactInfo } from "../data/siteConfig";
 import { motion } from 'framer-motion';
 import { email } from '../assets';
 
@@ -14,36 +14,38 @@ const Footer = () => {
   return (
     <section className={`${styles.flexCenter} py-4  px-8 flex-col mt-auto`}>
       <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
-        {/* Resume Button with Motion */}
+        {/* Resume Button with Motion — hidden < 768px (lives in the mobile pause menu). */}
         <motion.div
           whileHover="hover"
           variants={hoverVariants}
-          className="mb-6 sm:mb-0 z-10"
+          className="hidden sm:block mb-6 sm:mb-0 z-10"
         >
           <a
-            href="https://docs.google.com/document/d/1HuGXyYLFlTNfW7Z0o9UG781MEd2DqA-f/edit?usp=sharing&ouid=115570478366232685539&rtpof=true&sd=true"
+            href={contactInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white bg-primary border border-white hover:bg-blue-gradient text-xs py-2 px-4 rounded-lg"
+            className="text-white rock-surface text-xs py-2 px-4 pixel-shadow"
           >
             Resume
           </a>
         </motion.div>
 
-        {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 sm:mb-0 ">
+        {/* Social Media Icons — hidden < 768px (live in the mobile pause menu). */}
+        <div className="hidden sm:flex flex-wrap justify-center gap-3 mb-4 sm:mb-0 ">
           {socialMedia.map((social) => (
             <motion.div
               key={social.id}
               whileHover="hover"
               variants={hoverVariants}
-              className="flex items-center bg-primary border border-white hover:bg-primary text-xs py-2 px-2 rounded-lg"
+              className="flex items-center rock-surface text-xs py-2 px-2"
             >
               <a href={social.link} target="_blank" rel="noopener noreferrer">
                 <img
                   src={social.icon}
                   alt={social.link}
-                  className="w-[25px] h-[25px] object-contain cursor-pointer filter "
+                  loading="lazy"
+                  decoding="async"
+                  className="w-[25px] h-[25px] object-contain cursor-pointer"
                 />
               </a>
             </motion.div>
@@ -57,11 +59,11 @@ const Footer = () => {
           className="sm:mb-0"
         >
           <a
-            href="mailto:karsten.uy@gmail.com"
-            className="flex items-center text-white bg-primary border border-white hover:bg-primary text-xs py-2 px-4 rounded-lg"
+            href={`mailto:${contactInfo.email}`}
+            className="flex items-center text-white rock-surface text-xs py-2 px-4 pixel-shadow"
           >
-            <img src={email} alt="Email Icon" className="w-[25px] h-[15px] mr-2" />
-            karsten.uy@gmail.com
+            <img src={email} alt="Email Icon" loading="lazy" decoding="async" className="w-[25px] h-[15px] mr-2" />
+            {contactInfo.email}
           </a>
         </motion.div>
       </div>

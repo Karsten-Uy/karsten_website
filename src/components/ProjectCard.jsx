@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../style';
 import play from '../assets/play.png';
@@ -24,9 +24,9 @@ const AudioClip = ({ clip, index }) => {
     <div className={`flex items-start flex-row ${index === 0 ? 'justify-end mt-6' : 'justify-center mt-10'}`}>
       <div className="rounded-full bg-button-blue p-4 mr-4 flex-grow flex items-center">
         <button onClick={toggle}>
-          <img src={isPlaying ? pause : play} className="w-[40px]" alt="Play button" />
+          <img src={isPlaying ? pause : play} decoding="async" className="w-[40px]" alt="Play button" />
         </button>
-        <audio ref={audioRef} src={clip.src} onClick={toggle} />
+        <audio ref={audioRef} src={clip.src} preload="none" onClick={toggle} />
         <p className="font-source-code-pro font-normal ml-4 text-right text-white ml-2 md:text-[24px] text-[15px]">
           {clip.label}
         </p>
@@ -90,12 +90,15 @@ const MediaCard = ({ project }) => {
               <img
                 src={project.media.src}
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-[1100px] h-auto rounded-[10px]"
               />
             ) : (
               <video
                 ref={videoRef}
                 src={project.media.src}
+                preload="none"
                 className="w-full max-w-[1100px] h-auto rounded-[10px]"
                 onClick={handleVideoClick}
               />

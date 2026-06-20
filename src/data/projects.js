@@ -13,7 +13,9 @@
 //     featured         -> appears in the home-page post-footer highlights
 
 import ubcroomfinder from '../assets/ubc_room_finder.png';
-import rgmVid from '../assets/rgmVid.mp4';
+// Placeholder image — swap '../assets/robot.png' for the real MODaN image once it's added to assets.
+import modan from '../assets/robot.png';
+import arc4Img from '../assets/arc4.jpg';
 import kirbequalizerDemo from '../assets/KirbEqualizerDemo.mp4';
 import preAIaudio from '../assets/preAIaudio.mp3';
 import postAIaudio from '../assets/postAIAudio.mp3';
@@ -21,15 +23,29 @@ import postAIaudio from '../assets/postAIAudio.mp3';
 export const projects = [
   // --- Experience / home highlights -----------------------------------------
   {
-    id: 'hardware-multi-fx-pedal',
-    title: 'Hardware Multi-FX Pedal',
+    id: 'kfx-engine',
+    title: 'KFX Engine',
     date: 'December 2025 - Present',
     category: 'Hardware Development and Audio Engineering',
-    technologies: 'System Verilog, Quartus Prime',
+    technologies: 'SystemVerilog, FPGA, Fixed-Point DSP, Python',
     description:
-      'A real-time multi-effects guitar processor in SystemVerilog on the DE1-SoC FPGA, implementing a 48 kHz, 16-bit pipelined DSP chain for live performance. The engine features high-fidelity fixed-point modules including lookahead compression, multi-stage amp distortion, and Schroeder reverb, all optimized for a total system latency of <1ms, featuring a YIN-algorithm pitch tracker, ADC-driven expression pedal support, and a persistent Flash memory preset system that manages four independent banks across power cycles.',
-    link: 'https://www.youtube.com/embed/onfJxRNhYNg?si=2LQUfOQEICjkqymk',
-    media: { type: 'embed', src: 'https://www.youtube.com/embed/-QT1ypkydgE?si=nz3-ZUu_YqF0tH8a' },
+      'A real-time multi-effects guitar processor written in SystemVerilog on the Intel Cyclone V (DE1-SoC) FPGA, running a 12-stage, 48 kHz/16-bit pipelined DSP chain with sub-millisecond (<1ms) latency for live performance. Its fixed-point modules include a 3rd-order polynomial tanh amp distortion, an 8-sample lookahead compressor, and a multiplier-free Feedback Delay Network reverb of eight fractional-delay lines coupled by a lossless 8x8 Hadamard matrix, all holding 50 MHz timing closure through pipelining and multicycle-path constraints, alongside an always-on YIN pitch tracker for chromatic tuning. A live JTAG-UART host link (Avalon-MM adapter) and a transport-agnostic command-parser FSM let a Python Tkinter GUI and CLI read, write, dump, and save a 512-byte parameter store on the running board, while four preset banks persist across power cycles in EPCQ SPI flash via a custom erase/program FSM. A gain-ramp fade FSM and GPIO/ADC expression-pedal controls round out the engine, which also mirrors to a class-compliant Arduino USB-MIDI controller.',
+    link: 'https://github.com/Karsten-Uy/KFX_Engine',
+    media: { type: 'embed', src: 'https://www.youtube.com/embed/onfJxRNhYNg?si=2LQUfOQEICjkqymk' },
+    showOnExperience: true,
+    showOnProjects: false,
+    featured: true,
+  },
+  {
+    id: 'arc4-decryptor',
+    title: 'Parallel ARC4 Decryptor',
+    date: 'November 2025 - December 2025',
+    category: 'Hardware Development',
+    technologies: 'SystemVerilog, FPGA, ModelSim',
+    description:
+      'A synthesizable ARC4 decryption engine on the Intel Cyclone V (DE1-SoC) FPGA that instantiates 150+ parallel cores to crack ciphertext at 3,500+ keys/sec. Timing closure was achieved at 120 MHz by pipelining the RTL and optimizing resource utilization to 92% while mitigating routing congestion during the Quartus fitting stage. Functional correctness and throughput were verified using ModelSim and SystemVerilog UVM-inspired testbenches.',
+    // No public link — coursework project that can't be shared publicly.
+    media: { type: 'image', src: arc4Img },
     showOnExperience: true,
     showOnProjects: false,
     featured: true,
@@ -42,25 +58,25 @@ export const projects = [
     technologies: 'Next.js, PostgreSQL, Python',
     description:
       'A full-stack web application that helps students find available classrooms and lecture spaces at UBC. It uses a Python-based scraper to ingest data from the UBC Online Timetable and a Next.js frontend backed by Supabase and deployed on Vercel, enabling user-friendly searching and filtering by date, time, and building.',
-    link: 'https://github.com/Karsten-Uy/ubc_room_finder/',
+    link: 'https://ubcroomfinder.vercel.app/',
     media: { type: 'image', src: ubcroomfinder },
     showOnExperience: true,
     showOnProjects: false,
     featured: true,
   },
   {
-    id: 'helix-at-home',
-    title: 'Helix at Home',
-    date: 'November 2024 - Present',
-    category: 'Development and Audio Engineering',
-    technologies: 'C++, Arduino, MIDI',
+    id: 'modan',
+    title: 'MODaN',
+    date: 'January 2026 - April 2026',
+    category: 'Robotics and Autonomous Systems',
+    technologies: 'Python, ROS2, OpenCV, Kalman Filters',
     description:
-      'An Arduino-based MIDI controller simulating a multi-effect guitar pedalboard with 9 buttons, 3 potentiometers, 9 LEDs, and an expression pedal. Engineered the mechanical and electrical design, soldering components for durability in live performance. Programmed in C++ using the MIDIUSB library to deliver 30+ MIDI control signals for seamless DAW integration.',
-    link: 'https://github.com/Karsten-Uy/HaH',
-    media: { type: 'embed', src: 'https://www.youtube.com/embed/NCPwh5nRK9E?start=10' },
+      'Moving Obstacle Detection and Navigation — an autonomous racing perception and navigation system built on the F1Tenth platform. A real-time perception pipeline using an Intel RealSense D435i applies depth-gating and morphological filtering to segment obstacles at a deterministic 10 Hz, while a sensor-fusion engine of multi-frame Kalman filters tracks dynamic obstacle trajectories to cut state-estimation error from LiDAR noise and occlusions. The reactive navigation stack injects 3D visual data into LiDAR-based Follow-the-Gap to steer around moving obstacles in real time, and a ROS2 safety-interlock node evaluates Time-to-Collision at predicted intercept points to preemptively override motor commands and prevent high-speed collisions.',
+    link: 'https://github.com/Karsten-Uy',
+    media: { type: 'image', src: modan },
     showOnExperience: true,
     showOnProjects: false,
-    featured: true,
+    featured: false,
   },
   {
     id: 'kirbeats-project',
@@ -78,17 +94,6 @@ export const projects = [
   },
 
   // --- Projects page media cards --------------------------------------------
-  {
-    id: 'rhythmic-groove-master',
-    title: 'Rhythmic Groove Master',
-    description:
-      'A MIDI controller, powered by Arduino Pro Micro, designed for bass or guitar, enabling simultaneous drum and bass performance, with code written in C++.',
-    link: 'https://github.com/Karsten-Uy/rhythmicgroovemaster',
-    media: { type: 'video', src: rgmVid },
-    showOnExperience: false,
-    showOnProjects: true,
-    featured: false,
-  },
   {
     id: 'kirbequalizer',
     title: 'KirbEqualizer',

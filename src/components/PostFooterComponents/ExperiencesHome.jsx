@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { experienceContent } from "../../data/experience";
+import { featuredCta } from "../../data/home";
 
 const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -15,16 +17,16 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
     }
   };
 
+  // Shadow lives in the `pixel-shadow` CSS class; this only drives hover color.
   const textStyle = (isHovered) => ({
-    textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)',
     color: isHovered ? 'black' : 'white',
     transition: 'color 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
   });
 
   return (
     <section className="text-left mb-8 text-white">
-      <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-        Career
+      <h2 className="font-bold text-3xl mb-4 pixel-shadow">
+        {experienceContent.careerHeading}
       </h2>
       {career.map((job, index) => (
         <Link
@@ -48,21 +50,21 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
             whileHover={{ scale: 0.95 }}
           >
             <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
-              <p className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === job.id)}>
+              <p className="font-semibold text-xl transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === job.id)}>
                 {job.company}
               </p>
-              <h3 className="italic text-lg transition-colors duration-300" style={textStyle(hoveredIndex === job.id)}>
+              <h3 className="italic text-lg transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === job.id)}>
                 {job.role}
               </h3>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === job.id)}>
+              <p className="text-white transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === job.id)}>
                 {job.date}
               </p>
             </div>
             <div className="w-1/2 text-right p-4 transition-all duration-300">
-              <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === job.id)}>
+              <p className="text-white font-semibold transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === job.id)}>
                 {job.category}
               </p>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === job.id)}>
+              <p className="text-white transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === job.id)}>
                 {job.technologies}
               </p>
             </div>
@@ -70,8 +72,8 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
         </Link>
       ))}
 
-      <h2 className="font-bold text-3xl mb-4" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
-        Projects
+      <h2 className="font-bold text-3xl mb-4 pixel-shadow">
+        {experienceContent.projectsHeading}
       </h2>
       {projects.map((project, index) => (
         <Link
@@ -95,18 +97,18 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
             whileHover={{ scale: 0.95 }}
           >
             <div className="w-1/2 text-left p-4 flex flex-col transition-all duration-300">
-              <h3 className="font-semibold text-xl transition-colors duration-300" style={textStyle(hoveredIndex === project.id)}>
+              <h3 className="font-semibold text-xl transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === project.id)}>
                 {project.title}
               </h3>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.id)}>
+              <p className="text-white transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === project.id)}>
                 {project.date}
               </p>
             </div>
             <div className="w-1/2 text-right p-4 transition-all duration-300">
-              <p className="text-white font-semibold transition-colors duration-300" style={textStyle(hoveredIndex === project.id)}>
+              <p className="text-white font-semibold transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === project.id)}>
                 {project.category}
               </p>
-              <p className="text-white transition-colors duration-300" style={textStyle(hoveredIndex === project.id)}>
+              <p className="text-white transition-colors duration-300 pixel-shadow" style={textStyle(hoveredIndex === project.id)}>
                 {project.technologies}
               </p>
             </div>
@@ -124,7 +126,7 @@ const ExperiencesHome = ({ projects, career, handleMouseEnter, handleMouseLeave 
             to="/experience" // Button linking to the experience page
             className="inline-block px-6 py-3 bg-blue-gradient text-black rounded-lg text-lg font-semibold"
           >
-            View more
+            {featuredCta}
           </Link>
         </motion.div>
       </div>

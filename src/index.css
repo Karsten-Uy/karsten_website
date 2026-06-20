@@ -4,6 +4,78 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reusable text shadow used across nearly every white-on-image text element.
+   Replaces the inline style={{ textShadow: '...' }} that was repeated ~30x. */
+@layer utilities {
+  .pixel-shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .pixel-shadow-sm {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Flickering pixel stars (used in the header). Each star sets its own
+     duration/delay inline so the field twinkles out of sync. */
+  .hdr-star {
+    position: absolute;
+    background: #eaf2ff;
+    pointer-events: none;
+    image-rendering: pixelated;
+    animation: hdrTwinkle 3s ease-in-out infinite;
+  }
+
+  /* Hard-edged 8-bit frame drawn from an inline SVG border-image: a solid white
+     outline (2 "blocks" thick) with a single-block notched corner, reading as a
+     rounded pixel border rather than a smooth one. The notched corner needs a
+     border-image — a box-shadow can only cut a full square corner.
+     The white fills the whole ring out to the inner edge, so the dark button
+     fill butts right up against it (no transparent inner gap).
+     `--pixel` is the on-screen size of one border block: the 5x5 tile uses a
+     2-block corner (slice 2), so border-width = 2 * --pixel. Block size and line
+     thickness are decoupled this way — raise --pixel for chunkier pixels while
+     the line stays just 2 blocks thin. `background-clip: padding-box` keeps the
+     dark fill out of the notched corners so the page shows through them.
+     Matches the Minecraft/Pixelify aesthetic; replaces `border border-white
+     rounded-lg` on the footer buttons. */
+  .pixel-border {
+    --pixel: 2px;
+    border-style: solid;
+    border-width: calc(var(--pixel) * 2);
+    border-color: #fff; /* fallback when border-image is unsupported */
+    border-radius: 0;
+    border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5' shape-rendering='crispEdges'%3E%3Cg fill='%23ffffff'%3E%3Crect x='1' y='0' width='3' height='1'/%3E%3Crect x='0' y='1' width='5' height='1'/%3E%3Crect x='0' y='2' width='2' height='1'/%3E%3Crect x='3' y='2' width='2' height='1'/%3E%3Crect x='0' y='3' width='5' height='1'/%3E%3Crect x='1' y='4' width='3' height='1'/%3E%3C/g%3E%3C/svg%3E");
+    border-image-slice: 2;
+    border-image-repeat: stretch;
+    background-clip: padding-box;
+    image-rendering: pixelated;
+  }
+
+  /* Minecraft-style cobblestone fill: a seamless 16x16 pixel-stone tile (gray
+     blocks with mortar, light top edges, dark bottom edges). The shades sit
+     close to the base gray so the texture reads as soft/faded stone. */
+  .rock-surface {
+    background-color: #626262;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23626262'/%3E%3Crect x='0' y='0' width='16' height='1' fill='%23525252'/%3E%3Crect x='0' y='8' width='16' height='1' fill='%23525252'/%3E%3Crect x='0' y='1' width='1' height='7' fill='%23525252'/%3E%3Crect x='8' y='1' width='1' height='7' fill='%23525252'/%3E%3Crect x='4' y='9' width='1' height='7' fill='%23525252'/%3E%3Crect x='12' y='9' width='1' height='7' fill='%23525252'/%3E%3Crect x='1' y='1' width='7' height='1' fill='%236e6e6e'/%3E%3Crect x='9' y='1' width='7' height='1' fill='%236e6e6e'/%3E%3Crect x='1' y='7' width='7' height='1' fill='%23585858'/%3E%3Crect x='9' y='7' width='7' height='1' fill='%23585858'/%3E%3Crect x='5' y='9' width='7' height='1' fill='%236e6e6e'/%3E%3Crect x='13' y='9' width='3' height='1' fill='%236e6e6e'/%3E%3Crect x='0' y='9' width='4' height='1' fill='%236e6e6e'/%3E%3Crect x='5' y='15' width='7' height='1' fill='%23585858'/%3E%3Crect x='13' y='15' width='3' height='1' fill='%23585858'/%3E%3Crect x='0' y='15' width='4' height='1' fill='%23585858'/%3E%3C/svg%3E");
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+    /* Raised stone-block bevel: light top/left, dark bottom/right edges for a 3D
+       feel, plus a crisp dark outline + soft drop so the blocks read distinctly
+       against the dirt/grass background. */
+    border-style: solid;
+    border-width: 3px;
+    border-color: #8c8c8c #2c2c2c #2c2c2c #8c8c8c; /* top right bottom left */
+    box-shadow: 0 0 0 1px #161616, 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes hdrTwinkle {
+  0%, 100% { opacity: 0.18; }
+  20%      { opacity: 1; }
+  45%      { opacity: 0.35; }
+  70%      { opacity: 0.85; }
+}
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
@@ -150,6 +222,17 @@
   box-shadow: var(--card-shadow);
 }
 
+/* "Spotlight" hover for the home career timeline: hovering one role keeps it lit
+   while the others fade back and desaturate, pulling focus to the active role.
+   With nothing hovered, every row renders normally. */
+.career-spotlight .career-row {
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+.career-spotlight:has(.career-row:hover) .career-row:not(:hover) {
+  opacity: 0.35;
+  filter: grayscale(0.75);
+}
+
 .feedback-container .feedback-card:last-child {
   margin-right: 0px;
 }
@@ -200,6 +283,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* The page never scrolls sideways. Clip any incidental horizontal overflow
+     (e.g. an edge hover tooltip or the parallax layer) so no horizontal
+     scrollbar appears. `clip` (not `hidden`) avoids turning the root into a
+     scroll container, so window scrolling / scrollY stay intact. */
+  overflow-x: clip;
 }
 
 /* Ensure the footer stays at the bottom of the viewport */
@@ -298,3 +386,205 @@ Hover for home expereinces
 /*
 Pixel boxes
 */
+
+/* ============================================================
+   MOBILE PAUSE MENU  (full-screen arcade nav, < 768px)
+   Rendered by Navbar.jsx through framer-motion (backdrop fade +
+   staggered rows). Layout/animation is JS; this is the static
+   pixel skin. Palette mirrors the site theme (cyan #5ce1e6 /
+   teal #33bbcf / panel #1b1934 / edge #3a2f6b). Hardcoded here
+   because design.css's :root vars are not loaded.
+   ============================================================ */
+.pause-menu {
+  background: rgba(8, 4, 12, 0.9);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  padding: 24px;
+}
+/* Safety: the overlay is portaled to <body>, so width-gate it in CSS too —
+   it must never appear at desktop widths regardless of toggle state. */
+@media (min-width: 768px) {
+  .pause-menu { display: none !important; }
+}
+
+/* Close control (the overlay covers the navbar's hamburger). */
+.pause-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #7de7eb;
+  background: #1b1934;
+  border: 3px solid #3a2f6b;
+  box-shadow: 0 0 0 3px #08040c;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+.pause-close:hover {
+  color: #fff;
+  border-color: #33bbcf;
+}
+
+/* CRT scanlines + edge vignette over the dimmed scene (non-interactive). */
+.pause-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  opacity: 0.5;
+}
+.pause-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(5, 3, 10, 0.85) 100%);
+}
+
+.pause-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+}
+
+.pause-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid #2a2552;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: #7de7eb;
+  text-shadow: 0 3px 0 #1a1233;
+}
+.pause-led {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  background: #5ce1e6;
+  box-shadow: 0 0 10px #5ce1e6;
+  animation: pauseBlink 1.4s steps(2) infinite;
+}
+@keyframes pauseBlink {
+  50% { opacity: 0.2; }
+}
+
+/* Big thumb-sized rows (60px tall). */
+.pause-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 0 18px;
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #a59ed6;
+  background: #1b1934;
+  border: 3px solid #3a2f6b;
+  box-shadow: 0 0 0 3px #08040c, 0 6px 0 #100e22;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s, background 0.12s, transform 0.06s;
+}
+.pause-row:hover {
+  color: #7de7eb;
+  border-color: #33bbcf;
+  background: #221f42;
+}
+.pause-row:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 3px #08040c, 0 3px 0 #100e22;
+}
+.pause-row.is-active {
+  color: #fff;
+  border-color: #33bbcf;
+  background: #221f42;
+}
+.pause-row-cursor {
+  width: 18px;
+  flex: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #5ce1e6;
+}
+.pause-row-label {
+  flex: 1;
+}
+.pause-row-chevron {
+  font-size: 20px;
+  color: #4a4378;
+}
+.pause-row:hover .pause-row-chevron,
+.pause-row.is-active .pause-row-chevron {
+  color: #5ce1e6;
+}
+
+.pause-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 3px solid #2a2552;
+}
+.pause-jacks {
+  display: flex;
+  gap: 10px;
+}
+.pause-jack {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #2a2750, #100e22);
+  border: 3px solid #4a3f72;
+  box-shadow: 0 0 0 3px #08040c;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.pause-jack:hover {
+  border-color: #5ce1e6;
+  box-shadow: 0 0 0 3px #08040c, 0 0 12px rgba(92, 225, 230, 0.5);
+}
+.pause-jack img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+/* The resume jack uses an inline stroke SVG instead of a logo image. */
+.pause-jack svg {
+  width: 22px;
+  height: 22px;
+  color: #bcd0f5;
+  image-rendering: auto;
+  transition: color 0.15s;
+}
+.pause-jack:hover svg {
+  color: #7de7eb;
+}

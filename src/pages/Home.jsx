@@ -1,22 +1,15 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { CentreBlock } from '../components';
 import styles from '../style';
-import {motion} from 'framer-motion'
+import { pageFade } from '../utils/motion';
 
 const Home = () => {
- 
-
   return (
-    <div className={[styles.flexStart].join(' ')}>
-      <div className={[styles.boxWidth].join(' ')}>
-        <motion.div
-          initial={{ opacity: 0}}
-          animate={{ opacity: 1}}
-          transition={{ duration: 0.5 }}
-        >
+    <div className={styles.flexStart}>
+      <div className={styles.boxWidth}>
+        <motion.div {...pageFade}>
           <CentreBlock />
         </motion.div>
-        
       </div>
     </div>
   );
