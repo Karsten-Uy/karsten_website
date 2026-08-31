@@ -1,6 +1,6 @@
 # Karsten's Website
 
-Link: https://karsten-uy.github.io/karsten_website/
+Link: https://kkuy.ca/
 
 Welcome to my website! This project showcases my portfolio, projects, and more.
 

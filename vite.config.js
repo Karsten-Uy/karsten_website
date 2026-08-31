@@ -16,9 +16,7 @@ export default defineConfig({
       jpg: { quality: 80 },
     }),
   ],
-  // Served from https://karsten-uy.github.io/karsten_website/.
-  // When you move to a custom domain (served at the root), change this single line to "/".
-  base: "/karsten_website/",
+  base: "/",
   build: {
     rollupOptions: {
       output: {
